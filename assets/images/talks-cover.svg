@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Warm coffee gradient with soft steam lines">
+  <defs>
+    <linearGradient id="brew-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2D1810" />
+      <stop offset="55%" stop-color="#3B2218" />
+      <stop offset="100%" stop-color="#B87333" />
+    </linearGradient>
+    <radialGradient id="brew-glow" cx="0.18" cy="0.12" r="0.6">
+      <stop offset="0%" stop-color="#FFB978" stop-opacity="0.5" />
+      <stop offset="70%" stop-color="#FFB978" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="brew-glow-two" cx="0.85" cy="0.85" r="0.5">
+      <stop offset="0%" stop-color="#F5E6D3" stop-opacity="0.35" />
+      <stop offset="70%" stop-color="#F5E6D3" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#brew-bg)" />
+  <rect width="1200" height="630" fill="url(#brew-glow)" />
+  <rect width="1200" height="630" fill="url(#brew-glow-two)" />
+
+  <g stroke="#FDF7EF" stroke-width="3" stroke-linecap="round" stroke-opacity="0.5" fill="none">
+    <path d="M260 470 C230 430, 230 390, 270 350" />
+    <path d="M320 480 C295 435, 300 395, 340 360" />
+    <path d="M380 485 C350 445, 355 405, 395 365" />
+  </g>
+
+  <g fill="none" stroke="#D4A574" stroke-width="2" stroke-opacity="0.35">
+    <circle cx="980" cy="150" r="120" />
+    <circle cx="980" cy="150" r="170" />
+    <circle cx="980" cy="150" r="220" />
+  </g>
+
+  <g fill="#FDF7EF" fill-opacity="0.2">
+    <circle cx="210" cy="120" r="90" />
+    <circle cx="1030" cy="520" r="140" />
+  </g>
+</svg>
