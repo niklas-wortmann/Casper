@@ -593,17 +593,17 @@ production stylesheet in assets/built/screen.css
     height: 88px;
     font-size: 1.6rem;
     line-height: 1.3em;
-    background-color: rgba(253, 247, 239, 0.92);
-    color: var(--color-coffee-dark);
-    border-bottom: 1px solid rgba(74, 50, 40, 0.12);
+    background-color: rgba(36, 21, 15, 0.94);
+    color: var(--color-coffee-cream);
+    border-bottom: 1px solid rgba(253, 247, 239, 0.08);
     backdrop-filter: blur(12px);
-    box-shadow: 0 10px 24px rgba(45, 24, 16, 0.08);
+    box-shadow: 0 14px 28px rgba(20, 10, 6, 0.35);
     z-index: 150;
 }
 
 .has-cover:not(.home-template) .gh-head {
-    background-color: var(--ghost-accent-color);
-    color: #fff;
+    background-color: rgba(36, 21, 15, 0.94);
+    color: var(--color-coffee-cream);
 }
 
 :is(.home-template, .paged:not(.tag-template):not(.author-template)).has-cover .gh-head {
@@ -612,7 +612,7 @@ production stylesheet in assets/built/screen.css
     right: 0;
     left: 0;
     z-index: 2000;
-    background-color: rgba(45, 24, 16, 0.25);
+    background-color: rgba(36, 21, 15, 0.35);
     color: #fff;
 }
 
