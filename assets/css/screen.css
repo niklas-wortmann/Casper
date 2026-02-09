@@ -184,8 +184,8 @@ production stylesheet in assets/built/screen.css
     z-index: 100;
     display: flex;
     align-items: center;
-    padding-top: calc(19vmin + 44px);
-    padding-bottom: 19vmin;
+    padding-top: calc(15vmin + 32px);
+    padding-bottom: 14vmin;
     text-align: center;
     color: var(--color-coffee-cream);
     animation: hero-rise 0.9s var(--transition-slow);
@@ -366,7 +366,8 @@ production stylesheet in assets/built/screen.css
 
 @media (max-width: 991px) {
     .site-header-content {
-        padding-top: calc(19vmin + 32px);
+        padding-top: calc(14vmin + 24px);
+        padding-bottom: 12vmin;
     }
 }
 
@@ -1185,7 +1186,7 @@ production stylesheet in assets/built/screen.css
 
 .brew-bar {
     position: relative;
-    margin-top: -6vmin;
+    margin-top: -4vmin;
     padding-bottom: max(3vmin, 24px);
     z-index: 3;
 }
@@ -1452,7 +1453,7 @@ production stylesheet in assets/built/screen.css
 
 @media (max-width: 767px) {
     .brew-bar {
-        margin-top: -4vmin;
+        margin-top: -3vmin;
     }
 }
 
@@ -1483,6 +1484,23 @@ production stylesheet in assets/built/screen.css
         grid-template-columns: 1fr;
         grid-gap: 40px;
     }
+}
+
+.post-feed-cta {
+    display: flex;
+    justify-content: center;
+    margin: max(4vmin, 32px) 0 0;
+}
+
+.post-feed-cta .hero-button--ghost {
+    color: var(--color-coffee-dark);
+    background: rgba(45, 24, 16, 0.06);
+    border: 1px solid rgba(74, 50, 40, 0.2);
+    box-shadow: none;
+}
+
+.post-feed-cta .hero-button--ghost:hover {
+    box-shadow: 0 18px 30px rgba(45, 24, 16, 0.18);
 }
 
 .collection-hero {
