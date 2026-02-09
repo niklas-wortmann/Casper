@@ -3,12 +3,17 @@
 <main id="site-main" class="site-main outer">
 <div class="inner posts">
     {{#post}}
-        <section class="collection-hero">
+        <section class="collection-hero talks-hero">
             <div class="collection-kicker">Talks</div>
             <h1 class="collection-title">{{title}}</h1>
             {{#if custom_excerpt}}
                 <p class="collection-description">{{custom_excerpt}}</p>
             {{/if}}
+            <div class="collection-actions">
+                <span class="collection-chip">Conference tested</span>
+                <span class="collection-chip">Workshops + Keynotes</span>
+                <span class="collection-chip">Live demos</span>
+            </div>
         </section>
         {{#if content}}
             <section class="collection-content gh-content">
@@ -17,12 +22,67 @@
         {{/if}}
     {{/post}}
 
-    <div class="post-feed">
-        {{#get "posts" filter="tag:talks" include="tags,authors" limit="all"}}
-            {{#foreach posts}}
-                {{> "post-card"}}
-            {{/foreach}}
+    <section class="talks-intro">
+        <div class="talks-intro-grid">
+            <div>
+                <h2 class="talks-intro-title">Signature formats</h2>
+                <p class="talks-intro-text">Talks are built for dev teams who want calm, practical clarity: less hype, more momentum.</p>
+                <div class="talks-topics">
+                    <span>TypeScript architecture</span>
+                    <span>Tooling + DX</span>
+                    <span>Frontend systems</span>
+                    <span>Team workflows</span>
+                </div>
+            </div>
+            <div class="talks-highlight">
+                <div class="talks-highlight-kicker">What to expect</div>
+                <p class="talks-highlight-text">Thoughtful storytelling, live code, and concrete takeaways that teams can ship immediately.</p>
+                <div class="talks-highlight-list">
+                    <span>Keynotes</span>
+                    <span>Workshops</span>
+                    <span>Panels</span>
+                    <span>Internal trainings</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="talks-grid">
+        <article class="talk-card">
+            <div class="talk-card-kicker">Keynote</div>
+            <h3 class="talk-card-title">The calm, focused developer</h3>
+            <p class="talk-card-text">How modern teams stay fast without burning out, with a focus on DX and intentional tooling.</p>
+        </article>
+        <article class="talk-card">
+            <div class="talk-card-kicker">Workshop</div>
+            <h3 class="talk-card-title">TypeScript for real teams</h3>
+            <p class="talk-card-text">Patterns, refactors, and guardrails that make large codebases feel small again.</p>
+        </article>
+        <article class="talk-card">
+            <div class="talk-card-kicker">Deep dive</div>
+            <h3 class="talk-card-title">The language server playbook</h3>
+            <p class="talk-card-text">From editor experience to runtime performance, a tour through modern tooling.</p>
+        </article>
+    </section>
+
+    <section class="talks-feed">
+        <div class="talks-feed-header">
+            <h2>Recent talks</h2>
+            <p>Slides and resources from recent stages and workshops.</p>
+        </div>
+        {{#get "posts" filter="tag:talk,tag:talks" include="tags,authors" limit="all" as |talks|}}
+            {{#if talks.length}}
+                <div class="post-feed talks-feed-grid">
+                    {{#foreach talks}}
+                        {{> "post-card"}}
+                    {{/foreach}}
+                </div>
+            {{else}}
+                <div class="talks-empty">
+                    <p>No published talks yet. The espresso is warming up and the list will be updated soon.</p>
+                </div>
+            {{/if}}
         {{/get}}
-    </div>
+    </section>
 </div>
 </main>

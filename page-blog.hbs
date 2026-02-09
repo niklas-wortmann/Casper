@@ -9,6 +9,11 @@
             {{#if custom_excerpt}}
                 <p class="collection-description">{{custom_excerpt}}</p>
             {{/if}}
+            <div class="collection-actions">
+                <span class="collection-chip">Deep dives</span>
+                <span class="collection-chip">Weekly brew</span>
+                <span class="collection-chip">Tooling notes</span>
+            </div>
         </section>
         {{#if content}}
             <section class="collection-content gh-content">
@@ -16,6 +21,24 @@
             </section>
         {{/if}}
     {{/post}}
+
+    <section class="collection-grid">
+        <article class="collection-card">
+            <div class="collection-card-kicker">Longform</div>
+            <h3 class="collection-card-title">Deep dives</h3>
+            <p class="collection-card-text">Thoughtful essays on TypeScript, Angular, and scaling developer experience.</p>
+        </article>
+        <article class="collection-card">
+            <div class="collection-card-kicker">Field notes</div>
+            <h3 class="collection-card-title">Practical patterns</h3>
+            <p class="collection-card-text">Shorter posts with patterns, heuristics, and real-world refactors.</p>
+        </article>
+        <article class="collection-card">
+            <div class="collection-card-kicker">Newsletter</div>
+            <h3 class="collection-card-title">Weekly Devs Brew</h3>
+            <p class="collection-card-text">A small, intentional roundup of links, ideas, and tools.</p>
+        </article>
+    </section>
 
     <div class="post-feed">
         {{#get "posts" filter="tag:blog" include="tags,authors" limit="all"}}
