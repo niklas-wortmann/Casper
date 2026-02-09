@@ -2,6 +2,7 @@
 /* ---------------------------------------------------------- */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
@@ -287,9 +288,10 @@ body {
     letter-spacing: 0;
     text-rendering: optimizeLegibility;
     background:
-        radial-gradient(1200px 900px at 10% -10%, rgba(230, 126, 34, 0.08), transparent 60%),
-        radial-gradient(900px 700px at 90% 0%, rgba(212, 165, 116, 0.14), transparent 55%),
-        linear-gradient(180deg, #fef8f1 0%, var(--color-coffee-cream) 40%, #fff 100%);
+        radial-gradient(1200px 900px at 12% -10%, rgba(230, 126, 34, 0.12), transparent 60%),
+        radial-gradient(900px 700px at 88% -5%, rgba(212, 165, 116, 0.2), transparent 55%),
+        linear-gradient(180deg, #fff5e8 0%, var(--color-coffee-cream) 45%, #ffffff 100%);
+    position: relative;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
