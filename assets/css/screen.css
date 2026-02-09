@@ -39,6 +39,7 @@ production stylesheet in assets/built/screen.css
     --color-coffee-cream: #F5E6D3;      /* Light cream - highlights */
     --color-coffee-accent: #E67E22;     /* Modern warm orange - links/accent */
     --color-coffee-caramel: #D4A574;    /* Caramel - secondary accent */
+    --color-coffee-foam: #FDF7EF;       /* Steamed milk foam */
 
     /* Legacy color mappings for compatibility */
     --color-green: #a4d037;
@@ -56,13 +57,13 @@ production stylesheet in assets/built/screen.css
     An accent color is also set by Ghost itself in
     Ghost Admin > Settings > Brand
 
-    --ghost-accent-color: {value};
+    --ghost-accent-color: var(--color-coffee-accent);
 
     You can use this variable throughout your styles
      */
 
     /* Fonts - Wordman Brand */
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    --font-sans: 'Sora', sans-serif;
     --font-serif: 'Playfair Display', Georgia, Times, serif;
     --font-mono: 'JetBrains Mono', Menlo, Courier, monospace;
     --font-heading: 'Playfair Display', Georgia, serif;
@@ -103,8 +104,19 @@ production stylesheet in assets/built/screen.css
 
 .site-header {
     position: relative;
-    color: #fff;
-    background: var(--ghost-accent-color);
+    color: var(--color-coffee-cream);
+    background: linear-gradient(135deg, var(--color-coffee-darker) 0%, var(--color-coffee-dark) 48%, var(--color-coffee-caramel) 100%);
+}
+
+.site-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(800px 400px at 15% 20%, rgba(255, 255, 255, 0.08), transparent 60%),
+        radial-gradient(700px 420px at 85% 10%, rgba(255, 255, 255, 0.06), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .site-header-cover {
@@ -116,6 +128,8 @@ production stylesheet in assets/built/screen.css
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: saturate(0.9) contrast(0.95) brightness(0.7);
+    z-index: 0;
 }
 
 .site-header-content {
@@ -126,7 +140,7 @@ production stylesheet in assets/built/screen.css
     padding-top: calc(19vmin + 44px);
     padding-bottom: 19vmin;
     text-align: center;
-    color: var(--color-darkgrey);
+    color: var(--color-coffee-cream);
 }
 
 .has-cover .site-header-content {
@@ -284,7 +298,9 @@ production stylesheet in assets/built/screen.css
     height: 88px;
     font-size: 1.6rem;
     line-height: 1.3em;
-    background-color: #fff;
+    background-color: var(--color-coffee-foam);
+    color: var(--color-coffee-dark);
+    border-bottom: 1px solid rgba(74, 50, 40, 0.15);
     z-index: 150;
 }
 
@@ -696,7 +712,7 @@ production stylesheet in assets/built/screen.css
 
 .has-cover .gh-burger::before,
 .has-cover .gh-burger::after {
-    background-color: #fff;
+    background-color: var(--color-coffee-foam);
 }
 
 .gh-burger::before {
@@ -839,7 +855,7 @@ production stylesheet in assets/built/screen.css
         gap: 12px;
         align-items: center;
         padding: max(4vmin, 20px) 0 max(4vmin, 28px);
-        background-color: #fff;
+        background-color: var(--color-coffee-foam);
     }
 
     .gh-head-open #gh-head :is(.gh-head-button, .gh-head-link) {
@@ -881,6 +897,43 @@ production stylesheet in assets/built/screen.css
         grid-template-columns: 1fr;
         grid-gap: 40px;
     }
+}
+
+.collection-hero {
+    position: relative;
+    margin: max(6vmin, 40px) 0 max(3.6vmin, 28px);
+    padding: max(4vmin, 32px) max(4vmin, 32px);
+    border-radius: 24px;
+    background:
+        radial-gradient(300px 160px at 12% 20%, rgba(255, 255, 255, 0.5), transparent 70%),
+        linear-gradient(135deg, var(--color-coffee-cream) 0%, var(--color-coffee-foam) 55%, #fff 100%);
+    box-shadow: 0 16px 40px rgba(45, 24, 16, 0.12);
+}
+
+.collection-kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-coffee-caramel);
+}
+
+.collection-title {
+    margin-top: 12px;
+    font-size: clamp(3.2rem, 4vw, 4.4rem);
+    font-weight: 700;
+    color: var(--color-coffee-dark);
+}
+
+.collection-description {
+    margin-top: 12px;
+    max-width: 60ch;
+    font-size: 1.8rem;
+    color: var(--color-coffee-medium);
+}
+
+.collection-content {
+    margin-top: 24px;
 }
 
 .post-card {
@@ -927,6 +980,13 @@ production stylesheet in assets/built/screen.css
     height: 100%;
     background: var(--color-lightgrey) no-repeat center center;
     object-fit: cover;
+}
+
+.post-card-image--fallback {
+    background:
+        radial-gradient(140px 90px at 18% 30%, rgba(255, 255, 255, 0.12), transparent 65%),
+        radial-gradient(220px 140px at 78% 18%, rgba(255, 255, 255, 0.08), transparent 60%),
+        linear-gradient(135deg, var(--color-coffee-dark) 0%, var(--color-coffee-medium) 55%, var(--color-coffee-caramel) 100%);
 }
 
 .post-card.keep-ratio:not(.post-card-large):not(.post-card-full) .post-card-image {
@@ -1300,6 +1360,18 @@ html.no-infinite-scroll .pagination {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+}
+
+.article-image--fallback {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 16 / 9;
+}
+
+.article-image--fallback .post-card-image--fallback {
+    position: absolute;
+    inset: 0;
 }
 
 @media (max-width: 767px) {
@@ -2078,7 +2150,18 @@ iframe.instagram-media + script + :not([id]) {
     padding-top: 48px;
     padding-bottom: 140px;
     color: #fff;
-    background: color-mod(var(--color-darkgrey) l(-5%));
+    background: linear-gradient(135deg, var(--color-coffee-darker) 0%, var(--color-coffee-dark) 60%, var(--color-coffee-medium) 100%);
+}
+
+.site-footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(600px 280px at 10% 20%, rgba(255, 255, 255, 0.08), transparent 65%),
+        radial-gradient(700px 320px at 90% 0%, rgba(255, 255, 255, 0.05), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .page-template .site-footer {
@@ -2086,6 +2169,8 @@ iframe.instagram-media + script + :not([id]) {
 }
 
 .site-footer .inner {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-gap: 40px;
     grid-template-columns: auto 1fr auto;

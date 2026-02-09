@@ -77,6 +77,10 @@ into the {body} tag of the default.hbs template --}}
                     <figcaption>{{feature_image_caption}}</figcaption>
                 {{/if}}
             </figure>
+        {{else}}
+            <figure class="article-image article-image--fallback" aria-hidden="true">
+                <div class="post-card-image post-card-image--fallback"></div>
+            </figure>
         {{/if}}
         {{/match}}
 
