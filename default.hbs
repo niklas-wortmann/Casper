@@ -32,7 +32,11 @@
                     {{#if @site.logo}}
                         <img src="{{@site.logo}}" alt="{{@site.title}}">
                     {{else}}
-                        {{@site.title}}
+                        {{#match @site.title "=" "wordman.dev"}}
+                            Jan-Niklas Wortmann
+                        {{else}}
+                            {{@site.title}}
+                        {{/match}}
                     {{/if}}
                 </a>
                 <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>

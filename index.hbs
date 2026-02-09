@@ -26,11 +26,21 @@ into the {body} of the default.hbs template --}}
                 {{#if @site.logo}}
                     <img class="site-logo" src="{{@site.logo}}" alt="{{@site.title}}">
                 {{else}}
-                    <h1 class="site-title">{{@site.title}}</h1>
+                    {{#match @site.title "=" "wordman.dev"}}
+                        <h1 class="site-title">Jan-Niklas Wortmann</h1>
+                    {{else}}
+                        <h1 class="site-title">{{@site.title}}</h1>
+                    {{/match}}
                 {{/if}}
             {{/match}}
             {{#if @site.description}}
-                <p class="site-description">{{@site.description}}</p>
+                {{#match @site.description "=" "Thoughts, stories and ideas."}}
+                    <p class="site-description">Developer Advocate for JavaScript &amp; TypeScript | RxJS Core Team | Angular GDE | Coffee Snob</p>
+                {{else}}
+                    <p class="site-description">{{@site.description}}</p>
+                {{/match}}
+            {{else}}
+                <p class="site-description">Developer Advocate for JavaScript &amp; TypeScript | RxJS Core Team | Angular GDE | Coffee Snob</p>
             {{/if}}
         </div>
     {{/match}}
