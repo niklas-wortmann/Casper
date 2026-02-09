@@ -1,0 +1,28 @@
+{{!< default}}
+
+<main id="site-main" class="site-main outer">
+<div class="inner posts">
+    {{#post}}
+        <section class="collection-hero">
+            <div class="collection-kicker">Talks</div>
+            <h1 class="collection-title">{{title}}</h1>
+            {{#if custom_excerpt}}
+                <p class="collection-description">{{custom_excerpt}}</p>
+            {{/if}}
+        </section>
+        {{#if content}}
+            <section class="collection-content gh-content">
+                {{content}}
+            </section>
+        {{/if}}
+    {{/post}}
+
+    <div class="post-feed">
+        {{#get "posts" filter="tag:talks" include="tags,authors" limit="all"}}
+            {{#foreach posts}}
+                {{> "post-card"}}
+            {{/foreach}}
+        {{/get}}
+    </div>
+</div>
+</main>
