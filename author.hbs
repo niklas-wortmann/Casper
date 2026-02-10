@@ -30,6 +30,8 @@
 
                 {{#if profile_image}}
                     <img class="author-profile-pic" src="{{profile_image}}" alt="{{name}}" />
+                {{else}}
+                    <img class="author-profile-pic" src="{{asset "images/wordman-headshot.png"}}" alt="{{name}}" />
                 {{/if}}
 
                 <header class="post-card-header">

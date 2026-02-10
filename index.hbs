@@ -27,15 +27,16 @@ into the {body} of the default.hbs template --}}
                 <div class="hero-content">
                     <p class="hero-kicker">Morning Brew</p>
                     <div class="hero-brand">
-                        {{#if @site.logo}}
-                            <img class="site-logo" src="{{@site.logo}}" alt="{{@site.title}}">
+                        {{#match @site.title "=" "wordman.dev"}}
+                            <img class="site-logo site-logo--avatar" src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
+                            <h1 class="site-title">Jan-Niklas Wortmann</h1>
                         {{else}}
-                            {{#match @site.title "=" "wordman.dev"}}
-                                <h1 class="site-title">Jan-Niklas Wortmann</h1>
+                            {{#if @site.logo}}
+                                <img class="site-logo" src="{{@site.logo}}" alt="{{@site.title}}">
                             {{else}}
                                 <h1 class="site-title">{{@site.title}}</h1>
-                            {{/match}}
-                        {{/if}}
+                            {{/if}}
+                        {{/match}}
                     </div>
                     {{#if @site.description}}
                         {{#match @site.description "=" "Thoughts, stories and ideas."}}

@@ -16,6 +16,69 @@
     {{!-- Theme assets - use the {asset} helper to reference styles & scripts,
     this will take care of caching and cache-busting automatically --}}
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+    <style>
+        .weekly-brew-logo {
+            display: none;
+            height: 40px;
+            width: auto;
+        }
+
+        .weekly-brew-logo--dark {
+            display: inline-block;
+        }
+
+        .weekly-brew-tag-logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        .weekly-brew-tag-logo img {
+            height: 64px;
+            width: auto;
+        }
+
+        .weekly-brew-post-logo {
+            display: flex;
+            align-items: center;
+            margin: 16px 0 8px;
+        }
+
+        .weekly-brew-post-logo img {
+            height: 56px;
+            width: auto;
+        }
+
+        .gh-head-logo .site-logo--avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .hero-brand .site-logo--avatar {
+            width: 88px;
+            height: 88px;
+        }
+
+        html.dark-mode .weekly-brew-logo--dark {
+            display: none;
+        }
+
+        html.dark-mode .weekly-brew-logo--light {
+            display: inline-block;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            html.auto-color .weekly-brew-logo--dark {
+                display: none;
+            }
+
+            html.auto-color .weekly-brew-logo--light {
+                display: inline-block;
+            }
+        }
+    </style>
 
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
     it should always be the last tag before the closing head tag --}}
@@ -28,16 +91,55 @@
     <header id="gh-head" class="gh-head outer{{#match @custom.header_style "Hidden"}} is-header-hidden{{/match}}">
         <div class="gh-head-inner inner">
             <div class="gh-head-brand">
-                <a class="gh-head-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{@site.url}}">
-                    {{#if @site.logo}}
-                        <img src="{{@site.logo}}" alt="{{@site.title}}">
+                <a class="gh-head-logo" href="{{@site.url}}">
+                    {{#is "tag"}}
+                        {{#tag}}
+                            {{#match slug "newsletter"}}
+                                <img class="weekly-brew-logo weekly-brew-logo--dark" src="{{asset "images/weekly-devs-brew-logo-dark.svg"}}" alt="The Weekly Dev's Brew">
+                                <img class="weekly-brew-logo weekly-brew-logo--light" src="{{asset "images/weekly-devs-brew-logo-light.svg"}}" alt="The Weekly Dev's Brew">
+                            {{else match slug "podcast"}}
+                                <img class="weekly-brew-logo weekly-brew-logo--dark" src="{{asset "images/weekly-devs-brew-logo-dark.svg"}}" alt="The Weekly Dev's Brew">
+                                <img class="weekly-brew-logo weekly-brew-logo--light" src="{{asset "images/weekly-devs-brew-logo-light.svg"}}" alt="The Weekly Dev's Brew">
+                            {{else}}
+                                {{#match @site.title "=" "wordman.dev"}}
+                                    <img class="site-logo--avatar" src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
+                                {{else}}
+                                    {{#if @site.logo}}
+                                        <img src="{{@site.logo}}" alt="{{@site.title}}">
+                                    {{else}}
+                                        {{@site.title}}
+                                    {{/if}}
+                                {{/match}}
+                            {{/match}}
+                        {{/tag}}
                     {{else}}
-                        {{#match @site.title "=" "wordman.dev"}}
-                            Jan-Niklas Wortmann
+                        {{#is "post"}}
+                            {{#has tag="newsletter,podcast"}}
+                                <img class="weekly-brew-logo weekly-brew-logo--dark" src="{{asset "images/weekly-devs-brew-logo-dark.svg"}}" alt="The Weekly Dev's Brew">
+                                <img class="weekly-brew-logo weekly-brew-logo--light" src="{{asset "images/weekly-devs-brew-logo-light.svg"}}" alt="The Weekly Dev's Brew">
+                            {{else}}
+                                {{#match @site.title "=" "wordman.dev"}}
+                                    <img class="site-logo--avatar" src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
+                                {{else}}
+                                    {{#if @site.logo}}
+                                        <img src="{{@site.logo}}" alt="{{@site.title}}">
+                                    {{else}}
+                                        {{@site.title}}
+                                    {{/if}}
+                                {{/match}}
+                            {{/has}}
                         {{else}}
-                            {{@site.title}}
-                        {{/match}}
-                    {{/if}}
+                            {{#match @site.title "=" "wordman.dev"}}
+                                <img class="site-logo--avatar" src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
+                            {{else}}
+                                {{#if @site.logo}}
+                                    <img src="{{@site.logo}}" alt="{{@site.title}}">
+                                {{else}}
+                                    {{@site.title}}
+                                {{/if}}
+                            {{/match}}
+                        {{/is}}
+                    {{/is}}
                 </a>
                 <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
                 <button class="gh-burger" aria-label="Main Menu"></button>

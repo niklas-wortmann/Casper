@@ -23,6 +23,13 @@ into the {body} tag of the default.hbs template --}}
             {{/if}}
         </div>
 
+        {{#has tag="newsletter,podcast"}}
+            <div class="weekly-brew-post-logo">
+                <img class="weekly-brew-logo weekly-brew-logo--dark" src="{{asset "images/weekly-devs-brew-logo-dark.svg"}}" alt="The Weekly Dev's Brew">
+                <img class="weekly-brew-logo weekly-brew-logo--light" src="{{asset "images/weekly-devs-brew-logo-light.svg"}}" alt="The Weekly Dev's Brew">
+            </div>
+        {{/has}}
+
         <h1 class="article-title">{{title}}</h1>
 
         {{#if custom_excerpt}}
@@ -40,7 +47,9 @@ into the {body} tag of the default.hbs template --}}
                         <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
                     </a>
                     {{else}}
-                    <a href="{{url}}" class="author-avatar author-profile-image" aria-label="Read more of {{name}}">{{> "icons/avatar"}}</a>
+                    <a href="{{url}}" class="author-avatar" aria-label="Read more of {{name}}">
+                        <img class="author-profile-image" src="{{asset "images/wordman-headshot.png"}}" alt="{{name}}" />
+                    </a>
                     {{/if}}
                 </li>
                 {{/foreach}}
