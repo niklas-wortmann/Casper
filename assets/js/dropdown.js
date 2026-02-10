@@ -8,6 +8,16 @@
 
     const logo = document.querySelector('.gh-head-logo');
     const navHTML = nav.innerHTML;
+    const pinnedLabels = new Set(['podcast', 'newsletter']);
+    const pinnedPaths = ['/tag/podcast/', '/tag/newsletter/'];
+    const isPinnedItem = function (item) {
+        const link = item.querySelector('a');
+        if (!link) return false;
+        const label = (link.textContent || '').trim().toLowerCase();
+        if (pinnedLabels.has(label)) return true;
+        const href = (link.getAttribute('href') || '').toLowerCase();
+        return pinnedPaths.some((path) => href.includes(path));
+    };
 
     if (mediaQuery.matches) {
         const items = nav.querySelectorAll('li');
@@ -22,12 +32,15 @@
         const submenuItems = [];
 
         while ((nav.offsetWidth + 64) > menu.offsetWidth) {
-            if (nav.lastElementChild) {
-                submenuItems.unshift(nav.lastElementChild);
-                nav.lastElementChild.remove();
-            } else {
-                return;
+            let candidate = nav.lastElementChild;
+            while (candidate && isPinnedItem(candidate)) {
+                candidate = candidate.previousElementSibling;
             }
+            if (!candidate) {
+                break;
+            }
+            submenuItems.unshift(candidate);
+            candidate.remove();
         }
 
         if (!submenuItems.length) {
