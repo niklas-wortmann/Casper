@@ -41,6 +41,12 @@ into the {body} tag of the default.hbs template --}}
         {{content}}
     </section>
 
+    {{#if comments}}
+        <section class="article-comments gh-canvas">
+            {{comments}}
+        </section>
+    {{/if}}
+
 </article>
 </main>
 
