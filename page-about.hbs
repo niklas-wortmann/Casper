@@ -1,0 +1,63 @@
+{{!< default}}
+
+{{!-- Custom About page template with personal bio layout --}}
+
+{{#post}}
+<main id="site-main" class="site-main">
+    <article class="article about-page {{post_class}}">
+
+        <header class="about-hero outer">
+            <div class="inner about-hero-inner">
+                <div class="about-hero-content">
+                    <div class="about-avatar">
+                        <img src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
+                    </div>
+                    <div class="about-intro">
+                        <h1 class="about-title">Hey, I'm Jan-Niklas</h1>
+                        <p class="about-tagline">Developer Advocate, Open Source Contributor, and Coffee Enthusiast</p>
+                        <div class="about-social">
+                            <a href="https://bsky.app/profile/wordman.dev" target="_blank" rel="noopener" aria-label="Bluesky">{{> "icons/bluesky"}}</a>
+                            <a href="https://twitter.com/niklas_wortmann" target="_blank" rel="noopener" aria-label="Twitter">{{> "icons/twitter"}}</a>
+                            <a href="https://github.com/niclas_wortmann" target="_blank" rel="noopener" aria-label="GitHub">{{> "icons/github"}}</a>
+                            <a href="https://www.linkedin.com/in/jan-niklas-wortmann/" target="_blank" rel="noopener" aria-label="LinkedIn">{{> "icons/linkedin"}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="about-content gh-content gh-canvas">
+            {{#if content}}
+                {{content}}
+            {{else}}
+                <h2>What I Do</h2>
+                <p>I'm a <strong>Developer Advocate at JetBrains</strong>, where I focus on JavaScript and TypeScript tooling. My mission is to help developers write better code with less friction — through better tools, clearer documentation, and practical guidance.</p>
+
+                <p>I'm also a core team member of <strong>RxJS</strong>, the reactive extensions library for JavaScript, and an <strong>Angular Google Developer Expert (GDE)</strong>.</p>
+
+                <h2>What You'll Find Here</h2>
+                <p>This site is my corner of the internet where I share:</p>
+                <ul>
+                    <li><strong>Deep dives</strong> into TypeScript patterns, Angular architecture, and developer tooling</li>
+                    <li><strong>Conference talks</strong> with slides and resources from events around the world</li>
+                    <li><strong>The Weekly Dev's Brew</strong> — a newsletter and podcast with curated insights for JavaScript developers</li>
+                </ul>
+
+                <h2>Beyond the Code</h2>
+                <p>When I'm not writing code or speaking at conferences, you'll find me exploring specialty coffee (hence all the brew references), spending time with my family, or working on my fitness goals.</p>
+
+                <h2>Let's Connect</h2>
+                <p>Whether you want to discuss a potential speaking engagement, collaborate on a project, or just chat about TypeScript quirks — I'd love to hear from you.</p>
+                <p><a href="/calendar/">Book a call</a> or reach out on any of the social platforms above.</p>
+            {{/if}}
+        </section>
+
+        {{#if comments}}
+            <section class="article-comments gh-canvas">
+                {{comments}}
+            </section>
+        {{/if}}
+
+    </article>
+</main>
+{{/post}}
