@@ -2269,40 +2269,40 @@ is the very first element in the post content */
 .gh-content > blockquote:not([class]) {
     position: relative;
     font-style: italic;
-    padding: 0;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    background: var(--color-coffee-foam, #FDF7EF);
+    border-radius: 8px;
+    border-left: 4px solid var(--ghost-accent-color);
 }
 
 .gh-content > blockquote:not([class])::before {
-    content: "";
-    position: absolute;
-    left: -1.5em;
-    top: 0;
-    bottom: 0;
-    width: 0.3rem;
-    background: var(--ghost-accent-color);
+    display: none;
 }
 
 .gh-content :not(pre) > code {
     vertical-align: middle;
-    padding: 0.15em 0.4em 0.15em;
-    border: #e1eaef 1px solid;
-    font-weight: 400 !important;
-    font-size: 0.9em;
-    line-height: 1em;
-    color: #15171A;
-    background: #f0f6f9;
-    border-radius: 0.25em;
+    padding: 0.2em 0.5em;
+    border: none;
+    font-weight: 500 !important;
+    font-size: 0.875em;
+    line-height: 1.4em;
+    color: var(--color-coffee-dark, #2D1810);
+    background: var(--color-coffee-haze, #F8EDE0);
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px rgba(45, 24, 16, 0.1);
 }
 
 .gh-content pre {
     overflow: auto;
-    padding: 16px 20px;
-    color: var(--color-wash);
+    padding: 1.25rem 1.5rem;
+    color: var(--color-coffee-cream, #F5E6D3);
     font-size: 1.4rem;
-    line-height: 1.5em;
-    background: var(--color-darkgrey);
-    border-radius: 5px;
-    box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    line-height: 1.6em;
+    background: var(--color-coffee-dark, #2D1810);
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(26, 13, 0, 0.15), 0 0 0 1px rgba(196, 168, 130, 0.1);
+    margin: 2rem 0;
 }
 
 .gh-content ol ol li {
@@ -2478,50 +2478,74 @@ iframe.instagram-media + script + :not([id]) {
 
 /* Tables */
 .gh-content table:not(.gist table) {
-    display: inline-block;
+    display: block;
     overflow-x: auto;
     max-width: 100%;
-    width: auto;
+    width: 100%;
     border-spacing: 0;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-radius: 10px;
     font-family: var(--font-sans);
-    font-size: 1.6rem;
-    white-space: nowrap;
+    font-size: 1.5rem;
     vertical-align: top;
     -webkit-overflow-scrolling: touch;
-    background: radial-gradient(ellipse at left, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 0 center, radial-gradient(ellipse at right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 100% center;
-    background-attachment: scroll, scroll;
-    background-size: 10px 100%, 10px 100%;
-    background-repeat: no-repeat;
+    background: var(--color-coffee-foam, #FDF7EF);
+    box-shadow: 0 2px 12px rgba(45, 24, 16, 0.08);
+    margin: 2rem 0;
+    border: 1px solid rgba(45, 24, 16, 0.1);
 }
 
 .gh-content table:not(.gist table) td:first-child {
-    background-image: linear-gradient(to right, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
-    background-size: 20px 100%;
-    background-repeat: no-repeat;
+    background-image: none;
 }
 
 .gh-content table:not(.gist table) td:last-child {
-    background-image: linear-gradient(to left, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
-    background-position: 100% 0;
-    background-size: 20px 100%;
-    background-repeat: no-repeat;
+    background-image: none;
 }
 
 .gh-content table:not(.gist table) th {
-    color: var(--color-darkgrey);
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.2px;
+    color: var(--color-coffee-dark, #2D1810);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
     text-align: left;
     text-transform: uppercase;
-    background-color: color-mod(var(--color-wash) l(+4%));
+    background: var(--color-coffee-haze, #F8EDE0);
+}
+
+.gh-content table:not(.gist table) th:first-child {
+    border-top-left-radius: 9px;
+}
+
+.gh-content table:not(.gist table) th:last-child {
+    border-top-right-radius: 9px;
+}
+
+.gh-content table:not(.gist table) tr:last-child td:first-child {
+    border-bottom-left-radius: 9px;
+}
+
+.gh-content table:not(.gist table) tr:last-child td:last-child {
+    border-bottom-right-radius: 9px;
+}
+
+.gh-content table:not(.gist table) tbody tr:nth-child(even) {
+    background: rgba(245, 230, 211, 0.4);
+}
+
+.gh-content table:not(.gist table) tbody tr:hover {
+    background: rgba(212, 165, 116, 0.15);
 }
 
 .gh-content table:not(.gist table) th,
 .gh-content table:not(.gist table) td {
-    padding: 6px 12px;
-    border: color-mod(var(--color-wash) l(-1%) s(-5%)) 1px solid;
+    padding: 12px 16px;
+    border: none;
+    border-bottom: 1px solid rgba(45, 24, 16, 0.08);
+}
+
+.gh-content table:not(.gist table) tr:last-child td {
+    border-bottom: none;
 }
 
 
@@ -3109,13 +3133,19 @@ html.dark-mode .gh-content > [id] {
 }
 
 html.dark-mode .gh-content pre {
-    background: color-mod(var(--color-darkgrey) l(-8%));
+    background: var(--color-coffee-darker, #1A0D00);
+    color: var(--color-coffee-cream, #F5E6D3);
 }
 
 html.dark-mode .gh-content :not(pre) > code {
-    background: color-mod(var(--color-darkgrey) l(+6%));
-    border-color: color-mod(var(--color-darkmode) l(+8%));
-    color: var(--color-wash);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    color: var(--color-coffee-cream, #F5E6D3);
+}
+
+html.dark-mode .gh-content > blockquote:not([class]) {
+    background: rgba(255, 255, 255, 0.05);
+    border-left-color: var(--ghost-accent-color);
 }
 
 :where(html.dark-mode) .gh-content a {
@@ -3140,22 +3170,34 @@ html.dark-mode figcaption {
     color: rgba(255, 255, 255, 0.6);
 }
 
-html.dark-mode .gh-content table:not(.gist table) td:first-child {
-    background-image: linear-gradient(to right, var(--color-darkmode) 50%, color-mod(var(--color-darkmode) a(0%)) 100%);
+html.dark-mode .gh-content table:not(.gist table) {
+    background: var(--color-coffee-darker, #1A0D00);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
+html.dark-mode .gh-content table:not(.gist table) td:first-child,
 html.dark-mode .gh-content table:not(.gist table) td:last-child {
-    background-image: linear-gradient(to left, var(--color-darkmode) 50%, color-mod(var(--color-darkmode) a(0%)) 100%);
+    background-image: none;
 }
 
 html.dark-mode .gh-content table:not(.gist table) th {
-    color: rgba(255, 255, 255, 0.85);
-    background-color: color-mod(var(--color-darkmode) l(+8%));
+    color: var(--color-coffee-cream, #F5E6D3);
+    background: rgba(255, 255, 255, 0.08);
+    border-bottom-color: rgba(255, 255, 255, 0.15);
 }
 
-html.dark-mode .gh-content table:not(.gist table) th,
 html.dark-mode .gh-content table:not(.gist table) td {
-    border: color-mod(var(--color-darkmode) l(+8%)) 1px solid;
+    color: rgba(255, 255, 255, 0.85);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark-mode .gh-content table:not(.gist table) tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+html.dark-mode .gh-content table:not(.gist table) tbody tr:hover {
+    background: rgba(255, 255, 255, 0.06);
 }
 
 html.dark-mode .gh-content :is(input, textarea) {
@@ -3303,13 +3345,19 @@ html.dark-mode .footer-cta-title {
     }
 
     html.auto-color .gh-content pre {
-        background: color-mod(var(--color-darkgrey) l(-8%));
+        background: var(--color-coffee-darker, #1A0D00);
+        color: var(--color-coffee-cream, #F5E6D3);
     }
 
     html.auto-color .gh-content :not(pre) > code {
-        background: color-mod(var(--color-darkgrey) l(+6%));
-        border-color: color-mod(var(--color-darkmode) l(+8%));
-        color: var(--color-wash);
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+        color: var(--color-coffee-cream, #F5E6D3);
+    }
+
+    html.auto-color .gh-content > blockquote:not([class]) {
+        background: rgba(255, 255, 255, 0.05);
+        border-left-color: var(--ghost-accent-color);
     }
 
     :where(html.auto-color) .gh-content a {
@@ -3317,8 +3365,8 @@ html.dark-mode .footer-cta-title {
     }
 
     html.auto-color .gh-content code {
-        color: #fff;
-        background: #000;
+        color: var(--color-coffee-cream, #F5E6D3);
+        background: rgba(255, 255, 255, 0.1);
     }
 
     html.auto-color hr {
@@ -3334,22 +3382,34 @@ html.dark-mode .footer-cta-title {
         color: rgba(255, 255, 255, 0.6);
     }
 
-    html.auto-color .gh-content table:not(.gist table) td:first-child {
-        background-image: linear-gradient(to right, var(--color-darkmode) 50%, color-mod(var(--color-darkmode) a(0%)) 100%);
+    html.auto-color .gh-content table:not(.gist table) {
+        background: var(--color-coffee-darker, #1A0D00);
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
     }
 
+    html.auto-color .gh-content table:not(.gist table) td:first-child,
     html.auto-color .gh-content table:not(.gist table) td:last-child {
-        background-image: linear-gradient(to left, var(--color-darkmode) 50%, color-mod(var(--color-darkmode) a(0%)) 100%);
+        background-image: none;
     }
 
     html.auto-color .gh-content table:not(.gist table) th {
-        color: rgba(255, 255, 255, 0.85);
-        background-color: color-mod(var(--color-darkmode) l(+8%));
+        color: var(--color-coffee-cream, #F5E6D3);
+        background: rgba(255, 255, 255, 0.08);
+        border-bottom-color: rgba(255, 255, 255, 0.15);
     }
 
-    html.auto-color .gh-content table:not(.gist table) th,
     html.auto-color .gh-content table:not(.gist table) td {
-        border: color-mod(var(--color-darkmode) l(+8%)) 1px solid;
+        color: rgba(255, 255, 255, 0.85);
+        border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
+
+    html.auto-color .gh-content table:not(.gist table) tbody tr:nth-child(even) {
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    html.auto-color .gh-content table:not(.gist table) tbody tr:hover {
+        background: rgba(255, 255, 255, 0.06);
     }
 
     html.auto-color .gh-content :is(input, textarea) {
