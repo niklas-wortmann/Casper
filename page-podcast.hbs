@@ -1,0 +1,64 @@
+{{!< default}}
+
+<main id="site-main" class="site-main outer">
+<div class="inner posts">
+    {{#post}}
+        <section class="collection-hero podcast-hero">
+            <div class="collection-kicker">Podcast</div>
+            <div class="collection-brand">
+                <div class="weekly-brew-post-logo">
+                    <img class="weekly-brew-logo weekly-brew-logo--dark" src="{{asset "images/weekly-devs-brew-logo-dark.svg"}}" alt="The Weekly Dev's Brew">
+                    <img class="weekly-brew-logo weekly-brew-logo--light" src="{{asset "images/weekly-devs-brew-logo-light.svg"}}" alt="The Weekly Dev's Brew">
+                </div>
+            </div>
+            <h1 class="collection-title">{{title}}</h1>
+            {{#if custom_excerpt}}
+                <p class="collection-description">{{custom_excerpt}}</p>
+            {{/if}}
+            {{#if @custom.podcast_status}}
+                <p class="collection-status">{{@custom.podcast_status}}</p>
+            {{/if}}
+            <div class="podcast-platforms">
+                <span class="podcast-platforms-label">Listen on</span>
+                <div class="podcast-platforms-links">
+                    <a href="https://open.spotify.com/show/6uG7XUDtY6QqkjG5RmgvPZ" target="_blank" rel="noopener">Spotify</a>
+                    <a href="https://podcasts.apple.com/us/podcast/the-weekly-devs-brew/id1818009834" target="_blank" rel="noopener">Apple Podcasts</a>
+                    <a href="https://www.youtube.com/channel/UC7aHZVHaVcHpu3m8vWstVxg" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://feeds.buzzsprout.com/2470901.rss" target="_blank" rel="noopener">RSS</a>
+                </div>
+            </div>
+        </section>
+        {{#if content}}
+            <section class="collection-content gh-content">
+                {{content}}
+            </section>
+        {{/if}}
+    {{/post}}
+
+    <section class="collection-grid">
+        <article class="collection-card">
+            <div class="collection-card-kicker">Format</div>
+            <h3 class="collection-card-title">Conversations over hype</h3>
+            <p class="collection-card-text">Long-form chats with builders, maintainers, and teams shaping modern JavaScript.</p>
+        </article>
+        <article class="collection-card">
+            <div class="collection-card-kicker">Topics</div>
+            <h3 class="collection-card-title">Tools, DX, and strategy</h3>
+            <p class="collection-card-text">Signals, TypeScript, platform shifts, and the decisions behind real-world engineering.</p>
+        </article>
+        <article class="collection-card">
+            <div class="collection-card-kicker">Episodes</div>
+            <h3 class="collection-card-title">Fresh and archived</h3>
+            <p class="collection-card-text">Catch the latest release or explore the backlog for a deep technical binge.</p>
+        </article>
+    </section>
+
+    <div class="post-feed">
+        {{#get "posts" filter="tag:podcast" include="tags,authors" limit="all"}}
+            {{#foreach posts}}
+                {{> "post-card"}}
+            {{/foreach}}
+        {{/get}}
+    </div>
+</div>
+</main>

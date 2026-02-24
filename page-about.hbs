@@ -52,6 +52,32 @@
             {{/if}}
         </section>
 
+        {{#if @custom.speaking_highlights}}
+            <section class="about-highlights gh-canvas">
+                <h2>Selected stages</h2>
+                <div class="about-highlights-content">
+                    {{{@custom.speaking_highlights}}}
+                </div>
+            </section>
+        {{/if}}
+
+        <section class="about-contact gh-canvas">
+            <div class="about-contact-card">
+                <h2>Work with me</h2>
+                <p>For keynotes, workshops, or product collaborations, share a few details and we’ll shape the right format.</p>
+                <div class="about-contact-actions">
+                    {{#if @custom.booking_url}}
+                        <a class="hero-button" href="{{@custom.booking_url}}">Book a call</a>
+                    {{else}}
+                        <a class="hero-button" href="{{@site.url}}/calendar/">Book a call</a>
+                    {{/if}}
+                    {{#if @custom.contact_email}}
+                        <a class="hero-button hero-button--ghost" href="mailto:{{@custom.contact_email}}">Email me</a>
+                    {{/if}}
+                </div>
+            </div>
+        </section>
+
         {{#if comments}}
             <section class="article-comments gh-canvas">
                 {{comments}}

@@ -9,7 +9,108 @@
     const logo = document.querySelector('.gh-head-logo');
     const navHTML = nav.innerHTML;
     const pinnedLabels = new Set(['podcast', 'newsletter']);
-    const pinnedPaths = ['/tag/podcast/', '/tag/newsletter/'];
+    const pinnedPaths = ['/podcast/', '/newsletter/', '/tag/podcast/', '/tag/newsletter/'];
+
+    const normalizePath = function (value) {
+        if (!value) return '/';
+        let path = value.toLowerCase();
+        if (!path.startsWith('/')) {
+            path = '/' + path;
+        }
+        if (!path.endsWith('/')) {
+            path += '/';
+        }
+        return path;
+    };
+
+    const getLinkPath = function (link) {
+        const href = link.getAttribute('href') || '';
+        try {
+            return normalizePath(new URL(href, window.location.origin).pathname);
+        } catch (error) {
+            return normalizePath(href);
+        }
+    };
+
+    const updateNavCurrent = function () {
+        const items = Array.from(nav.querySelectorAll('li')).map(function (item) {
+            const link = item.querySelector('a');
+            if (!link) return null;
+            return {
+                element: item,
+                label: (link.textContent || '').trim().toLowerCase(),
+                path: getLinkPath(link),
+            };
+        }).filter(Boolean);
+
+        if (!items.length) return;
+
+        const currentPath = normalizePath(window.location.pathname);
+        const bodyClasses = new Set((document.body.className || '').split(/\s+/).filter(Boolean));
+        const hasBodyClass = function (value) {
+            return bodyClasses.has(value);
+        };
+
+        const clearCurrent = function () {
+            items.forEach(function (item) {
+                item.element.classList.remove('nav-current');
+            });
+        };
+
+        const setCurrent = function (predicate) {
+            const match = items.find(predicate);
+            if (!match) return false;
+            clearCurrent();
+            match.element.classList.add('nav-current');
+            return true;
+        };
+
+        const matchesPath = function (prefixes) {
+            return prefixes.some(function (prefix) {
+                return currentPath.startsWith(normalizePath(prefix));
+            });
+        };
+
+        const setByLabelOrPath = function (label, paths) {
+            return setCurrent(function (item) {
+                if (label && item.label === label) return true;
+                if (paths && paths.includes(item.path)) return true;
+                return false;
+            });
+        };
+
+        if (matchesPath(['/newsletter/', '/tag/newsletter/']) || hasBodyClass('page-newsletter') || hasBodyClass('tag-newsletter')) {
+            if (setByLabelOrPath('newsletter', ['/newsletter/', '/tag/newsletter/'])) return;
+        }
+
+        if (matchesPath(['/podcast/', '/tag/podcast/']) || hasBodyClass('page-podcast') || hasBodyClass('tag-podcast')) {
+            if (setByLabelOrPath('podcast', ['/podcast/', '/tag/podcast/'])) return;
+        }
+
+        if (matchesPath(['/talk/', '/talks/']) || hasBodyClass('page-talk') || hasBodyClass('page-talks') || hasBodyClass('tag-talk') || hasBodyClass('tag-talks')) {
+            if (setByLabelOrPath('talks', ['/talk/', '/talks/'])) return;
+        }
+
+        if (matchesPath(['/calendar/']) || hasBodyClass('page-calendar')) {
+            if (setByLabelOrPath('calendar', ['/calendar/'])) return;
+        }
+
+        if (matchesPath(['/blog/']) || hasBodyClass('page-blog') || hasBodyClass('tag-blog')) {
+            if (setByLabelOrPath('blog', ['/blog/'])) return;
+        }
+
+        if (hasBodyClass('post-template')) {
+            if (setByLabelOrPath('blog', ['/blog/'])) return;
+        }
+
+        if (currentPath === '/' || hasBodyClass('home-template')) {
+            if (setByLabelOrPath('home', ['/'])) return;
+        }
+
+        setCurrent(function (item) {
+            return item.path === currentPath;
+        });
+    };
     const isPinnedItem = function (item) {
         const link = item.querySelector('a');
         if (!link) return false;
@@ -28,6 +129,7 @@
 
     var windowClickListener;
     const makeDropdown = function () {
+        updateNavCurrent();
         if (mediaQuery.matches) return;
         const submenuItems = [];
 
@@ -71,6 +173,7 @@
         nav.appendChild(toggle);
 
         document.body.classList.add('is-dropdown-loaded');
+        updateNavCurrent();
 
         toggle.addEventListener('click', function () {
             document.body.classList.toggle('is-dropdown-open');
@@ -86,6 +189,7 @@
 
     imagesLoaded(head, function () {
         makeDropdown();
+        updateNavCurrent();
     });
 
     window.addEventListener('resize', function () {
@@ -93,6 +197,7 @@
             window.removeEventListener('click', windowClickListener);
             nav.innerHTML = navHTML;
             makeDropdown();
+            updateNavCurrent();
         }, 1);
     });
 })();

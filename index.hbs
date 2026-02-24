@@ -23,7 +23,7 @@ into the {body} of the default.hbs template --}}
 
     {{#match @custom.header_style "!=" "Hidden"}}
         <div class="site-header-inner inner">
-            <div class="hero-grid">
+            <div class="hero-grid hero-grid--solo">
                 <div class="hero-content">
                     <p class="hero-kicker">Developer Advocate @ JetBrains</p>
                     <div class="hero-brand">
@@ -58,25 +58,6 @@ into the {body} of the default.hbs template --}}
                         <span>Coffee</span>
                     </div>
                 </div>
-                <aside class="hero-panel">
-                    <div class="hero-panel-card hero-panel-card--primary">
-                        <div class="hero-panel-kicker">Latest Brew</div>
-                        {{#get "posts" filter="tag:blog" include="tags" limit="1"}}
-                            {{#foreach posts}}
-                                <h2 class="hero-panel-title">{{title}}</h2>
-                                {{#if excerpt}}
-                                    <p class="hero-panel-excerpt">{{excerpt}}</p>
-                                {{/if}}
-                                <a class="hero-panel-link" href="{{url}}">Read post</a>
-                            {{/foreach}}
-                        {{/get}}
-                    </div>
-                    <div class="hero-panel-card hero-panel-card--secondary">
-                        <div class="hero-panel-kicker">Talks + Workshops</div>
-                        <p class="hero-panel-text">Keynotes, practical workshops, and live coding sessions built for developer teams.</p>
-                        <a class="hero-panel-link" href="{{@site.url}}/talk/">See the lineup</a>
-                    </div>
-                </aside>
             </div>
         </div>
     {{/match}}
@@ -84,22 +65,41 @@ into the {body} of the default.hbs template --}}
 </div>
 </header>
 
+<section class="home-featured outer">
+    <div class="inner home-featured-grid">
+        <div class="hero-panel-card hero-panel-card--primary">
+            <div class="hero-panel-kicker">Latest Post</div>
+            {{#get "posts" filter="tag:blog" include="tags" limit="1"}}
+                {{#foreach posts}}
+                    <h2 class="hero-panel-title">{{title}}</h2>
+                    {{#if excerpt}}
+                        <p class="hero-panel-excerpt">{{excerpt}}</p>
+                    {{/if}}
+                    <a class="hero-panel-link" href="{{url}}">Read the post</a>
+                {{/foreach}}
+            {{/get}}
+        </div>
+        <div class="hero-panel-card hero-panel-card--secondary">
+            <div class="hero-panel-kicker">Talks + Workshops</div>
+            <p class="hero-panel-text">Keynotes, practical workshops, and live coding sessions built for developer teams.</p>
+            <a class="hero-panel-link" href="{{@site.url}}/talk/">See the lineup</a>
+        </div>
+    </div>
+</section>
+
 <section class="brew-bar outer">
     <div class="inner brew-bar-inner">
         <a class="brew-tile" href="{{@site.url}}/blog/">
-            <div class="brew-tile-kicker">Brewed Notes</div>
             <h3 class="brew-tile-title">Blog</h3>
             <p class="brew-tile-text">Deep dives, field notes, and experiments in modern JavaScript.</p>
         </a>
         <a class="brew-tile" href="{{@site.url}}/talk/">
-            <div class="brew-tile-kicker">On Stage</div>
             <h3 class="brew-tile-title">Talks</h3>
             <p class="brew-tile-text">Keynotes, workshops, and live demos from the conference circuit.</p>
         </a>
-        <a class="brew-tile" href="{{@site.url}}/tag/newsletter/">
-            <div class="brew-tile-kicker">Weekly Brew</div>
+        <a class="brew-tile" href="{{@site.url}}/newsletter/">
             <h3 class="brew-tile-title">Newsletter</h3>
-            <p class="brew-tile-text">Short shots of insight and links delivered fresh each week.</p>
+            <p class="brew-tile-text">The Weekly Dev's Brew: short shots of insight and links delivered fresh.</p>
         </a>
     </div>
 </section>

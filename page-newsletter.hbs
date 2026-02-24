@@ -1,0 +1,63 @@
+{{!< default}}
+
+<main id="site-main" class="site-main outer">
+<div class="inner posts">
+    {{#post}}
+        <section class="collection-hero newsletter-hero">
+            <div class="collection-kicker">Newsletter</div>
+            <div class="collection-brand">
+                <div class="weekly-brew-post-logo">
+                    <img class="weekly-brew-logo weekly-brew-logo--dark" src="{{asset "images/weekly-devs-brew-logo-dark.svg"}}" alt="The Weekly Dev's Brew">
+                    <img class="weekly-brew-logo weekly-brew-logo--light" src="{{asset "images/weekly-devs-brew-logo-light.svg"}}" alt="The Weekly Dev's Brew">
+                </div>
+            </div>
+            <h1 class="collection-title">{{title}}</h1>
+            {{#if custom_excerpt}}
+                <p class="collection-description">{{custom_excerpt}}</p>
+            {{/if}}
+            {{#if @custom.newsletter_status}}
+                <p class="collection-status">{{@custom.newsletter_status}}</p>
+            {{/if}}
+            <div class="collection-actions">
+                {{#if @site.members_enabled}}
+                    <a class="hero-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                {{else if @custom.newsletter_signup_url}}
+                    <a class="hero-button" href="{{@custom.newsletter_signup_url}}">Subscribe</a>
+                {{/if}}
+                <a class="hero-button hero-button--ghost" href="#newsletter-archive">View the archive</a>
+            </div>
+        </section>
+        {{#if content}}
+            <section class="collection-content gh-content">
+                {{content}}
+            </section>
+        {{/if}}
+    {{/post}}
+
+    <section class="collection-grid">
+        <article class="collection-card">
+            <div class="collection-card-kicker">Format</div>
+            <h3 class="collection-card-title">Quick, curated reads</h3>
+            <p class="collection-card-text">A tight mix of practical links, tooling notes, and calm takes on modern frontend work.</p>
+        </article>
+        <article class="collection-card">
+            <div class="collection-card-kicker">Audience</div>
+            <h3 class="collection-card-title">Built for dev teams</h3>
+            <p class="collection-card-text">For engineers who want sharper tools, better DX, and fewer rabbit holes.</p>
+        </article>
+        <article class="collection-card">
+            <div class="collection-card-kicker">Archive</div>
+            <h3 class="collection-card-title">Every issue, indexed</h3>
+            <p class="collection-card-text">Browse past editions to catch up on what the community has been brewing.</p>
+        </article>
+    </section>
+
+    <div id="newsletter-archive" class="post-feed">
+        {{#get "posts" filter="tag:newsletter" include="tags,authors" limit="all"}}
+            {{#foreach posts}}
+                {{> "post-card"}}
+            {{/foreach}}
+        {{/get}}
+    </div>
+</div>
+</main>

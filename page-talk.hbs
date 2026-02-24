@@ -47,7 +47,29 @@
         </div>
     </section>
 
+    <section class="talks-cta">
+        <div class="talks-cta-card">
+            <div class="talks-cta-kicker">Speaker bookings</div>
+            <h2 class="talks-cta-title">Book me for your event</h2>
+            <p class="talks-cta-text">Looking for a keynote, workshop, or internal training? Share your event details and we’ll shape a session that fits your audience.</p>
+            <div class="talks-cta-actions">
+                {{#if @custom.booking_url}}
+                    <a class="hero-button" href="{{@custom.booking_url}}">Book a call</a>
+                {{else}}
+                    <a class="hero-button" href="{{@site.url}}/calendar/">Book a call</a>
+                {{/if}}
+                {{#if @custom.contact_email}}
+                    <a class="hero-button hero-button--ghost" href="mailto:{{@custom.contact_email}}">Email me</a>
+                {{/if}}
+            </div>
+        </div>
+    </section>
+
     <section class="talks-grid">
+        <div class="talks-grid-header">
+            <h2>Signature topics</h2>
+            <p>Popular themes available as keynotes, deep dives, or hands-on workshops.</p>
+        </div>
         <article class="talk-card">
             <div class="talk-card-kicker">Keynote</div>
             <h3 class="talk-card-title">The calm, focused developer</h3>

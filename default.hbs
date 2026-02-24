@@ -79,13 +79,6 @@
             }
         }
 
-        .gh-head-logo .weekly-brew-logo--dark {
-            display: none;
-        }
-
-        .gh-head-logo .weekly-brew-logo--light {
-            display: inline-block;
-        }
     </style>
 
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
@@ -100,54 +93,15 @@
         <div class="gh-head-inner inner">
             <div class="gh-head-brand">
                 <a class="gh-head-logo" href="{{@site.url}}">
-                    {{#is "tag"}}
-                        {{#tag}}
-                            {{#match slug "newsletter"}}
-                                <img class="weekly-brew-logo weekly-brew-logo--dark" src="{{asset "images/weekly-devs-brew-logo-dark.svg"}}" alt="The Weekly Dev's Brew">
-                                <img class="weekly-brew-logo weekly-brew-logo--light" src="{{asset "images/weekly-devs-brew-logo-light.svg"}}" alt="The Weekly Dev's Brew">
-                            {{else match slug "podcast"}}
-                                <img class="weekly-brew-logo weekly-brew-logo--dark" src="{{asset "images/weekly-devs-brew-logo-dark.svg"}}" alt="The Weekly Dev's Brew">
-                                <img class="weekly-brew-logo weekly-brew-logo--light" src="{{asset "images/weekly-devs-brew-logo-light.svg"}}" alt="The Weekly Dev's Brew">
-                            {{else}}
-                                {{#match @site.title "=" "wordman.dev"}}
-                                    <img class="site-logo--avatar" src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
-                                {{else}}
-                                    {{#if @site.logo}}
-                                        <img src="{{@site.logo}}" alt="{{@site.title}}">
-                                    {{else}}
-                                        {{@site.title}}
-                                    {{/if}}
-                                {{/match}}
-                            {{/match}}
-                        {{/tag}}
+                    {{#match @site.title "=" "wordman.dev"}}
+                        <img class="site-logo--avatar" src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
                     {{else}}
-                        {{#is "post"}}
-                            {{#has tag="newsletter,podcast"}}
-                                <img class="weekly-brew-logo weekly-brew-logo--dark" src="{{asset "images/weekly-devs-brew-logo-dark.svg"}}" alt="The Weekly Dev's Brew">
-                                <img class="weekly-brew-logo weekly-brew-logo--light" src="{{asset "images/weekly-devs-brew-logo-light.svg"}}" alt="The Weekly Dev's Brew">
-                            {{else}}
-                                {{#match @site.title "=" "wordman.dev"}}
-                                    <img class="site-logo--avatar" src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
-                                {{else}}
-                                    {{#if @site.logo}}
-                                        <img src="{{@site.logo}}" alt="{{@site.title}}">
-                                    {{else}}
-                                        {{@site.title}}
-                                    {{/if}}
-                                {{/match}}
-                            {{/has}}
+                        {{#if @site.logo}}
+                            <img src="{{@site.logo}}" alt="{{@site.title}}">
                         {{else}}
-                            {{#match @site.title "=" "wordman.dev"}}
-                                <img class="site-logo--avatar" src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
-                            {{else}}
-                                {{#if @site.logo}}
-                                    <img src="{{@site.logo}}" alt="{{@site.title}}">
-                                {{else}}
-                                    {{@site.title}}
-                                {{/if}}
-                            {{/match}}
-                        {{/is}}
-                    {{/is}}
+                            {{@site.title}}
+                        {{/if}}
+                    {{/match}}
                 </a>
                 <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
                 <button class="gh-burger" aria-label="Main Menu"></button>

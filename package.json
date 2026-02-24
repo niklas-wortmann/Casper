@@ -169,6 +169,36 @@
                 "type": "boolean",
                 "default": true,
                 "group": "post"
+            },
+            "contact_email": {
+                "type": "text",
+                "default": "",
+                "group": "contact"
+            },
+            "booking_url": {
+                "type": "text",
+                "default": "/calendar/",
+                "group": "contact"
+            },
+            "newsletter_signup_url": {
+                "type": "text",
+                "default": "",
+                "group": "newsletter"
+            },
+            "newsletter_status": {
+                "type": "text",
+                "default": "",
+                "group": "newsletter"
+            },
+            "podcast_status": {
+                "type": "text",
+                "default": "",
+                "group": "podcast"
+            },
+            "speaking_highlights": {
+                "type": "text",
+                "default": "",
+                "group": "about"
             }
         }
     },
