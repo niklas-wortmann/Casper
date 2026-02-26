@@ -27,6 +27,9 @@
                     <a href="https://feeds.buzzsprout.com/2470901.rss" target="_blank" rel="noopener">RSS</a>
                 </div>
             </div>
+            <div class="collection-actions">
+                <a class="hero-button hero-button--ghost" href="/tag/podcast/">View the archive</a>
+            </div>
         </section>
         {{#if content}}
             <section class="collection-content gh-content">
@@ -54,11 +57,15 @@
     </section>
 
     <div class="post-feed">
-        {{#get "posts" filter="tag:podcast" include="tags,authors" limit="all"}}
+        {{#get "posts" filter="tag:podcast" include="tags,authors" limit="6"}}
             {{#foreach posts}}
                 {{> "post-card"}}
             {{/foreach}}
         {{/get}}
+    </div>
+
+    <div class="collection-view-all">
+        <a class="hero-button hero-button--ghost" href="/tag/podcast/">View all episodes →</a>
     </div>
 </div>
 </main>

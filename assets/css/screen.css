@@ -861,6 +861,10 @@ production stylesheet in assets/built/screen.css
     color: var(--color-coffee-accent);
 }
 
+.gh-head-menu .nav .nav-current a {
+    color: var(--color-coffee-accent);
+}
+
 .gh-head-menu .nav .nav-current a::after {
     content: "";
     position: absolute;
@@ -1379,6 +1383,11 @@ production stylesheet in assets/built/screen.css
     font-size: 1.5rem;
     color: var(--color-coffee-medium);
     line-height: 1.6;
+}
+
+.collection-view-all {
+    text-align: center;
+    margin: max(4vmin, 32px) 0;
 }
 
 .talks-intro {
