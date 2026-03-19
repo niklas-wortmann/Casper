@@ -1,124 +1,68 @@
 {{!< default}}
-{{!-- The tag above means: insert everything in this file
-into the {body} of the default.hbs template --}}
 
 <header class="site-header">
-<div class="site-header-content outer{{#match @custom.header_style "Left aligned"}} left-aligned{{/match}}{{#unless @custom.show_publication_cover}}{{#match @custom.header_style "Hidden"}} no-content{{/match}}{{/unless}}">
-
-    {{#if @custom.show_publication_cover}}
-        {{#if @site.cover_image}}
-            {{!-- This is a responsive image, it loads different sizes depending on device
-            https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
-            <img class="site-header-cover"
-                srcset="{{img_url @site.cover_image size="s"}} 300w,
-                        {{img_url @site.cover_image size="m"}} 600w,
-                        {{img_url @site.cover_image size="l"}} 1000w,
-                        {{img_url @site.cover_image size="xl"}} 2000w"
-                sizes="100vw"
-                src="{{img_url @site.cover_image size="xl"}}"
-                alt="{{@site.title}}"
-            />
-        {{/if}}
-    {{/if}}
-
-    {{#match @custom.header_style "!=" "Hidden"}}
+    <div class="site-header-content outer{{#match @custom.header_style "Left aligned"}} left-aligned{{/match}}{{#unless @custom.show_publication_cover}}{{#match @custom.header_style "Hidden"}} no-content{{/match}}{{/unless}}">
         <div class="site-header-inner inner">
-            <div class="hero-grid hero-grid--solo">
-                <div class="hero-content">
-                    <p class="hero-kicker">Developer Advocate @ JetBrains</p>
-                    <div class="hero-brand">
-                        {{#match @site.title "=" "wordman.dev"}}
-                            <img class="site-logo site-logo--avatar" src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
-                            <h1 class="site-title">Jan-Niklas Wortmann</h1>
-                        {{else}}
-                            {{#if @site.logo}}
-                                <img class="site-logo" src="{{@site.logo}}" alt="{{@site.title}}">
-                            {{else}}
-                                <h1 class="site-title">{{@site.title}}</h1>
-                            {{/if}}
-                        {{/match}}
-                    </div>
-                    {{#if @site.description}}
-                        {{#match @site.description "=" "Thoughts, stories and ideas."}}
-                            <p class="site-description hero-description">Helping dev teams navigate AI tooling, TypeScript, and modern JavaScript &mdash; without the hype.</p>
-                        {{else}}
-                            <p class="site-description hero-description">{{@site.description}}</p>
-                        {{/match}}
-                    {{else}}
-                        <p class="site-description hero-description">Helping dev teams navigate AI tooling, TypeScript, and modern JavaScript &mdash; without the hype.</p>
-                    {{/if}}
-                    <div class="hero-actions">
-                        <a class="hero-button" href="{{@site.url}}/blog/">Read the blog</a>
-                        <a class="hero-button hero-button--ghost" href="{{@site.url}}/talk/">View talks</a>
-                    </div>
-                    <div class="hero-tags">
-                        <span>TypeScript</span>
-                        <span>AI Tooling</span>
-                        <span>Developer Experience</span>
-                        <span>Coffee</span>
-                    </div>
+            <section class="brand-hero">
+                <h1 class="brand-hero-name">JAN-NIKLAS<br>WORTMANN</h1>
+                <div class="brand-hero-avatar">
+                    <img src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
                 </div>
-            </div>
+                <p class="brand-hero-description">Developer Advocate @ JetBrains. Helping dev teams navigate AI tooling, TypeScript, and modern JavaScript &mdash; without the hype.</p>
+                <div class="hero-actions">
+                    <a class="hero-button" href="{{@site.url}}/blog/">Read the blog</a>
+                    <a class="hero-button hero-button--ghost" href="{{@site.url}}/talk/">View talks</a>
+                </div>
+            </section>
         </div>
-    {{/match}}
-
-</div>
+    </div>
 </header>
 
-<section class="home-featured outer">
-    <div class="inner home-featured-grid">
-        <div class="hero-panel-card hero-panel-card--primary">
-            <div class="hero-panel-kicker">Latest Post</div>
-            {{#get "posts" filter="tag:blog" include="tags" limit="1"}}
-                {{#foreach posts}}
-                    <h2 class="hero-panel-title">{{title}}</h2>
-                    {{#if excerpt}}
-                        <p class="hero-panel-excerpt">{{excerpt}}</p>
-                    {{/if}}
-                    <a class="hero-panel-link" href="{{url}}">Read the post</a>
-                {{/foreach}}
+<section class="paper-links outer">
+    <div class="inner">
+        <div class="section-kicker">Layered paper</div>
+        <div class="paper-links-grid">
+            <a class="paper-link-card" href="{{@site.url}}/blog/">
+                <h2>Blog</h2>
+                <p>Deep dives, field notes, and experiments on AI tooling and modern TypeScript workflows.</p>
+            </a>
+            <a class="paper-link-card" href="{{@site.url}}/talk/">
+                <h2>Talks</h2>
+                <p>Keynotes, workshops, and live demos for engineering teams and developer organisations.</p>
+            </a>
+            <a class="paper-link-card" href="{{@site.url}}/newsletter/">
+                <h2>Newsletter</h2>
+                <p>The Weekly Dev&apos;s Brew: one real AI experiment each week with practical notes from the field.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="latest-stack outer">
+    <div class="inner">
+        <div class="section-kicker">Latest posts</div>
+        <div class="latest-stack-card">
+            {{#get "posts" filter="tag:blog" include="tags,authors" limit="6" as |posts|}}
+                {{#if posts.length}}
+                    {{#foreach posts}}
+                        <article class="latest-stack-item">
+                            <a href="{{url}}">
+                                <span class="latest-stack-tag">{{#primary_tag}}{{name}}{{else}}Blog{{/primary_tag}}</span>
+                                <h2>{{title}}</h2>
+                                <time datetime="{{date updated_at format="YYYY-MM-DD"}}">Updated {{date updated_at format="MMM DD, YYYY"}}</time>
+                            </a>
+                        </article>
+                    {{/foreach}}
+                {{else}}
+                    <article class="latest-stack-item">
+                        <a href="{{@site.url}}/blog/">
+                            <span class="latest-stack-tag">Blog</span>
+                            <h2>Fresh posts are brewing.</h2>
+                            <time>Check back soon.</time>
+                        </a>
+                    </article>
+                {{/if}}
             {{/get}}
         </div>
-        <div class="hero-panel-card hero-panel-card--secondary">
-            <div class="hero-panel-kicker">Talks + Workshops</div>
-            <p class="hero-panel-text">Keynotes, practical workshops, and live coding sessions built for developer teams.</p>
-            <a class="hero-panel-link" href="{{@site.url}}/talk/">See the lineup</a>
-        </div>
     </div>
 </section>
-
-<section class="brew-bar outer">
-    <div class="inner brew-bar-inner">
-        <a class="brew-tile" href="{{@site.url}}/blog/">
-            <h3 class="brew-tile-title">Blog</h3>
-            <p class="brew-tile-text">Deep dives, field notes, and experiments — TypeScript, AI tooling, and the stuff teams actually ship.</p>
-        </a>
-        <a class="brew-tile" href="{{@site.url}}/talk/">
-            <h3 class="brew-tile-title">Talks</h3>
-            <p class="brew-tile-text">Keynotes, workshops, and live demos for dev teams who want practical clarity, not hype.</p>
-        </a>
-        <a class="brew-tile" href="{{@site.url}}/newsletter/">
-            <h3 class="brew-tile-title">Newsletter</h3>
-            <p class="brew-tile-text">The Weekly Dev's Brew: one real AI experiment per week, honest results included.</p>
-        </a>
-    </div>
-</section>
-
-{{!-- The main content area --}}
-<main id="site-main" class="site-main outer">
-<div class="inner posts">
-
-    <div class="post-feed">
-        {{#get "posts" filter="tag:blog" include="tags,authors" limit="9"}}
-            {{#foreach posts}}
-                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                {{> "post-card"}}
-            {{/foreach}}
-        {{/get}}
-    </div>
-    <div class="post-feed-cta">
-        <a class="hero-button hero-button--ghost" href="{{@site.url}}/blog/">View all posts</a>
-    </div>
-
-</div>
-</main>

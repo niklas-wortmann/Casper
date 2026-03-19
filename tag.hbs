@@ -1,55 +1,102 @@
 {{!< default}}
-{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
-<main id="site-main" class="site-main outer">
+{{#tag}}
+<main id="site-main" class="site-main outer page-collection page-collection--tag page-collection--tag-{{slug}}">
 <div class="inner posts">
-    <div class="post-feed">
-
-        {{#tag}}
-        <section class="post-card post-card-large">
-            {{#if feature_image}}
-            <div class="post-card-image-link">
-                {{!-- This is a responsive image, it loads different sizes depending on device
-                https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
-                <img class="post-card-image"
-                    srcset="{{img_url feature_image size="s"}} 300w,
-                            {{img_url feature_image size="m"}} 600w,
-                            {{img_url feature_image size="l"}} 1000w,
-                            {{img_url feature_image size="xl"}} 2000w"
-                    sizes="(max-width: 1000px) 400px, 800px"
-                    src="{{img_url feature_image size="m"}}"
-                    alt="{{title}}"
-                />
-            </div>
+    <section class="collection-hero">
+        <h1 class="collection-title">{{#match slug "newsletter"}}Newsletter Archive{{else match slug "podcast"}}Podcast Archive{{else}}{{name}}{{/match}}</h1>
+        <p class="collection-description">
+            {{#if description}}
+                {{description}}
+            {{else}}
+                A collection of {{plural ../pagination.total empty='zero posts' singular='% post' plural='% posts'}}
             {{/if}}
+        </p>
+    </section>
 
-            <div class="post-card-content">
-            <div class="post-card-content-link">
-                <header class="post-card-header">
-                    <h2 class="post-card-title">
-                        {{#match slug "newsletter"}}Newsletter{{else match slug "podcast"}}Podcast{{else}}{{name}}{{/match}}
-                    </h2>
-                </header>
-                <div class="post-card-excerpt">
-                    {{#if description}}
-                        {{description}}
-                    {{else}}
-                        A collection of {{plural ../pagination.total empty='zero posts' singular='% post' plural='% posts'}}
-                    {{/if}}
-                </div>
-            </div>
+    {{#match slug "newsletter"}}
+        <section class="newsletter-archive">
+            <div class="issue-grid">
+                {{#foreach ../posts}}
+                    <article class="issue-card">
+                        <a class="issue-card-link" href="{{url}}">
+                            <div class="issue-card-avatar">
+                                {{#if feature_image}}
+                                    <img src="{{img_url feature_image size="s"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" loading="lazy">
+                                {{else}}
+                                    <img src="{{asset "images/weekly-devs-brew-logo-dark.svg"}}" alt="The Weekly Dev's Brew" loading="lazy">
+                                {{/if}}
+                            </div>
+                            <h3>{{title}}</h3>
+                            {{#if excerpt}}
+                                <p>{{excerpt}}</p>
+                            {{/if}}
+                            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}} &middot; {{reading_time}}</time>
+                        </a>
+                    </article>
+                {{/foreach}}
             </div>
         </section>
-        {{/tag}}
-
-        {{#foreach posts}}
-            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-            {{> "post-card"}}
-        {{/foreach}}
-
-    </div>
+    {{else match slug "podcast"}}
+        <section class="podcast-listing">
+            <div class="podcast-episode-list">
+                {{#foreach ../posts}}
+                    <article class="podcast-episode-card">
+                        <a class="podcast-episode-link" href="{{url}}">
+                            <div class="podcast-episode-avatar">
+                                {{#if feature_image}}
+                                    <img src="{{img_url feature_image size="s"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" loading="lazy">
+                                {{else}}
+                                    <img src="{{asset "images/wordman-headshot.png"}}" alt="{{title}}" loading="lazy">
+                                {{/if}}
+                            </div>
+                            <div class="podcast-episode-content">
+                                <h3>{{title}}</h3>
+                                {{#if excerpt}}
+                                    <p>{{excerpt}}</p>
+                                {{/if}}
+                                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}} &middot; {{reading_time}}</time>
+                            </div>
+                        </a>
+                    </article>
+                {{/foreach}}
+            </div>
+        </section>
+    {{else}}
+        <section class="collection-post-grid">
+            {{#foreach ../posts}}
+                <article class="collection-post-card">
+                    <a class="collection-post-image-link{{#unless feature_image}} collection-post-image-link--fallback{{/unless}}" href="{{url}}" aria-label="{{title}}">
+                        {{#if feature_image}}
+                            <img class="collection-post-image"
+                                srcset="{{img_url feature_image size="s"}} 300w,
+                                        {{img_url feature_image size="m"}} 600w,
+                                        {{img_url feature_image size="l"}} 1000w"
+                                sizes="(max-width: 991px) 100vw, 360px"
+                                src="{{img_url feature_image size="m"}}"
+                                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                loading="lazy"
+                            />
+                        {{else}}
+                            <div class="collection-post-image collection-post-image--fallback"></div>
+                        {{/if}}
+                    </a>
+                    <div class="collection-post-content">
+                        {{#primary_tag}}
+                            <span class="collection-post-tag">{{name}}</span>
+                        {{/primary_tag}}
+                        <h3><a href="{{url}}">{{title}}</a></h3>
+                        {{#if excerpt}}
+                            <p>{{excerpt}}</p>
+                        {{/if}}
+                        <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}} &middot; {{reading_time}}</time>
+                    </div>
+                </article>
+            {{/foreach}}
+        </section>
+    {{/match}}
 
     {{pagination}}
-    
 </div>
 </main>
+{{/tag}}

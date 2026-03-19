@@ -1,16 +1,9 @@
 {{!< default}}
 
-<main id="site-main" class="site-main outer">
+<main id="site-main" class="site-main outer page-collection page-collection--podcast">
 <div class="inner posts">
     {{#post}}
         <section class="collection-hero podcast-hero">
-            <div class="collection-kicker">Podcast</div>
-            <div class="collection-brand">
-                <div class="weekly-brew-post-logo">
-                    <img class="weekly-brew-logo weekly-brew-logo--dark" src="{{asset "images/weekly-devs-brew-logo-dark.svg"}}" alt="The Weekly Dev's Brew">
-                    <img class="weekly-brew-logo weekly-brew-logo--light" src="{{asset "images/weekly-devs-brew-logo-light.svg"}}" alt="The Weekly Dev's Brew">
-                </div>
-            </div>
             <h1 class="collection-title">{{title}}</h1>
             {{#if custom_excerpt}}
                 <p class="collection-description">{{custom_excerpt}}</p>
@@ -18,54 +11,45 @@
             {{#if @custom.podcast_status}}
                 <p class="collection-status">{{@custom.podcast_status}}</p>
             {{/if}}
-            <div class="podcast-platforms">
-                <span class="podcast-platforms-label">Listen on</span>
-                <div class="podcast-platforms-links">
-                    <a href="https://open.spotify.com/show/6uG7XUDtY6QqkjG5RmgvPZ" target="_blank" rel="noopener">Spotify</a>
-                    <a href="https://podcasts.apple.com/us/podcast/the-weekly-devs-brew/id1818009834" target="_blank" rel="noopener">Apple Podcasts</a>
-                    <a href="https://www.youtube.com/channel/UC7aHZVHaVcHpu3m8vWstVxg" target="_blank" rel="noopener">YouTube</a>
-                    <a href="https://feeds.buzzsprout.com/2470901.rss" target="_blank" rel="noopener">RSS</a>
-                </div>
-            </div>
             <div class="collection-actions">
-                <a class="hero-button hero-button--ghost" href="/tag/podcast/">View the archive</a>
+                <a class="hero-button" href="https://open.spotify.com/show/6uG7XUDtY6QqkjG5RmgvPZ" target="_blank" rel="noopener">Spotify</a>
+                <a class="hero-button hero-button--ghost" href="/tag/podcast/">Archive</a>
             </div>
         </section>
-        {{#if content}}
-            <section class="collection-content gh-content">
-                {{content}}
-            </section>
-        {{/if}}
     {{/post}}
 
-    <section class="collection-grid">
-        <article class="collection-card">
-            <div class="collection-card-kicker">Format</div>
-            <h3 class="collection-card-title">Conversations over hype</h3>
-            <p class="collection-card-text">Long-form chats with the people building and using AI developer tools — structured for real insight, not press tours.</p>
-        </article>
-        <article class="collection-card">
-            <div class="collection-card-kicker">Topics</div>
-            <h3 class="collection-card-title">AI tools, DX, and hard calls</h3>
-            <p class="collection-card-text">What actually changes when AI enters the workflow, and the decisions engineers are making in response.</p>
-        </article>
-        <article class="collection-card">
-            <div class="collection-card-kicker">Episodes</div>
-            <h3 class="collection-card-title">Fresh and archived</h3>
-            <p class="collection-card-text">Catch the latest release or dig into the backlog for a deep technical binge.</p>
-        </article>
-    </section>
-
-    <div class="post-feed">
-        {{#get "posts" filter="tag:podcast" include="tags,authors" limit="6"}}
-            {{#foreach posts}}
-                {{> "post-card"}}
-            {{/foreach}}
+    <section class="podcast-listing">
+        <div class="podcast-listing-header">
+            <h2>Latest posts</h2>
+        </div>
+        {{#get "posts" filter="tag:podcast" include="tags,authors" limit="20" as |episodes|}}
+            {{#if episodes.length}}
+                <div class="podcast-episode-list">
+                    {{#foreach episodes}}
+                        <article class="podcast-episode-card">
+                            <a class="podcast-episode-link" href="{{url}}">
+                                <div class="podcast-episode-avatar">
+                                    {{#if feature_image}}
+                                        <img src="{{img_url feature_image size="s"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" loading="lazy">
+                                    {{else}}
+                                        <img src="{{asset "images/wordman-headshot.png"}}" alt="{{title}}" loading="lazy">
+                                    {{/if}}
+                                </div>
+                                <div class="podcast-episode-content">
+                                    <h3>{{title}}</h3>
+                                    {{#if excerpt}}
+                                        <p>{{excerpt}}</p>
+                                    {{/if}}
+                                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}} &middot; {{reading_time}}</time>
+                                </div>
+                            </a>
+                        </article>
+                    {{/foreach}}
+                </div>
+            {{else}}
+                <p>No podcast episodes published yet.</p>
+            {{/if}}
         {{/get}}
-    </div>
-
-    <div class="collection-view-all">
-        <a class="hero-button hero-button--ghost" href="/tag/podcast/">View all episodes →</a>
-    </div>
+    </section>
 </div>
 </main>

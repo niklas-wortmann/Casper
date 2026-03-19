@@ -1,51 +1,97 @@
 {{!< default}}
 
-<main id="site-main" class="site-main outer">
+<main id="site-main" class="site-main outer page-collection page-collection--blog">
 <div class="inner posts">
     {{#post}}
         <section class="collection-hero">
-            <div class="collection-kicker">Blog</div>
             <h1 class="collection-title">{{title}}</h1>
             {{#if custom_excerpt}}
                 <p class="collection-description">{{custom_excerpt}}</p>
             {{/if}}
             <div class="collection-actions">
+                <span class="collection-chip">Field notes</span>
                 <span class="collection-chip">Deep dives</span>
-                <span class="collection-chip">AI Tooling</span>
-                <span class="collection-chip">Practical patterns</span>
+                <span class="collection-chip">Newsletter</span>
             </div>
         </section>
-        {{#if content}}
-            <section class="collection-content gh-content">
-                {{content}}
-            </section>
-        {{/if}}
     {{/post}}
 
-    <section class="collection-grid">
-        <article class="collection-card">
-            <div class="collection-card-kicker">Longform</div>
-            <h3 class="collection-card-title">Deep dives</h3>
-            <p class="collection-card-text">Thoughtful essays on TypeScript, AI in developer workflows, and what it takes to scale a frontend system.</p>
-        </article>
-        <article class="collection-card">
-            <div class="collection-card-kicker">Field notes</div>
-            <h3 class="collection-card-title">Practical patterns</h3>
-            <p class="collection-card-text">Shorter posts with patterns, heuristics, and real-world refactors — the kind you can use on Monday.</p>
-        </article>
-        <article class="collection-card">
-            <div class="collection-card-kicker">Newsletter</div>
-            <h3 class="collection-card-title">The Weekly Dev's Brew</h3>
-            <p class="collection-card-text">One real AI experiment per week. What worked, what didn't, and what it cost.</p>
-        </article>
-    </section>
-
-    <div class="post-feed">
-        {{#get "posts" filter="tag:blog" include="tags,authors" limit="all"}}
+    {{#get "posts" filter="tag:blog" include="tags,authors" limit="7" as |posts|}}
+        {{#if posts.length}}
             {{#foreach posts}}
-                {{> "post-card"}}
+                {{#if @first}}
+                    <section class="featured-post">
+                        <article class="featured-post-card">
+                            <a class="featured-post-image-link{{#unless feature_image}} featured-post-image-link--fallback{{/unless}}" href="{{url}}" aria-label="{{title}}">
+                                {{#if feature_image}}
+                                    <img class="featured-post-image"
+                                        srcset="{{img_url feature_image size="s"}} 300w,
+                                                {{img_url feature_image size="m"}} 600w,
+                                                {{img_url feature_image size="l"}} 1000w,
+                                                {{img_url feature_image size="xl"}} 2000w"
+                                        sizes="(max-width: 1200px) 100vw, 1200px"
+                                        src="{{img_url feature_image size="l"}}"
+                                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                        loading="eager"
+                                    />
+                                {{else}}
+                                    <div class="featured-post-image featured-post-image--fallback"></div>
+                                {{/if}}
+                            </a>
+                            <div class="featured-post-content">
+                                <span class="featured-post-kicker">Featured post</span>
+                                <h2><a href="{{url}}">{{title}}</a></h2>
+                                {{#if excerpt}}
+                                    <p>{{excerpt}}</p>
+                                {{/if}}
+                                <div class="featured-post-meta">
+                                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time>
+                                    <span>{{reading_time}}</span>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                {{else}}
+                    {{#match @number "=" 2}}
+                        <section class="collection-post-grid">
+                    {{/match}}
+                    <article class="collection-post-card">
+                        <a class="collection-post-image-link{{#unless feature_image}} collection-post-image-link--fallback{{/unless}}" href="{{url}}" aria-label="{{title}}">
+                            {{#if feature_image}}
+                                <img class="collection-post-image"
+                                    srcset="{{img_url feature_image size="s"}} 300w,
+                                            {{img_url feature_image size="m"}} 600w,
+                                            {{img_url feature_image size="l"}} 1000w"
+                                    sizes="(max-width: 991px) 100vw, 360px"
+                                    src="{{img_url feature_image size="m"}}"
+                                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                    loading="lazy"
+                                />
+                            {{else}}
+                                <div class="collection-post-image collection-post-image--fallback"></div>
+                            {{/if}}
+                        </a>
+                        <div class="collection-post-content">
+                            {{#primary_tag}}
+                                <span class="collection-post-tag">{{name}}</span>
+                            {{/primary_tag}}
+                            <h3><a href="{{url}}">{{title}}</a></h3>
+                            {{#if excerpt}}
+                                <p>{{excerpt}}</p>
+                            {{/if}}
+                            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}} &middot; {{reading_time}}</time>
+                        </div>
+                    </article>
+                    {{#if @last}}
+                        </section>
+                    {{/if}}
+                {{/if}}
             {{/foreach}}
-        {{/get}}
+        {{/if}}
+    {{/get}}
+
+    <div class="collection-view-all">
+        <a class="hero-button" href="/tag/blog/">Load more</a>
     </div>
 </div>
 </main>

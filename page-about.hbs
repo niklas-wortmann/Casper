@@ -1,50 +1,42 @@
 {{!< default}}
 
-{{!-- Custom About page template with personal bio layout --}}
-
 {{#post}}
+<header class="site-header">
+    <div class="site-header-content outer">
+        <div class="site-header-inner inner">
+            <section class="brand-hero brand-hero--about">
+                <h1 class="brand-hero-name">JAN-NIKLAS<br>WORTMANN</h1>
+                <div class="brand-hero-avatar">
+                    <img src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
+                </div>
+                <p class="brand-hero-description">Developer Advocate @ JetBrains. Helping dev teams navigate AI tooling, TypeScript, and modern JavaScript &mdash; without the hype.</p>
+                <div class="hero-actions">
+                    <a class="hero-button" href="{{@site.url}}/blog/">Read the blog</a>
+                    <a class="hero-button hero-button--ghost" href="{{@site.url}}/talk/">View talks</a>
+                </div>
+            </section>
+        </div>
+    </div>
+</header>
+
 <main id="site-main" class="site-main">
     <article class="article about-page {{post_class}}">
-
-        <header class="about-hero outer">
-            <div class="inner about-hero-inner">
-                <div class="about-hero-content">
-                    <div class="about-avatar">
-                        <img src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
-                    </div>
-                    <div class="about-intro">
-                        <h1 class="about-title">Hey, I'm Jan-Niklas</h1>
-                        <p class="about-tagline">Developer Advocate, Open Source contributor, AI tooling skeptic, and occasional coffee snob</p>
-                        <div class="about-social">
-                            <a href="https://bsky.app/profile/wordman.dev" target="_blank" rel="noopener" aria-label="Bluesky">{{> "icons/bluesky"}}</a>
-                            <a href="https://twitter.com/niklas_wortmann" target="_blank" rel="noopener" aria-label="Twitter">{{> "icons/twitter"}}</a>
-                            <a href="https://github.com/niclas_wortmann" target="_blank" rel="noopener" aria-label="GitHub">{{> "icons/github"}}</a>
-                            <a href="https://www.linkedin.com/in/jan-niklas-wortmann/" target="_blank" rel="noopener" aria-label="LinkedIn">{{> "icons/linkedin"}}</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <section class="about-content gh-content gh-canvas">
+        <section class="about-content gh-canvas">
             {{#if content}}
                 {{content}}
             {{else}}
                 <h2>What I Do</h2>
                 <p>I work as a <strong>Developer Advocate at JetBrains</strong>, focused on JavaScript and TypeScript tooling. Most days that means learning something new, teaching it before I've fully figured it out, and bothering our team with annoying questions left and right.</p>
 
-                <p>I'm part of the <strong>RxJS core team</strong> and an <strong>Angular Google Developer Expert (GDE)</strong>. I care about developer experience — not as a marketing angle, but because bad tooling slows people down in ways that compound over time.</p>
+                <p>I&apos;m part of the <strong>RxJS core team</strong> and an <strong>Angular Google Developer Expert (GDE)</strong>. I care about developer experience, not as a marketing angle, but because bad tooling slows people down in ways that compound over time.</p>
 
-                <p>Lately I've been spending a lot of time with AI developer tools. Not as a believer or a skeptic, but as someone trying to figure out what actually ships.</p>
+                <p>Lately I&apos;ve been spending a lot of time with AI developer tools. Not as a believer or a skeptic, but as someone trying to figure out what actually ships.</p>
 
-                <h2>What You'll Find Here</h2>
-                <p>This is where I think out loud. I write about TypeScript, AI in developer workflows, and what really happens when teams try to adopt new things. You'll also find my conference talks and <strong>The Weekly Dev's Brew</strong> — my newsletter and podcast about navigating the current AI moment without losing your sanity.</p>
+                <h2>What You&apos;ll Find Here</h2>
+                <p>This is where I think out loud. I write about TypeScript, AI in developer workflows, and what really happens when teams try to adopt new things. You&apos;ll also find my conference talks and <strong>The Weekly Dev&apos;s Brew</strong>, my newsletter and podcast about navigating the current AI moment without losing your sanity.</p>
 
                 <h2>Beyond the Code</h2>
-                <p>When I'm not writing or on stage, I'm exploring specialty coffee (hence everything), spending time with my family, or working on my fitness goals.</p>
-
-                <h2>Let's Connect</h2>
-                <p>Got a conference slot that needs filling, a tricky TypeScript problem, or opinions about AI agents you want to argue about? I'm up for all of it.</p>
+                <p>Got a conference slot that needs filling, a tricky TypeScript problem, or opinions about AI agents you want to argue about? I&apos;m up for all of it.</p>
                 <p><a href="/calendar/">Book a call</a> or reach out on any of the social platforms above.</p>
             {{/if}}
         </section>
@@ -61,7 +53,7 @@
         <section class="about-contact gh-canvas">
             <div class="about-contact-card">
                 <h2>Work with me</h2>
-                <p>For keynotes, workshops, or product collaborations, share a few details and we’ll shape the right format.</p>
+                <p>For keynotes, workshops, or product collaborations, share a few details and we&apos;ll shape the right format.</p>
                 <div class="about-contact-actions">
                     {{#if @custom.booking_url}}
                         <a class="hero-button" href="{{@custom.booking_url}}">Book a call</a>
@@ -80,7 +72,6 @@
                 {{comments}}
             </section>
         {{/if}}
-
     </article>
 </main>
 {{/post}}

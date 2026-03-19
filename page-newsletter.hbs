@@ -1,16 +1,9 @@
 {{!< default}}
 
-<main id="site-main" class="site-main outer">
+<main id="site-main" class="site-main outer page-collection page-collection--newsletter">
 <div class="inner posts">
     {{#post}}
         <section class="collection-hero newsletter-hero">
-            <div class="collection-kicker">Newsletter</div>
-            <div class="collection-brand">
-                <div class="weekly-brew-post-logo">
-                    <img class="weekly-brew-logo weekly-brew-logo--dark" src="{{asset "images/weekly-devs-brew-logo-dark.svg"}}" alt="The Weekly Dev's Brew">
-                    <img class="weekly-brew-logo weekly-brew-logo--light" src="{{asset "images/weekly-devs-brew-logo-light.svg"}}" alt="The Weekly Dev's Brew">
-                </div>
-            </div>
             <h1 class="collection-title">{{title}}</h1>
             {{#if custom_excerpt}}
                 <p class="collection-description">{{custom_excerpt}}</p>
@@ -24,44 +17,42 @@
                 {{else if @custom.newsletter_signup_url}}
                     <a class="hero-button" href="{{@custom.newsletter_signup_url}}">Subscribe</a>
                 {{/if}}
-                <a class="hero-button hero-button--ghost" href="/tag/newsletter/">View the archive</a>
+                <a class="hero-button hero-button--ghost" href="/tag/newsletter/">View archive</a>
             </div>
         </section>
-        {{#if content}}
-            <section class="collection-content gh-content">
-                {{content}}
-            </section>
-        {{/if}}
     {{/post}}
 
-    <section class="collection-grid">
-        <article class="collection-card">
-            <div class="collection-card-kicker">Format</div>
-            <h3 class="collection-card-title">Real experiments, honest results</h3>
-            <p class="collection-card-text">One hands-on AI workflow experiment per week. Real prompts, real costs, real failures included.</p>
-        </article>
-        <article class="collection-card">
-            <div class="collection-card-kicker">Audience</div>
-            <h3 class="collection-card-title">Built for practitioners</h3>
-            <p class="collection-card-text">For developers who want to know what AI tools actually do in production, not what the demos show.</p>
-        </article>
-        <article class="collection-card">
-            <div class="collection-card-kicker">Archive</div>
-            <h3 class="collection-card-title">Every issue, indexed</h3>
-            <p class="collection-card-text">Browse past editions to catch up on experiments, takes, and tools the community has been brewing.</p>
-        </article>
-    </section>
-
-    <div class="post-feed">
-        {{#get "posts" filter="tag:newsletter" include="tags,authors" limit="6"}}
-            {{#foreach posts}}
-                {{> "post-card"}}
-            {{/foreach}}
+    <section class="newsletter-archive">
+        <div class="newsletter-archive-header">
+            <h2>Newsletter Archive</h2>
+            <p>A collection of recent issues.</p>
+        </div>
+        {{#get "posts" filter="tag:newsletter" include="tags,authors" limit="12" as |issues|}}
+            {{#if issues.length}}
+                <div class="issue-grid">
+                    {{#foreach issues}}
+                        <article class="issue-card">
+                            <a class="issue-card-link" href="{{url}}">
+                                <div class="issue-card-avatar">
+                                    {{#if feature_image}}
+                                        <img src="{{img_url feature_image size="s"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" loading="lazy">
+                                    {{else}}
+                                        <img src="{{asset "images/weekly-devs-brew-logo-dark.svg"}}" alt="The Weekly Dev's Brew" loading="lazy">
+                                    {{/if}}
+                                </div>
+                                <h3>{{title}}</h3>
+                                {{#if excerpt}}
+                                    <p>{{excerpt}}</p>
+                                {{/if}}
+                                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}} &middot; {{reading_time}}</time>
+                            </a>
+                        </article>
+                    {{/foreach}}
+                </div>
+            {{else}}
+                <p>No newsletter issues published yet.</p>
+            {{/if}}
         {{/get}}
-    </div>
-
-    <div class="collection-view-all">
-        <a class="hero-button hero-button--ghost" href="/tag/newsletter/">View all issues →</a>
-    </div>
+    </section>
 </div>
 </main>

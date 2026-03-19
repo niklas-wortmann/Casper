@@ -1,10 +1,9 @@
 {{!< default}}
 
-<main id="site-main" class="site-main outer">
+<main id="site-main" class="site-main outer page-collection page-collection--talks">
 <div class="inner posts">
     {{#post}}
         <section class="collection-hero talks-hero">
-            <div class="collection-kicker">Talks</div>
             <h1 class="collection-title">{{title}}</h1>
             {{#if custom_excerpt}}
                 <p class="collection-description">{{custom_excerpt}}</p>
@@ -15,44 +14,23 @@
                 <span class="collection-chip">Live demos</span>
             </div>
         </section>
-        {{#if content}}
-            <section class="collection-content gh-content">
-                {{content}}
-            </section>
-        {{/if}}
     {{/post}}
 
-    <section class="talks-intro">
-        <div class="talks-intro-grid">
-            <div>
-                <h2 class="talks-intro-title">Signature formats</h2>
-                <p class="talks-intro-text">Talks are built for dev teams who want calm, practical clarity: less hype, more momentum.</p>
-                <div class="talks-topics">
-                    <span>TypeScript architecture</span>
-                    <span>Tooling + DX</span>
-                    <span>Frontend systems</span>
-                    <span>Team workflows</span>
-                </div>
+    <section class="talks-summary">
+        <article class="talks-summary-card">
+            <div class="talks-summary-kicker">Signature formats</div>
+            <h2>Talks are built for dev teams who want calm, practical clarity and momentum.</h2>
+            <div class="talks-summary-tags">
+                <span>TypeScript tested</span>
+                <span>Tooling + DX</span>
+                <span>Frontend teams</span>
             </div>
-            <div class="talks-highlight">
-                <div class="talks-highlight-kicker">What to expect</div>
-                <p class="talks-highlight-text">Thoughtful storytelling, live code, and concrete takeaways that teams can ship immediately.</p>
-                <div class="talks-highlight-list">
-                    <span>Keynotes</span>
-                    <span>Workshops</span>
-                    <span>Panels</span>
-                    <span>Internal trainings</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="talks-cta">
-        <div class="talks-cta-card">
-            <div class="talks-cta-kicker">Speaker bookings</div>
-            <h2 class="talks-cta-title">Book me for your event</h2>
-            <p class="talks-cta-text">Looking for a keynote, workshop, or internal training? Share your event details and we’ll shape a session that fits your audience.</p>
-            <div class="talks-cta-actions">
+        </article>
+        <article class="talks-summary-card talks-summary-card--cta">
+            <div class="talks-summary-kicker">Speaker bookings</div>
+            <h2>Book me for your event</h2>
+            <p>Looking for a keynote, workshop, or internal training? Share your event details and we can tailor the format.</p>
+            <div class="talks-summary-actions">
                 {{#if @custom.booking_url}}
                     <a class="hero-button" href="{{@custom.booking_url}}">Book a call</a>
                 {{else}}
@@ -62,28 +40,6 @@
                     <a class="hero-button hero-button--ghost" href="mailto:{{@custom.contact_email}}">Email me</a>
                 {{/if}}
             </div>
-        </div>
-    </section>
-
-    <section class="talks-grid">
-        <div class="talks-grid-header">
-            <h2>Signature topics</h2>
-            <p>Popular themes available as keynotes, deep dives, or hands-on workshops.</p>
-        </div>
-        <article class="talk-card">
-            <div class="talk-card-kicker">Keynote</div>
-            <h3 class="talk-card-title">The calm, focused developer</h3>
-            <p class="talk-card-text">How modern teams stay fast without burning out, with a focus on DX and intentional tooling.</p>
-        </article>
-        <article class="talk-card">
-            <div class="talk-card-kicker">Workshop</div>
-            <h3 class="talk-card-title">TypeScript for real teams</h3>
-            <p class="talk-card-text">Patterns, refactors, and guardrails that make large codebases feel small again.</p>
-        </article>
-        <article class="talk-card">
-            <div class="talk-card-kicker">Deep dive</div>
-            <h3 class="talk-card-title">The language server playbook</h3>
-            <p class="talk-card-text">From editor experience to runtime performance, a tour through modern tooling.</p>
         </article>
     </section>
 
@@ -92,17 +48,41 @@
             <h2>Recent talks</h2>
             <p>Slides and resources from recent stages and workshops.</p>
         </div>
-        {{#get "posts" filter="tag:talk,tag:talks" include="tags,authors" limit="all" as |talks|}}
+        {{#get "posts" filter="tag:talk,tag:talks" include="tags,authors" limit="6" as |talks|}}
             {{#if talks.length}}
-                <div class="post-feed talks-feed-grid">
+                <div class="collection-post-grid">
                     {{#foreach talks}}
-                        {{> "post-card"}}
+                        <article class="collection-post-card">
+                            <a class="collection-post-image-link{{#unless feature_image}} collection-post-image-link--fallback{{/unless}}" href="{{url}}" aria-label="{{title}}">
+                                {{#if feature_image}}
+                                    <img class="collection-post-image"
+                                        srcset="{{img_url feature_image size="s"}} 300w,
+                                                {{img_url feature_image size="m"}} 600w,
+                                                {{img_url feature_image size="l"}} 1000w"
+                                        sizes="(max-width: 991px) 100vw, 360px"
+                                        src="{{img_url feature_image size="m"}}"
+                                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                        loading="lazy"
+                                    />
+                                {{else}}
+                                    <div class="collection-post-image collection-post-image--fallback"></div>
+                                {{/if}}
+                            </a>
+                            <div class="collection-post-content">
+                                {{#primary_tag}}
+                                    <span class="collection-post-tag">{{name}}</span>
+                                {{/primary_tag}}
+                                <h3><a href="{{url}}">{{title}}</a></h3>
+                                {{#if excerpt}}
+                                    <p>{{excerpt}}</p>
+                                {{/if}}
+                                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time>
+                            </div>
+                        </article>
                     {{/foreach}}
                 </div>
             {{else}}
-                <div class="talks-empty">
-                    <p>No published talks yet. The espresso is warming up and the list will be updated soon.</p>
-                </div>
+                <div class="talks-empty">No published talks yet. The list updates as new talks go live.</div>
             {{/if}}
         {{/get}}
     </section>
