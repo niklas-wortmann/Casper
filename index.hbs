@@ -40,12 +40,12 @@ into the {body} of the default.hbs template --}}
                     </div>
                     {{#if @site.description}}
                         {{#match @site.description "=" "Thoughts, stories and ideas."}}
-                            <p class="site-description hero-description">Developer Advocate for JavaScript &amp; TypeScript | RxJS Core Team | Angular GDE | Coffee Snob</p>
+                            <p class="site-description hero-description">Helping dev teams navigate AI tooling, TypeScript, and modern JavaScript &mdash; without the hype.</p>
                         {{else}}
                             <p class="site-description hero-description">{{@site.description}}</p>
                         {{/match}}
                     {{else}}
-                        <p class="site-description hero-description">Developer Advocate for JavaScript &amp; TypeScript | RxJS Core Team | Angular GDE | Coffee Snob</p>
+                        <p class="site-description hero-description">Helping dev teams navigate AI tooling, TypeScript, and modern JavaScript &mdash; without the hype.</p>
                     {{/if}}
                     <div class="hero-actions">
                         <a class="hero-button" href="{{@site.url}}/blog/">Read the blog</a>
@@ -53,8 +53,8 @@ into the {body} of the default.hbs template --}}
                     </div>
                     <div class="hero-tags">
                         <span>TypeScript</span>
+                        <span>AI Tooling</span>
                         <span>Developer Experience</span>
-                        <span>Modern Tooling</span>
                         <span>Coffee</span>
                     </div>
                 </div>
@@ -91,15 +91,15 @@ into the {body} of the default.hbs template --}}
     <div class="inner brew-bar-inner">
         <a class="brew-tile" href="{{@site.url}}/blog/">
             <h3 class="brew-tile-title">Blog</h3>
-            <p class="brew-tile-text">Deep dives, field notes, and experiments in modern JavaScript.</p>
+            <p class="brew-tile-text">Deep dives, field notes, and experiments — TypeScript, AI tooling, and the stuff teams actually ship.</p>
         </a>
         <a class="brew-tile" href="{{@site.url}}/talk/">
             <h3 class="brew-tile-title">Talks</h3>
-            <p class="brew-tile-text">Keynotes, workshops, and live demos from the conference circuit.</p>
+            <p class="brew-tile-text">Keynotes, workshops, and live demos for dev teams who want practical clarity, not hype.</p>
         </a>
         <a class="brew-tile" href="{{@site.url}}/newsletter/">
             <h3 class="brew-tile-title">Newsletter</h3>
-            <p class="brew-tile-text">The Weekly Dev's Brew: short shots of insight and links delivered fresh.</p>
+            <p class="brew-tile-text">The Weekly Dev's Brew: one real AI experiment per week, honest results included.</p>
         </a>
     </div>
 </section>
