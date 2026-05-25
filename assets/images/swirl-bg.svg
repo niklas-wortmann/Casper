@@ -1,75 +1,71 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
   <defs>
-    <filter id="swirl-blur">
-      <feGaussianBlur stdDeviation="12"/>
+    <filter id="sb">
+      <feGaussianBlur stdDeviation="8"/>
     </filter>
-    <filter id="swirl-blur-soft">
-      <feGaussianBlur stdDeviation="24"/>
+    <filter id="sb2">
+      <feGaussianBlur stdDeviation="18"/>
     </filter>
-    <linearGradient id="ribbon-a" x1="0%" y1="50%" x2="100%" y2="50%">
-      <stop offset="0%" stop-color="#4A2A1A" stop-opacity="0"/>
-      <stop offset="15%" stop-color="#8B5A32" stop-opacity="0.6"/>
-      <stop offset="35%" stop-color="#B07040" stop-opacity="0.8"/>
-      <stop offset="50%" stop-color="#C48050" stop-opacity="0.9"/>
-      <stop offset="65%" stop-color="#B07040" stop-opacity="0.7"/>
-      <stop offset="85%" stop-color="#7A4828" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#3A1E10" stop-opacity="0"/>
+    <linearGradient id="ra" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#C48050" stop-opacity="0"/>
+      <stop offset="12%" stop-color="#C48050" stop-opacity="0.55"/>
+      <stop offset="30%" stop-color="#D4996A" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#E8B080" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#D4996A" stop-opacity="0.8"/>
+      <stop offset="88%" stop-color="#B07040" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#7A4828" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="ribbon-b" x1="0%" y1="50%" x2="100%" y2="50%">
-      <stop offset="0%" stop-color="#3A1E10" stop-opacity="0"/>
-      <stop offset="20%" stop-color="#6E3E22" stop-opacity="0.4"/>
-      <stop offset="45%" stop-color="#96603A" stop-opacity="0.6"/>
-      <stop offset="55%" stop-color="#96603A" stop-opacity="0.6"/>
-      <stop offset="80%" stop-color="#6E3E22" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#3A1E10" stop-opacity="0"/>
+    <linearGradient id="rb" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#96603A" stop-opacity="0"/>
+      <stop offset="18%" stop-color="#96603A" stop-opacity="0.4"/>
+      <stop offset="40%" stop-color="#B07848" stop-opacity="0.7"/>
+      <stop offset="60%" stop-color="#B07848" stop-opacity="0.65"/>
+      <stop offset="82%" stop-color="#8B5A32" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#6E3E22" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="ribbon-c" x1="0%" y1="50%" x2="100%" y2="50%">
-      <stop offset="0%" stop-color="#2A1610" stop-opacity="0"/>
-      <stop offset="25%" stop-color="#5A3420" stop-opacity="0.3"/>
-      <stop offset="50%" stop-color="#7A4A2E" stop-opacity="0.45"/>
-      <stop offset="75%" stop-color="#5A3420" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#2A1610" stop-opacity="0"/>
+    <linearGradient id="rc" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#7A4A2E" stop-opacity="0"/>
+      <stop offset="22%" stop-color="#7A4A2E" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#96603A" stop-opacity="0.55"/>
+      <stop offset="78%" stop-color="#7A4A2E" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#5A3420" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="highlight" x1="0%" y1="50%" x2="100%" y2="50%">
-      <stop offset="0%" stop-color="#D4996A" stop-opacity="0"/>
-      <stop offset="30%" stop-color="#D4996A" stop-opacity="0.2"/>
-      <stop offset="50%" stop-color="#E8B080" stop-opacity="0.35"/>
-      <stop offset="70%" stop-color="#D4996A" stop-opacity="0.2"/>
+    <linearGradient id="hl" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#F0C090" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#F0C090" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#FFD8B0" stop-opacity="0.55"/>
+      <stop offset="75%" stop-color="#F0C090" stop-opacity="0.3"/>
       <stop offset="100%" stop-color="#D4996A" stop-opacity="0"/>
     </linearGradient>
   </defs>
 
-  <!-- Outermost ambient glow -->
-  <path d="M-100,650 C200,580 400,420 720,380 C1040,340 1200,480 1540,350"
-        stroke="none" fill="none" filter="url(#swirl-blur-soft)"/>
+  <!-- Wide ambient glow -->
+  <path d="M-200,720 C80,610 320,360 680,310 C1040,260 1260,500 1650,360
+           L1650,560 C1260,700 1040,460 680,510 C320,560 80,810 -200,900 Z"
+        fill="url(#rc)" filter="url(#sb2)" opacity="0.8"/>
 
-  <!-- Wide background wave -->
-  <path d="M-200,700 C100,600 350,380 700,340 C1050,300 1250,520 1640,380
-           L1640,520 C1250,660 1050,440 700,480 C350,520 100,740 -200,840 Z"
-        fill="url(#ribbon-c)" filter="url(#swirl-blur-soft)" opacity="0.7"/>
+  <!-- Primary flowing ribbon -->
+  <path d="M-160,640 C100,540 320,320 670,268 C1020,216 1230,430 1600,290
+           L1600,380 C1230,520 1020,306 670,358 C320,410 100,630 -160,730 Z"
+        fill="url(#ra)" filter="url(#sb)" opacity="0.9"/>
 
-  <!-- Primary flowing ribbon — the main visual wave -->
-  <path d="M-150,620 C120,530 340,340 680,290 C1020,240 1220,440 1580,310
-           L1580,390 C1220,520 1020,320 680,370 C340,420 120,610 -150,700 Z"
-        fill="url(#ribbon-a)" filter="url(#swirl-blur)" opacity="0.85"/>
-
-  <!-- Secondary ribbon — slightly offset for depth -->
-  <path d="M-100,680 C150,590 380,400 720,360 C1060,320 1240,500 1600,370
-           L1600,430 C1240,560 1060,380 720,420 C380,460 150,650 -100,740 Z"
-        fill="url(#ribbon-b)" filter="url(#swirl-blur)" opacity="0.7"/>
+  <!-- Secondary ribbon offset -->
+  <path d="M-120,700 C130,600 370,390 710,345 C1050,300 1250,490 1620,360
+           L1620,440 C1250,570 1050,390 710,435 C370,480 130,690 -120,790 Z"
+        fill="url(#rb)" filter="url(#sb)" opacity="0.75"/>
 
   <!-- Upper accent wave -->
-  <path d="M-50,540 C200,460 420,300 740,260 C1060,220 1260,380 1500,280
-           L1500,320 C1260,420 1060,260 740,300 C420,340 200,500 -50,580 Z"
-        fill="url(#ribbon-c)" filter="url(#swirl-blur)" opacity="0.5"/>
+  <path d="M-60,560 C180,470 400,280 730,238 C1060,196 1270,370 1520,265
+           L1520,310 C1270,415 1060,241 730,283 C400,325 180,515 -60,605 Z"
+        fill="url(#rc)" filter="url(#sb)" opacity="0.6"/>
 
-  <!-- Bright highlight thread along the main ribbon -->
-  <path d="M-100,650 C140,560 360,370 700,325 C1040,280 1230,470 1590,340"
-        stroke="url(#highlight)" stroke-width="8" fill="none"
-        filter="url(#swirl-blur)" opacity="0.6"/>
+  <!-- Bright highlight along main ribbon -->
+  <path d="M-100,665 C120,568 340,355 690,306 C1040,257 1235,460 1600,330"
+        stroke="url(#hl)" stroke-width="10" fill="none"
+        filter="url(#sb)" opacity="0.7"/>
 
-  <!-- Thin secondary highlight -->
-  <path d="M-50,560 C210,475 430,310 750,270 C1070,230 1260,400 1520,295"
-        stroke="url(#highlight)" stroke-width="4" fill="none"
-        filter="url(#swirl-blur)" opacity="0.35"/>
+  <!-- Second highlight thread -->
+  <path d="M-40,575 C190,485 420,295 740,252 C1060,209 1265,385 1540,280"
+        stroke="url(#hl)" stroke-width="5" fill="none"
+        filter="url(#sb)" opacity="0.45"/>
 </svg>
