@@ -4545,6 +4545,43 @@ a {
     display: none;
 }
 
+/* Override original 767px mobile-nav rules above 640px
+   so the full navigation stays visible at tablet widths */
+@media (min-width: 641px) {
+    #gh-head {
+        height: auto !important;
+    }
+    #gh-head .gh-head-inner {
+        grid-template-rows: auto !important;
+        grid-template-columns: auto 1fr auto !important;
+        gap: 20px !important;
+    }
+    #gh-head .gh-head-brand {
+        grid-column-start: auto !important;
+    }
+    #gh-head .gh-burger {
+        display: none !important;
+    }
+    #gh-head .gh-head-menu,
+    #gh-head .gh-head-actions {
+        position: static !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    #gh-head .gh-head-menu .nav {
+        display: flex !important;
+        flex-direction: row !important;
+    }
+    #gh-head .gh-head-menu .nav li {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    #gh-head :is(.gh-head-button, .gh-head-link) {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
 /* Shared hero */
 
 .site-header {
@@ -5767,7 +5804,7 @@ a {
 
 /* Responsive */
 
-@media (max-width: 1100px) {
+@media (max-width: 900px) {
     .brand-hero-avatar {
         top: 42%;
     }
@@ -5778,7 +5815,7 @@ a {
     }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 640px) {
     .gh-head {
         padding: 10px 0;
     }
@@ -5859,7 +5896,7 @@ a {
     }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 540px) {
     .site-header-content {
         padding-top: 72px;
         padding-bottom: 28px;
