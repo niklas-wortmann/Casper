@@ -4383,42 +4383,51 @@ body {
     font-family: var(--font-sans);
 }
 
+/* Swirl background — organic flowing waves matching the Stitch design */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: -1;
+    z-index: -2;
     pointer-events: none;
-    background:
-        radial-gradient(90vw 38vw at 50% -6%, rgba(212, 141, 106, 0.22), transparent 58%),
-        radial-gradient(64vw 34vw at 6% 30%, rgba(212, 141, 106, 0.16), transparent 62%),
-        radial-gradient(70vw 38vw at 94% 16%, rgba(200, 130, 90, 0.15), transparent 68%),
-        radial-gradient(48vw 24vw at 50% 78%, rgba(100, 58, 40, 0.2), transparent 74%),
-        linear-gradient(180deg, #1A0F0E 0%, #150b09 100%);
-    opacity: 0.96;
+    background: #1A0F0E;
 }
 
 body::after {
     content: "";
     position: fixed;
-    inset: 0;
+    top: -50%;
+    left: -30%;
+    width: 160%;
+    height: 140%;
     z-index: -1;
     pointer-events: none;
     background:
-        radial-gradient(200px 70px at 18% 12%, rgba(212, 141, 106, 0.2), transparent 72%),
-        radial-gradient(280px 80px at 80% 10%, rgba(212, 141, 106, 0.16), transparent 72%),
-        radial-gradient(320px 96px at 74% 32%, rgba(200, 130, 90, 0.12), transparent 74%);
-    filter: blur(10px);
-    animation: wm-smoke-drift 14s ease-in-out infinite alternate;
-    opacity: 0.8;
+        /* Bright center band */
+        radial-gradient(ellipse 56vw 11vw at 38% 46%, rgba(180, 110, 65, 0.44), transparent 70%),
+        /* Upper curve edge */
+        radial-gradient(ellipse 62vw 10vw at 48% 38%, rgba(145, 88, 52, 0.38), transparent 68%),
+        /* Lower curve edge */
+        radial-gradient(ellipse 50vw 13vw at 32% 54%, rgba(125, 74, 46, 0.33), transparent 65%),
+        /* Highlight streak through center */
+        radial-gradient(ellipse 38vw 6vw at 43% 44%, rgba(212, 141, 106, 0.28), transparent 60%),
+        /* Wide ambient glow behind swirl */
+        radial-gradient(ellipse 76vw 26vw at 42% 46%, rgba(100, 58, 35, 0.38), transparent 72%),
+        /* Secondary wave above */
+        radial-gradient(ellipse 44vw 8vw at 60% 30%, rgba(160, 98, 58, 0.22), transparent 66%),
+        /* Secondary wave below */
+        radial-gradient(ellipse 48vw 9vw at 28% 60%, rgba(130, 76, 46, 0.2), transparent 64%);
+    transform: rotate(-22deg) scale(1.3);
+    filter: blur(32px);
+    animation: wm-swirl-drift 20s ease-in-out infinite alternate;
 }
 
-@keyframes wm-smoke-drift {
+@keyframes wm-swirl-drift {
     from {
-        transform: translateY(0) scale(1);
+        transform: rotate(-22deg) scale(1.3) translateY(0);
     }
     to {
-        transform: translateY(-8px) scale(1.02);
+        transform: rotate(-22deg) scale(1.3) translateY(-12px);
     }
 }
 
@@ -4727,6 +4736,18 @@ a {
     border: 1px solid rgba(212, 141, 106, 0.16);
     box-shadow: var(--wm-shadow-soft);
     min-height: 198px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Tilted paper effect — each card has a unique rotation */
+.paper-link-card:nth-child(1) {
+    transform: rotate(-2.2deg);
+}
+.paper-link-card:nth-child(2) {
+    transform: rotate(1.4deg);
+}
+.paper-link-card:nth-child(3) {
+    transform: rotate(-1.6deg);
 }
 
 .paper-link-card::before {
@@ -4764,8 +4785,16 @@ a {
     color: var(--wm-text-soft);
 }
 
-.paper-link-card:hover {
-    transform: translateY(-3px);
+.paper-link-card:nth-child(1):hover {
+    transform: rotate(-2.2deg) translateY(-3px);
+    border-color: rgba(212, 141, 106, 0.4);
+}
+.paper-link-card:nth-child(2):hover {
+    transform: rotate(1.4deg) translateY(-3px);
+    border-color: rgba(212, 141, 106, 0.4);
+}
+.paper-link-card:nth-child(3):hover {
+    transform: rotate(-1.6deg) translateY(-3px);
     border-color: rgba(212, 141, 106, 0.4);
 }
 
@@ -4776,7 +4805,7 @@ a {
 .latest-stack-card {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 14px;
 }
 
 .latest-stack-item {
@@ -4785,31 +4814,47 @@ a {
     background: var(--wm-bg-card);
     border: 1px solid rgba(212, 141, 106, 0.2);
     box-shadow: var(--wm-shadow-soft);
-    transition: transform 0.18s ease, border-color 0.18s ease;
+    transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
+/* Scattered paper rotations — each card at a different angle */
+.latest-stack-item:nth-child(1) { transform: rotate(-1.0deg); }
+.latest-stack-item:nth-child(2) { transform: rotate(0.8deg); }
+.latest-stack-item:nth-child(3) { transform: rotate(-0.5deg); }
+.latest-stack-item:nth-child(4) { transform: rotate(1.2deg); }
+.latest-stack-item:nth-child(5) { transform: rotate(-1.4deg); }
+.latest-stack-item:nth-child(6) { transform: rotate(0.6deg); }
+
+/* Stacked paper layers behind each card */
 .latest-stack-item::before,
 .latest-stack-item::after {
     content: "";
     position: absolute;
-    inset: 6px 10px -6px;
+    inset: 5px 8px -5px;
     border-radius: 18px;
     background: var(--wm-bg-card);
-    border: 1px solid rgba(212, 141, 106, 0.16);
-    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(212, 141, 106, 0.14);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     z-index: -1;
 }
 
-.latest-stack-item::after {
-    inset: 12px 18px -12px;
-    opacity: 0.65;
-    z-index: -2;
+.latest-stack-item::before {
+    transform: rotate(1.5deg);
 }
 
-.latest-stack-item:hover {
-    transform: translateY(-2px);
-    border-color: rgba(212, 141, 106, 0.4);
+.latest-stack-item::after {
+    inset: 10px 16px -10px;
+    opacity: 0.55;
+    z-index: -2;
+    transform: rotate(-1deg);
 }
+
+.latest-stack-item:nth-child(1):hover { transform: rotate(-1.0deg) translateY(-2px); border-color: rgba(212, 141, 106, 0.4); }
+.latest-stack-item:nth-child(2):hover { transform: rotate(0.8deg) translateY(-2px); border-color: rgba(212, 141, 106, 0.4); }
+.latest-stack-item:nth-child(3):hover { transform: rotate(-0.5deg) translateY(-2px); border-color: rgba(212, 141, 106, 0.4); }
+.latest-stack-item:nth-child(4):hover { transform: rotate(1.2deg) translateY(-2px); border-color: rgba(212, 141, 106, 0.4); }
+.latest-stack-item:nth-child(5):hover { transform: rotate(-1.4deg) translateY(-2px); border-color: rgba(212, 141, 106, 0.4); }
+.latest-stack-item:nth-child(6):hover { transform: rotate(0.6deg) translateY(-2px); border-color: rgba(212, 141, 106, 0.4); }
 
 .latest-stack-item a {
     display: block;
