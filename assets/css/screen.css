@@ -4383,17 +4383,53 @@ body {
     font-family: var(--font-sans);
 }
 
-/* Swirl background — organic flowing waves matching the Stitch design */
+/* Swirl background — organic flowing waves matching the Stitch design.
+   Multiple layered pseudo-elements create defined silk-ribbon curves. */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: -2;
+    z-index: -3;
     pointer-events: none;
     background: #1A0F0E;
 }
 
+/* Primary swirl — the bright central flowing ribbon */
 body::after {
+    content: "";
+    position: fixed;
+    top: -60%;
+    left: -40%;
+    width: 180%;
+    height: 160%;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        /* Core bright ribbon */
+        radial-gradient(ellipse 64vw 7vw at 40% 46%, rgba(190, 118, 70, 0.7), transparent 60%),
+        /* Soft glow along ribbon */
+        radial-gradient(ellipse 70vw 12vw at 42% 45%, rgba(160, 95, 56, 0.5), transparent 65%),
+        /* Upper ribbon edge — sharper */
+        radial-gradient(ellipse 58vw 5vw at 50% 39%, rgba(170, 105, 62, 0.55), transparent 58%),
+        /* Lower ribbon edge */
+        radial-gradient(ellipse 52vw 6vw at 34% 53%, rgba(145, 86, 52, 0.5), transparent 56%),
+        /* Bright highlight streak */
+        radial-gradient(ellipse 32vw 3vw at 44% 44%, rgba(220, 155, 110, 0.4), transparent 50%),
+        /* Ambient depth behind ribbon */
+        radial-gradient(ellipse 80vw 22vw at 42% 46%, rgba(110, 64, 38, 0.55), transparent 70%),
+        /* Secondary upper wave */
+        radial-gradient(ellipse 50vw 5vw at 58% 32%, rgba(170, 105, 62, 0.35), transparent 60%),
+        /* Secondary lower wave */
+        radial-gradient(ellipse 46vw 5vw at 30% 58%, rgba(140, 82, 50, 0.3), transparent 58%),
+        /* Far outer glow */
+        radial-gradient(ellipse 90vw 32vw at 40% 44%, rgba(80, 45, 28, 0.4), transparent 75%);
+    transform: rotate(-20deg) scale(1.5);
+    filter: blur(18px);
+    animation: wm-swirl-drift 22s ease-in-out infinite alternate;
+}
+
+/* Secondary swirl layer for depth and definition */
+.viewport::before {
     content: "";
     position: fixed;
     top: -50%;
@@ -4403,31 +4439,23 @@ body::after {
     z-index: -1;
     pointer-events: none;
     background:
-        /* Bright center band */
-        radial-gradient(ellipse 56vw 11vw at 38% 46%, rgba(180, 110, 65, 0.44), transparent 70%),
-        /* Upper curve edge */
-        radial-gradient(ellipse 62vw 10vw at 48% 38%, rgba(145, 88, 52, 0.38), transparent 68%),
-        /* Lower curve edge */
-        radial-gradient(ellipse 50vw 13vw at 32% 54%, rgba(125, 74, 46, 0.33), transparent 65%),
-        /* Highlight streak through center */
-        radial-gradient(ellipse 38vw 6vw at 43% 44%, rgba(212, 141, 106, 0.28), transparent 60%),
-        /* Wide ambient glow behind swirl */
-        radial-gradient(ellipse 76vw 26vw at 42% 46%, rgba(100, 58, 35, 0.38), transparent 72%),
-        /* Secondary wave above */
-        radial-gradient(ellipse 44vw 8vw at 60% 30%, rgba(160, 98, 58, 0.22), transparent 66%),
-        /* Secondary wave below */
-        radial-gradient(ellipse 48vw 9vw at 28% 60%, rgba(130, 76, 46, 0.2), transparent 64%);
-    transform: rotate(-22deg) scale(1.3);
-    filter: blur(32px);
-    animation: wm-swirl-drift 20s ease-in-out infinite alternate;
+        /* Thin bright thread — the sharpest part of the ribbon */
+        radial-gradient(ellipse 48vw 3vw at 42% 46%, rgba(212, 141, 106, 0.35), transparent 50%),
+        /* Upper thread */
+        radial-gradient(ellipse 40vw 2.5vw at 52% 38%, rgba(200, 130, 90, 0.28), transparent 48%),
+        /* Lower thread */
+        radial-gradient(ellipse 36vw 3vw at 36% 54%, rgba(180, 110, 72, 0.25), transparent 50%);
+    transform: rotate(-20deg) scale(1.5);
+    filter: blur(6px);
+    opacity: 0.85;
 }
 
 @keyframes wm-swirl-drift {
     from {
-        transform: rotate(-22deg) scale(1.3) translateY(0);
+        transform: rotate(-20deg) scale(1.5) translateY(0);
     }
     to {
-        transform: rotate(-22deg) scale(1.3) translateY(-12px);
+        transform: rotate(-20deg) scale(1.5) translateY(-14px);
     }
 }
 
@@ -4435,10 +4463,7 @@ a {
     color: inherit;
 }
 
-.viewport::before {
-    background: none;
-    opacity: 0;
-}
+/* .viewport::before is used as the secondary swirl layer — see above */
 
 .outer {
     padding: 0 max(3.2vmin, 18px);
