@@ -4383,40 +4383,28 @@ body {
     font-family: var(--font-sans);
 }
 
-/* Swirl background — SVG flowing ribbon curves matching the Stitch design */
+/* Swirl background — SVG flowing ribbon curves matching the Stitch design.
+   body has no background so the swirl pseudo-element is visible. */
 body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -3;
-    pointer-events: none;
-    background: #1A0F0E;
+    display: none;
 }
 
-/* SVG swirl rendered as background-image */
 body::after {
-    content: "";
-    position: fixed;
-    inset: -10% -5%;
-    width: 110%;
-    height: 120%;
-    z-index: -2;
-    pointer-events: none;
-    background: url('../images/swirl-bg.svg') center top / cover no-repeat;
-    animation: wm-swirl-drift 22s ease-in-out infinite alternate;
+    display: none;
 }
 
-/* Radial ambient glow to complement the SVG swirl */
+/* SVG swirl as a fixed-position layer behind all page content */
 .viewport::before {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
     background:
-        radial-gradient(ellipse 70vw 20vw at 45% 22%, rgba(160, 95, 56, 0.2), transparent 65%),
-        radial-gradient(ellipse 50vw 14vw at 55% 16%, rgba(212, 141, 106, 0.1), transparent 60%);
-    opacity: 0.7;
+        url('../images/swirl-bg.svg') center top / cover no-repeat,
+        radial-gradient(ellipse 70vw 20vw at 45% 22%, rgba(160, 95, 56, 0.15), transparent 65%),
+        #1A0F0E;
+    animation: wm-swirl-drift 22s ease-in-out infinite alternate;
 }
 
 @keyframes wm-swirl-drift {
@@ -4432,7 +4420,7 @@ a {
     color: inherit;
 }
 
-/* .viewport::before is used for ambient glow — see above */
+/* .viewport::before is used for the SVG swirl — see body section above */
 
 .outer {
     padding: 0 max(3.2vmin, 18px);
