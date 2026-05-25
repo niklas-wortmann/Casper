@@ -4596,7 +4596,7 @@ a {
 
 .brand-hero-avatar {
     position: absolute;
-    top: 41%;
+    top: 62%;
     left: 50%;
     width: clamp(110px, 15vw, 186px);
     aspect-ratio: 1;
@@ -4737,49 +4737,63 @@ a {
 }
 
 .latest-stack-card {
-    position: relative;
-    padding: 22px;
-    border-radius: 20px;
-    background: var(--wm-bg-card);
-    border: 1px solid var(--wm-border);
-    box-shadow: var(--wm-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
-.latest-stack-card::before,
-.latest-stack-card::after {
+.latest-stack-item {
+    position: relative;
+    border-radius: 18px;
+    background: var(--wm-bg-card);
+    border: 1px solid rgba(212, 141, 106, 0.2);
+    box-shadow: var(--wm-shadow-soft);
+    transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.latest-stack-item::before,
+.latest-stack-item::after {
     content: "";
     position: absolute;
-    inset: 8px 12px -8px;
+    inset: 6px 10px -6px;
     border-radius: 18px;
-    border: 1px solid rgba(212, 141, 106, 0.2);
+    background: var(--wm-bg-card);
+    border: 1px solid rgba(212, 141, 106, 0.16);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.22);
     z-index: -1;
 }
 
-.latest-stack-card::after {
-    inset: 16px 18px -14px;
-    opacity: 0.55;
+.latest-stack-item::after {
+    inset: 12px 18px -12px;
+    opacity: 0.65;
+    z-index: -2;
 }
 
-.latest-stack-item + .latest-stack-item {
-    border-top: 1px solid rgba(212, 141, 106, 0.15);
+.latest-stack-item:hover {
+    transform: translateY(-2px);
+    border-color: rgba(212, 141, 106, 0.4);
 }
 
 .latest-stack-item a {
     display: block;
-    padding: 14px 6px;
+    padding: 18px 22px;
     text-decoration: none;
 }
 
 .latest-stack-tag {
     display: inline-flex;
+    padding: 4px 10px;
+    border-radius: var(--wm-pill);
+    border: 1px solid rgba(212, 141, 106, 0.28);
+    background: rgba(212, 141, 106, 0.08);
     font-size: 1.02rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--wm-text-muted);
+    color: var(--wm-copper-bright);
 }
 
 .latest-stack-item h2 {
-    margin: 6px 0 4px;
+    margin: 10px 0 6px;
     font-size: clamp(2.05rem, 2.2vw, 2.6rem);
     line-height: 1.2;
     font-family: var(--font-sans);
@@ -5142,15 +5156,16 @@ a {
 .issue-card-link {
     display: block;
     height: 100%;
-    padding: 16px;
+    padding: 22px 18px 20px;
     text-decoration: none;
+    text-align: center;
 }
 
 .issue-card-avatar {
-    width: 84px;
+    width: 86px;
     aspect-ratio: 1;
     border-radius: 50%;
-    margin-bottom: 12px;
+    margin: 0 auto 14px;
     border: 2px solid rgba(212, 141, 106, 0.55);
     background: rgba(26, 15, 14, 0.95);
     overflow: hidden;
