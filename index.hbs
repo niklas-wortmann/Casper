@@ -42,7 +42,7 @@
     <div class="inner">
         <div class="section-kicker">Latest posts</div>
         <div class="latest-stack-card">
-            {{#get "posts" filter="tag:blog" include="tags,authors" limit="6" as |posts|}}
+            {{#get "posts" filter="tag:blog" include="tags,authors" limit="5" as |posts|}}
                 {{#if posts.length}}
                     {{#foreach posts}}
                         <article class="latest-stack-item">

@@ -4805,7 +4805,7 @@ a {
     position: relative;
     max-width: 930px;
     margin: 0 auto;
-    padding: 18px 0 14px;
+    padding: 11px 0 9px;
     border-radius: 4px;
     background: linear-gradient(155deg, rgba(47, 29, 24, 0.76), rgba(33, 20, 18, 0.9));
     border: 1px solid rgba(212, 141, 106, 0.18);
@@ -4861,7 +4861,7 @@ a {
 
 .latest-stack-item a {
     display: block;
-    padding: 11px 0 10px;
+    padding: 7px 0 6px;
     text-decoration: none;
 }
 
@@ -4870,22 +4870,25 @@ a {
     padding: 0;
     border: 0;
     background: transparent;
-    font-size: 0.98rem;
+    font-size: 0.9rem;
     letter-spacing: 0.01em;
     color: var(--wm-copper);
 }
 
 .latest-stack-item h2 {
-    margin: 2px 0 2px;
-    font-size: clamp(1.72rem, 1.9vw, 2.1rem);
-    line-height: 1.2;
+    overflow: hidden;
+    margin: 1px 0;
+    font-size: clamp(1.36rem, 1.65vw, 1.68rem);
+    line-height: 1.18;
     font-family: var(--font-sans);
     font-weight: 650;
     color: var(--wm-text);
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .latest-stack-item time {
-    font-size: 1.02rem;
+    font-size: 0.86rem;
     color: var(--wm-text-muted);
 }
 
@@ -5954,6 +5957,10 @@ a {
 
     .home-template .latest-stack-item {
         margin-inline: 25px;
+    }
+
+    .home-template .latest-stack-item h2 {
+        font-size: 1.38rem;
     }
 
     .home-template .site-footer {
