@@ -4613,6 +4613,11 @@ a {
     animation: none;
 }
 
+.home-template .site-header-content {
+    align-items: center;
+    text-align: center;
+}
+
 .site-header-inner {
     width: 100%;
 }
@@ -5889,6 +5894,7 @@ a {
     }
 
     .home-template .site-header-content {
+        min-height: 490px;
         padding-top: 124px;
         padding-bottom: 14px;
     }
