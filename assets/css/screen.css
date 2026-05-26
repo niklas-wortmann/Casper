@@ -4676,7 +4676,16 @@ a {
 }
 
 .home-template .brand-hero-description {
-    margin-top: clamp(112px, 10.5vw, 144px);
+    margin-top: 8px;
+}
+
+.home-template .brand-hero-avatar {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-top: -76px;
+    margin-bottom: 3px;
+    transform: none;
 }
 
 .hero-actions {
