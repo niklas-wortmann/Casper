@@ -179,11 +179,6 @@
                 "type": "text",
                 "default": "",
                 "group": "newsletter"
-            },
-            "speaking_highlights": {
-                "type": "text",
-                "default": "",
-                "group": "about"
             }
         }
     },
