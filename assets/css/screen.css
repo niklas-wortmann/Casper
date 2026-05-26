@@ -4526,6 +4526,22 @@ a {
     box-shadow: 0 16px 30px rgba(212, 141, 106, 0.4);
 }
 
+.home-template .gh-head {
+    position: relative;
+    background: transparent;
+    border-bottom-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+.home-template.is-head-left-logo .gh-head:not(.is-header-hidden) .gh-head-logo {
+    display: block;
+}
+
+.home-template.is-head-left-logo .gh-head:not(.is-header-hidden) .gh-head-menu {
+    margin-left: 0;
+}
+
 .gh-search,
 .gh-head-actions .gh-search,
 .gh-head-brand .gh-search {
@@ -4713,8 +4729,9 @@ a {
     position: relative;
     display: block;
     padding: 30px 28px 26px;
-    border-radius: var(--wm-radius-lg);
-    background: linear-gradient(155deg, rgba(90, 54, 40, 0.55), rgba(42, 24, 18, 0.74));
+    border-radius: 4px;
+    clip-path: polygon(0 4%, 88% 0, 100% 5%, 99% 72%, 96% 86%, 89% 94%, 76% 98%, 0 100%);
+    background: linear-gradient(150deg, rgba(59, 37, 30, 0.92), rgba(41, 25, 21, 0.94));
     border: 1px solid rgba(212, 141, 106, 0.16);
     box-shadow: var(--wm-shadow-soft);
     min-height: 198px;
@@ -4736,7 +4753,7 @@ a {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: inherit;
+    border-radius: 2px;
     background: radial-gradient(120% 80% at 80% 18%, rgba(212, 141, 106, 0.12), transparent 70%);
     pointer-events: none;
 }
@@ -4746,7 +4763,7 @@ a {
     position: absolute;
     inset: auto 12px -8px;
     height: 16px;
-    border-radius: 0 0 18px 18px;
+    border-radius: 0 0 3px 3px;
     background: rgba(0, 0, 0, 0.28);
     filter: blur(6px);
     pointer-events: none;
@@ -4785,80 +4802,82 @@ a {
 }
 
 .latest-stack-card {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+    position: relative;
+    max-width: 930px;
+    margin: 0 auto;
+    padding: 18px 0 14px;
+    border-radius: 4px;
+    background: linear-gradient(155deg, rgba(47, 29, 24, 0.76), rgba(33, 20, 18, 0.9));
+    border: 1px solid rgba(212, 141, 106, 0.18);
+    box-shadow: var(--wm-shadow);
+    transform: rotate(-0.35deg);
+}
+
+.latest-stack-card::before,
+.latest-stack-card::after {
+    content: "";
+    position: absolute;
+    inset: -12px 20px 12px;
+    border-radius: 4px;
+    background: rgba(43, 26, 22, 0.82);
+    border: 1px solid rgba(212, 141, 106, 0.16);
+    z-index: -1;
+}
+
+.latest-stack-card::before {
+    transform: rotate(1.3deg);
+}
+
+.latest-stack-card::after {
+    inset: -21px 34px 21px;
+    opacity: 0.7;
+    transform: rotate(-1.15deg);
 }
 
 .latest-stack-item {
     position: relative;
-    border-radius: 18px;
-    background: var(--wm-bg-card);
-    border: 1px solid rgba(212, 141, 106, 0.2);
-    box-shadow: var(--wm-shadow-soft);
+    margin: 0 28px;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(212, 141, 106, 0.14);
+    box-shadow: none;
     transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
-/* Scattered paper rotations — each card at a different angle */
-.latest-stack-item:nth-child(1) { transform: rotate(-1.0deg); }
-.latest-stack-item:nth-child(2) { transform: rotate(0.8deg); }
-.latest-stack-item:nth-child(3) { transform: rotate(-0.5deg); }
-.latest-stack-item:nth-child(4) { transform: rotate(1.2deg); }
-.latest-stack-item:nth-child(5) { transform: rotate(-1.4deg); }
-.latest-stack-item:nth-child(6) { transform: rotate(0.6deg); }
+.latest-stack-item:last-child {
+    border-bottom: 0;
+}
 
-/* Stacked paper layers behind each card */
 .latest-stack-item::before,
 .latest-stack-item::after {
-    content: "";
-    position: absolute;
-    inset: 5px 8px -5px;
-    border-radius: 18px;
-    background: var(--wm-bg-card);
-    border: 1px solid rgba(212, 141, 106, 0.14);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    z-index: -1;
+    display: none;
 }
 
-.latest-stack-item::before {
-    transform: rotate(1.5deg);
+.latest-stack-item:hover {
+    transform: translateX(3px);
+    border-color: rgba(212, 141, 106, 0.32);
 }
-
-.latest-stack-item::after {
-    inset: 10px 16px -10px;
-    opacity: 0.55;
-    z-index: -2;
-    transform: rotate(-1deg);
-}
-
-.latest-stack-item:nth-child(1):hover { transform: rotate(-1.0deg) translateY(-2px); border-color: rgba(212, 141, 106, 0.4); }
-.latest-stack-item:nth-child(2):hover { transform: rotate(0.8deg) translateY(-2px); border-color: rgba(212, 141, 106, 0.4); }
-.latest-stack-item:nth-child(3):hover { transform: rotate(-0.5deg) translateY(-2px); border-color: rgba(212, 141, 106, 0.4); }
-.latest-stack-item:nth-child(4):hover { transform: rotate(1.2deg) translateY(-2px); border-color: rgba(212, 141, 106, 0.4); }
-.latest-stack-item:nth-child(5):hover { transform: rotate(-1.4deg) translateY(-2px); border-color: rgba(212, 141, 106, 0.4); }
-.latest-stack-item:nth-child(6):hover { transform: rotate(0.6deg) translateY(-2px); border-color: rgba(212, 141, 106, 0.4); }
 
 .latest-stack-item a {
     display: block;
-    padding: 18px 22px;
+    padding: 11px 0 10px;
     text-decoration: none;
 }
 
 .latest-stack-tag {
     display: inline-flex;
-    padding: 4px 10px;
-    border-radius: var(--wm-pill);
-    border: 1px solid rgba(212, 141, 106, 0.28);
-    background: rgba(212, 141, 106, 0.08);
-    font-size: 1.02rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--wm-copper-bright);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: 0.98rem;
+    letter-spacing: 0.01em;
+    color: var(--wm-copper);
 }
 
 .latest-stack-item h2 {
-    margin: 10px 0 6px;
-    font-size: clamp(2.05rem, 2.2vw, 2.6rem);
+    margin: 2px 0 2px;
+    font-size: clamp(1.72rem, 1.9vw, 2.1rem);
     line-height: 1.2;
     font-family: var(--font-sans);
     font-weight: 650;
@@ -4866,7 +4885,7 @@ a {
 }
 
 .latest-stack-item time {
-    font-size: 1.18rem;
+    font-size: 1.02rem;
     color: var(--wm-text-muted);
 }
 
@@ -5832,6 +5851,117 @@ a {
 /* Responsive */
 
 @media (max-width: 900px) {
+    .home-template .outer {
+        padding-inline: clamp(28px, 7vw, 54px);
+    }
+
+    .home-template .gh-head {
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+
+    .home-template .gh-head-inner {
+        gap: 14px;
+    }
+
+    .home-template .gh-head-logo,
+    .home-template .gh-head-logo.gh-head-logo--wordmark {
+        font-size: 1.48rem;
+    }
+
+    .home-template .gh-head-menu .nav {
+        gap: 13px;
+    }
+
+    .home-template .gh-head-menu .nav a,
+    .home-template .gh-head-button {
+        font-size: 1.03rem;
+    }
+
+    .home-template .gh-head-button {
+        padding: 7px 13px;
+    }
+
+    .home-template .site-header-content {
+        padding-top: 56px;
+        padding-bottom: 56px;
+    }
+
+    .home-template .brand-hero-name {
+        font-size: clamp(7rem, 12.4vw, 9.5rem);
+        line-height: 0.85;
+        letter-spacing: -0.045em;
+    }
+
+    .home-template .brand-hero-avatar {
+        top: 43%;
+        width: clamp(105px, 17.5vw, 134px);
+        padding: 5px;
+    }
+
+    .home-template .brand-hero-description {
+        max-width: 430px;
+        margin-top: 34px;
+        font-size: 1.28rem;
+        line-height: 1.4;
+    }
+
+    .home-template .hero-actions {
+        margin-top: 10px;
+    }
+
+    .home-template .hero-button {
+        padding: 8px 17px;
+        font-size: 1.08rem;
+    }
+
+    .home-template .section-kicker {
+        margin-bottom: 21px;
+        font-size: 1rem;
+    }
+
+    .home-template .paper-links {
+        margin-top: 7px;
+    }
+
+    .home-template .paper-links-grid {
+        gap: 1px;
+    }
+
+    .home-template .paper-link-card {
+        min-height: 211px;
+        padding: 27px 22px 22px;
+        box-shadow: 0 14px 25px rgba(10, 5, 3, 0.35);
+    }
+
+    .home-template .paper-link-card h2 {
+        margin-bottom: 10px;
+        font-size: 3.5rem;
+    }
+
+    .home-template .paper-link-card p {
+        font-size: 1.26rem;
+        line-height: 1.45;
+    }
+
+    .home-template .latest-stack {
+        margin-top: 83px;
+    }
+
+    .home-template .latest-stack-card {
+        max-width: 540px;
+    }
+
+    .home-template .latest-stack-item {
+        margin-inline: 25px;
+    }
+
+    .home-template .site-footer {
+        margin-top: 67px;
+        padding-top: 24px;
+        padding-bottom: 30px;
+    }
+
     .brand-hero-avatar {
         top: 42%;
     }
