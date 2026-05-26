@@ -8,8 +8,8 @@
 
     const logo = document.querySelector('.gh-head-logo');
     const navHTML = nav.innerHTML;
-    const pinnedLabels = new Set(['podcast', 'newsletter']);
-    const pinnedPaths = ['/podcast/', '/newsletter/', '/tag/podcast/', '/tag/newsletter/'];
+    const pinnedLabels = new Set(['podcast']);
+    const pinnedPaths = ['/podcast/', '/tag/podcast/'];
 
     const normalizePath = function (value) {
         if (!value) return '/';
@@ -79,10 +79,6 @@
             });
         };
 
-        if (matchesPath(['/newsletter/', '/tag/newsletter/']) || hasBodyClass('page-newsletter') || hasBodyClass('tag-newsletter')) {
-            if (setByLabelOrPath('newsletter', ['/newsletter/', '/tag/newsletter/'])) return;
-        }
-
         if (matchesPath(['/podcast/', '/tag/podcast/']) || hasBodyClass('page-podcast') || hasBodyClass('tag-podcast')) {
             if (setByLabelOrPath('podcast', ['/podcast/', '/tag/podcast/'])) return;
         }
@@ -92,7 +88,7 @@
         }
 
         if (matchesPath(['/calendar/']) || hasBodyClass('page-calendar')) {
-            if (setByLabelOrPath('speaking', ['/calendar/'])) return;
+            if (setByLabelOrPath('coffee chat', ['/calendar/'])) return;
         }
 
         if (matchesPath(['/blog/']) || hasBodyClass('page-blog') || hasBodyClass('tag-blog')) {

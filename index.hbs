@@ -10,8 +10,8 @@
                 </div>
                 <p class="brand-hero-description">AI Developer Advocate at JetBrains. I test AI coding workflows against real codebases and share what held up, what broke, and why.</p>
                 <div class="hero-actions">
-                    <a class="hero-button" href="{{@site.url}}/blog/">Read field notes</a>
-                    <a class="hero-button hero-button--ghost" href="{{@site.url}}/talk/">See talks</a>
+                    <a class="hero-button" href="{{@site.url}}/blog/">Read blog</a>
+                    <a class="hero-button hero-button--ghost" href="{{@site.url}}/podcast/">Watch podcast</a>
                 </div>
             </section>
         </div>
@@ -30,9 +30,9 @@
                 <h2>Talks</h2>
                 <p>Practical keynotes and workshops on AI-assisted development, tooling, and engineering judgment.</p>
             </a>
-            <a class="paper-link-card" href="{{@site.url}}/newsletter/">
-                <h2>Newsletter</h2>
-                <p>Dev&apos;s Brew: one hands-on AI workflow each week, with prompts, tradeoffs, and a verdict.</p>
+            <a class="paper-link-card" href="{{@site.url}}/podcast/">
+                <h2>Podcast</h2>
+                <p>Conversations with developers and tool builders about what works in practice and what breaks.</p>
             </a>
         </div>
     </div>
@@ -40,7 +40,7 @@
 
 <section class="latest-stack outer">
     <div class="inner">
-        <div class="section-kicker">Latest field notes</div>
+        <div class="section-kicker">Latest posts</div>
         <div class="latest-stack-card">
             {{#get "posts" filter="tag:blog" include="tags,authors" limit="5" as |posts|}}
                 {{#if posts.length}}

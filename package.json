@@ -170,16 +170,6 @@
                 "default": true,
                 "group": "post"
             },
-            "contact_email": {
-                "type": "text",
-                "default": "",
-                "group": "contact"
-            },
-            "booking_url": {
-                "type": "text",
-                "default": "/calendar/",
-                "group": "contact"
-            },
             "newsletter_signup_url": {
                 "type": "text",
                 "default": "",

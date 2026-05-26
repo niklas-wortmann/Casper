@@ -8,15 +8,10 @@
             {{#if custom_excerpt}}
                 <p class="collection-description">{{custom_excerpt}}</p>
             {{/if}}
-            <div class="collection-actions">
-                <span class="collection-chip">AI reality checks</span>
-                <span class="collection-chip">Engineering judgment</span>
-                <span class="collection-chip">Developer tooling</span>
-            </div>
         </section>
     {{/post}}
 
-    <section class="talks-summary">
+    <section class="talks-summary talks-summary--single">
         <article class="talks-summary-card">
             <div class="talks-summary-kicker">For working developers</div>
             <h2>Practical talks on where AI helps the work, where it fails, and what engineers still own.</h2>
@@ -24,21 +19,6 @@
                 <span>Real workflows</span>
                 <span>Code quality</span>
                 <span>Frontend teams</span>
-            </div>
-        </article>
-        <article class="talks-summary-card talks-summary-card--cta">
-            <div class="talks-summary-kicker">Speaking invitations</div>
-            <h2>Bring an honest AI-for-developers talk to your event</h2>
-            <p>Share your audience and format. I&apos;ll shape a keynote or workshop around practical AI adoption, developer tooling, and engineering craft.</p>
-            <div class="talks-summary-actions">
-                {{#if @custom.booking_url}}
-                    <a class="hero-button" href="{{@custom.booking_url}}">Discuss an event</a>
-                {{else}}
-                    <a class="hero-button" href="{{@site.url}}/calendar/">Discuss an event</a>
-                {{/if}}
-                {{#if @custom.contact_email}}
-                    <a class="hero-button hero-button--ghost" href="mailto:{{@custom.contact_email}}">Email me</a>
-                {{/if}}
             </div>
         </article>
     </section>

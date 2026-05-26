@@ -9,9 +9,9 @@
             <h1>Hey, I&apos;m Jan-Niklas</h1>
             <p>I test AI coding workflows against real codebases, then explain what held up, what broke, and why it matters for the developer shipping the result.</p>
             <div class="about-profile-links">
-                <a href="{{@site.url}}/blog/">Read field notes</a>
-                <a href="{{@site.url}}/talk/">See talks</a>
-                <a href="{{@site.url}}/calendar/">Invite me to speak</a>
+                <a href="{{@site.url}}/blog/">Read blog</a>
+                <a href="{{@site.url}}/podcast/">Watch podcast</a>
+                <a href="{{@site.url}}/calendar/">Coffee chat</a>
             </div>
         </div>
     </div>
@@ -31,11 +31,11 @@
                 <p>My take on AI tools is simple: show the workflow, show the failure modes, and make the verdict useful to developers who still own the result.</p>
 
                 <h2>What You&apos;ll Find Here</h2>
-                <p>This site is built for working web developers. I publish AI reality checks, lessons in engineering craft, grounded takes on industry shifts, conference talks, and <strong>Dev&apos;s Brew</strong>, my newsletter and podcast about AI workflows that survive contact with real code.</p>
+                <p>This site is built for working web developers. I publish tested AI workflows, lessons in engineering craft, grounded takes on industry shifts, conference talks, and podcast conversations about ideas that survive contact with real code.</p>
 
-                <h2>Bring Me a Real Problem</h2>
-                <p>If your audience wants an honest talk about AI-assisted development, frontend tooling, or engineering judgment, let&apos;s shape something practical.</p>
-                <p><a href="/calendar/">Invite me to speak</a> or reach out on any of the social platforms above.</p>
+                <h2>Outside the Experiments</h2>
+                <p>When I&apos;m not testing workflows or recording conversations, I&apos;m usually chasing better coffee and spending time with my family.</p>
+                <p><a href="/calendar/">Grab a coffee chat</a> if you want to swap notes on AI tools, frontend engineering, or an interesting idea.</p>
             {{/if}}
         </section>
 
@@ -48,28 +48,6 @@
             </section>
         {{/if}}
 
-        <section class="about-contact gh-canvas">
-            <div class="about-contact-card">
-                <h2>Bring this to your audience</h2>
-                <p>For keynotes, workshops, podcasts, or developer-tooling collaborations, share the audience and problem. We&apos;ll choose a useful format.</p>
-                <div class="about-contact-actions">
-                    {{#if @custom.booking_url}}
-                        <a class="hero-button" href="{{@custom.booking_url}}">Discuss an idea</a>
-                    {{else}}
-                        <a class="hero-button" href="{{@site.url}}/calendar/">Discuss an idea</a>
-                    {{/if}}
-                    {{#if @custom.contact_email}}
-                        <a class="hero-button hero-button--ghost" href="mailto:{{@custom.contact_email}}">Email me</a>
-                    {{/if}}
-                </div>
-            </div>
-        </section>
-
-        {{#if comments}}
-            <section class="article-comments gh-canvas">
-                {{comments}}
-            </section>
-        {{/if}}
     </article>
 </main>
 {{/post}}

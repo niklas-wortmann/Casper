@@ -5234,6 +5234,10 @@ a {
     gap: 18px;
 }
 
+.talks-summary--single {
+    grid-template-columns: minmax(0, 760px);
+}
+
 .talks-summary-card {
     padding: 24px;
     border-radius: var(--wm-radius);
