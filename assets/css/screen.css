@@ -5498,6 +5498,7 @@ a {
     padding-top: 42px;
     padding-bottom: 42px;
     background: linear-gradient(118deg, rgba(61, 34, 26, 0.76) 0%, rgba(42, 24, 20, 0.46) 100%);
+    border-bottom: 1px solid rgba(212, 141, 106, 0.14);
 }
 
 .about-profile-inner {
@@ -5557,13 +5558,18 @@ a {
 }
 
 .about-page {
-    padding-top: 8px;
+    padding: clamp(40px, 6vw, 72px) 0 clamp(56px, 8vw, 88px);
+    background: transparent;
 }
 
 .about-content {
     max-width: 780px;
     margin: 0 auto;
-    padding-top: 20px;
+    padding: clamp(28px, 4vw, 40px);
+    border-radius: var(--wm-radius-lg);
+    border: 1px solid rgba(212, 141, 106, 0.16);
+    background: rgba(42, 26, 20, 0.72);
+    box-shadow: 0 18px 42px rgba(10, 5, 3, 0.24);
 }
 
 .about-content h2 {
@@ -5595,7 +5601,7 @@ a {
 
 .about-contact {
     max-width: 780px;
-    margin: 36px auto 0;
+    margin: 28px auto 0;
 }
 
 .about-contact-card {
@@ -5625,6 +5631,29 @@ a {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+}
+
+.page-about .about-contact .hero-button--ghost {
+    border-color: rgba(212, 141, 106, 0.36);
+    background: rgba(26, 15, 14, 0.5);
+    color: var(--wm-text);
+}
+
+.page-about .about-highlights {
+    max-width: 780px;
+    margin: 28px auto 0;
+}
+
+.page-about .about-highlights h2 {
+    color: var(--wm-copper);
+    font-family: var(--font-serif);
+}
+
+.page-about .about-highlights-content {
+    border-color: rgba(212, 141, 106, 0.18);
+    background: rgba(42, 26, 20, 0.72);
+    box-shadow: var(--wm-shadow-soft);
+    color: var(--wm-text-soft);
 }
 
 /* Calendar */
