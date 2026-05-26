@@ -16,46 +16,47 @@
         </section>
     {{/post}}
 
-    {{#get "posts" filter="tag:blog" include="tags,authors" limit="7" as |posts|}}
+    {{#get "posts" filter="tag:blog+slug:agent-instructions" include="tags,authors" limit="1" as |posts|}}
+        {{#foreach posts}}
+            <section class="featured-post">
+                <h2 class="featured-post-title">Featured</h2>
+                <article class="featured-post-card">
+                    <a class="featured-post-image-link{{#unless feature_image}} featured-post-image-link--fallback{{/unless}}" href="{{url}}" aria-label="{{title}}">
+                        {{#if feature_image}}
+                            <img class="featured-post-image"
+                                srcset="{{img_url feature_image size="s"}} 300w,
+                                        {{img_url feature_image size="m"}} 600w,
+                                        {{img_url feature_image size="l"}} 1000w,
+                                        {{img_url feature_image size="xl"}} 2000w"
+                                sizes="(max-width: 1200px) 100vw, 1200px"
+                                src="{{img_url feature_image size="l"}}"
+                                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                loading="eager"
+                            />
+                        {{else}}
+                            <div class="featured-post-image featured-post-image--fallback"></div>
+                        {{/if}}
+                    </a>
+                    <div class="featured-post-content">
+                        <span class="featured-post-kicker">Featured post</span>
+                        <h2><a href="{{url}}">{{title}}</a></h2>
+                        {{#if excerpt}}
+                            <p>{{excerpt}}</p>
+                        {{/if}}
+                        <div class="featured-post-meta">
+                            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time>
+                            <span>{{reading_time}}</span>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        {{/foreach}}
+    {{/get}}
+
+    {{#get "posts" filter="tag:blog+slug:-agent-instructions" include="tags,authors" limit="6" as |posts|}}
         {{#if posts.length}}
-            {{#foreach posts}}
-                {{#if @first}}
-                    <section class="featured-post">
-                        <h2 class="featured-post-title">Featured</h2>
-                        <article class="featured-post-card">
-                            <a class="featured-post-image-link{{#unless feature_image}} featured-post-image-link--fallback{{/unless}}" href="{{url}}" aria-label="{{title}}">
-                                {{#if feature_image}}
-                                    <img class="featured-post-image"
-                                        srcset="{{img_url feature_image size="s"}} 300w,
-                                                {{img_url feature_image size="m"}} 600w,
-                                                {{img_url feature_image size="l"}} 1000w,
-                                                {{img_url feature_image size="xl"}} 2000w"
-                                        sizes="(max-width: 1200px) 100vw, 1200px"
-                                        src="{{img_url feature_image size="l"}}"
-                                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                                        loading="eager"
-                                    />
-                                {{else}}
-                                    <div class="featured-post-image featured-post-image--fallback"></div>
-                                {{/if}}
-                            </a>
-                            <div class="featured-post-content">
-                                <span class="featured-post-kicker">Featured post</span>
-                                <h2><a href="{{url}}">{{title}}</a></h2>
-                                {{#if excerpt}}
-                                    <p>{{excerpt}}</p>
-                                {{/if}}
-                                <div class="featured-post-meta">
-                                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time>
-                                    <span>{{reading_time}}</span>
-                                </div>
-                            </div>
-                        </article>
-                    </section>
-                {{else}}
-                    {{#match @number "=" 2}}
-                        <section class="collection-post-grid">
-                    {{/match}}
+            <section class="collection-post-grid">
+                {{#foreach posts}}
                     <article class="collection-post-card">
                         <a class="collection-post-image-link{{#unless feature_image}} collection-post-image-link--fallback{{/unless}}" href="{{url}}" aria-label="{{title}}">
                             {{#if feature_image}}
@@ -83,11 +84,8 @@
                             <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}} &middot; {{reading_time}}</time>
                         </div>
                     </article>
-                    {{#if @last}}
-                        </section>
-                    {{/if}}
-                {{/if}}
-            {{/foreach}}
+                {{/foreach}}
+            </section>
         {{/if}}
     {{/get}}
 
