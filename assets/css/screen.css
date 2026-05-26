@@ -4871,6 +4871,7 @@ a {
     border: 0;
     background: transparent;
     font-size: 0.9rem;
+    line-height: 1.1;
     letter-spacing: 0.01em;
     color: var(--wm-copper);
 }
@@ -4888,7 +4889,9 @@ a {
 }
 
 .latest-stack-item time {
+    display: block;
     font-size: 0.86rem;
+    line-height: 1.15;
     color: var(--wm-text-muted);
 }
 
@@ -5886,8 +5889,8 @@ a {
     }
 
     .home-template .site-header-content {
-        padding-top: 56px;
-        padding-bottom: 56px;
+        padding-top: 124px;
+        padding-bottom: 14px;
     }
 
     .home-template .brand-hero-name {
@@ -5904,7 +5907,7 @@ a {
 
     .home-template .brand-hero-description {
         max-width: 430px;
-        margin-top: 34px;
+        margin-top: 30px;
         font-size: 1.28rem;
         line-height: 1.4;
     }
