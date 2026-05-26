@@ -5408,6 +5408,22 @@ a {
     margin-top: 26px;
 }
 
+.podcast-platform-actions {
+    flex-wrap: wrap;
+}
+
+.podcast-platform-button {
+    border-color: rgba(228, 166, 130, 0.46);
+    background: var(--wm-bg-card);
+    box-shadow: inset 0 0 0 1px rgba(212, 141, 106, 0.08);
+    color: var(--wm-text);
+}
+
+.podcast-platform-button:hover {
+    background: rgba(61, 38, 30, 0.96);
+    box-shadow: 0 12px 24px rgba(10, 5, 3, 0.22);
+}
+
 .podcast-listing-header h2 {
     margin: 0;
     font-family: var(--font-serif);

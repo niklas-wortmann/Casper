@@ -180,11 +180,6 @@
                 "default": "",
                 "group": "newsletter"
             },
-            "podcast_status": {
-                "type": "text",
-                "default": "",
-                "group": "podcast"
-            },
             "speaking_highlights": {
                 "type": "text",
                 "default": "",

@@ -8,12 +8,10 @@
             {{#if custom_excerpt}}
                 <p class="collection-description">{{custom_excerpt}}</p>
             {{/if}}
-            {{#if @custom.podcast_status}}
-                <p class="collection-status">{{@custom.podcast_status}}</p>
-            {{/if}}
-            <div class="collection-actions">
+            <div class="collection-actions podcast-platform-actions">
                 <a class="hero-button" href="https://open.spotify.com/show/6uG7XUDtY6QqkjG5RmgvPZ" target="_blank" rel="noopener">Listen on Spotify</a>
-                <a class="hero-button hero-button--ghost" href="https://www.youtube.com/@wordmandotdev" target="_blank" rel="noopener">Watch on YouTube</a>
+                <a class="hero-button podcast-platform-button" href="https://podcasts.apple.com/us/podcast/the-weekly-devs-brew/id1818009834" target="_blank" rel="noopener">Apple Podcasts</a>
+                <a class="hero-button podcast-platform-button" href="https://www.youtube.com/@wordmandotdev" target="_blank" rel="noopener">Watch on YouTube</a>
             </div>
         </section>
     {{/post}}
