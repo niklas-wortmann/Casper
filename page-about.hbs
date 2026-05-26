@@ -1,20 +1,18 @@
 {{!< default}}
 
 {{#post}}
-<header class="site-header">
-    <div class="site-header-content outer">
-        <div class="site-header-inner inner">
-            <section class="brand-hero brand-hero--about">
-                <h1 class="brand-hero-name">JAN-NIKLAS<br>WORTMANN</h1>
-                <div class="brand-hero-avatar">
-                    <img src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
-                </div>
-                <p class="brand-hero-description">Developer Advocate @ JetBrains. Helping dev teams navigate AI tooling, TypeScript, and modern JavaScript &mdash; without the hype.</p>
-                <div class="hero-actions">
-                    <a class="hero-button" href="{{@site.url}}/blog/">Read the blog</a>
-                    <a class="hero-button hero-button--ghost" href="{{@site.url}}/talk/">View talks</a>
-                </div>
-            </section>
+<header class="about-profile outer">
+    <div class="inner about-profile-inner">
+        <img class="about-profile-avatar" src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
+        <div class="about-profile-copy">
+            <p class="about-profile-kicker">Developer Advocate &middot; JetBrains</p>
+            <h1>Hey, I&apos;m Jan-Niklas</h1>
+            <p>Building thoughtful developer experiences, sharing what works, and documenting the AI tooling experiments worth keeping.</p>
+            <div class="about-profile-links">
+                <a href="{{@site.url}}/blog/">Read the blog</a>
+                <a href="{{@site.url}}/talk/">See talks</a>
+                <a href="{{@site.url}}/calendar/">Book a call</a>
+            </div>
         </div>
     </div>
 </header>

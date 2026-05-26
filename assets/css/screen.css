@@ -4675,6 +4675,10 @@ a {
     line-height: 1.55;
 }
 
+.home-template .brand-hero-description {
+    margin-top: clamp(112px, 10.5vw, 144px);
+}
+
 .hero-actions {
     margin-top: 10px;
     gap: 12px;
@@ -4808,7 +4812,7 @@ a {
 
 .latest-stack-card {
     position: relative;
-    max-width: 930px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 11px 0 9px;
     border-radius: 4px;
@@ -4841,7 +4845,7 @@ a {
 
 .latest-stack-item {
     position: relative;
-    margin: 0 28px;
+    margin: 0 22px;
     border-radius: 0;
     background: transparent;
     border: 0;
@@ -4884,7 +4888,7 @@ a {
 .latest-stack-item h2 {
     overflow: hidden;
     margin: 1px 0;
-    font-size: clamp(1.36rem, 1.65vw, 1.68rem);
+    font-size: clamp(1.36rem, 1.16vw, 1.7rem);
     line-height: 1.18;
     font-family: var(--font-sans);
     font-weight: 650;
@@ -4901,6 +4905,29 @@ a {
 }
 
 /* Collections */
+
+.page-template:not(.page-about) .viewport,
+.page-template:not(.page-about) .site-content,
+.page-collection {
+    background: #fff8f0;
+    color: #2b1914;
+}
+
+.page-template:not(.page-about) .viewport::before {
+    display: none;
+}
+
+.page-template:not(.page-about) .gh-head {
+    background: #3b241c;
+    border-bottom-color: rgba(255, 242, 227, 0.14);
+    box-shadow: none;
+}
+
+.page-template:not(.page-about) .site-footer {
+    background: #3b241c;
+    border-top: 0;
+    color: #f2dccb;
+}
 
 .page-collection {
     padding-top: 34px;
@@ -4929,7 +4956,7 @@ a {
     font-size: clamp(5rem, 9vw, 9rem);
     line-height: 0.95;
     letter-spacing: -0.025em;
-    color: var(--wm-copper);
+    color: #30201a;
 }
 
 .collection-description {
@@ -4937,7 +4964,7 @@ a {
     max-width: 720px;
     font-size: clamp(1.45rem, 1.55vw, 1.85rem);
     line-height: 1.55;
-    color: var(--wm-text-soft);
+    color: #765d52;
 }
 
 .collection-actions {
@@ -4946,12 +4973,29 @@ a {
     gap: 8px;
 }
 
+.page-collection--talks .collection-hero {
+    max-width: 860px;
+    text-align: left;
+}
+
+.page-collection--talks .collection-title {
+    font-size: clamp(4.4rem, 6vw, 6.4rem);
+}
+
+.page-collection--talks .collection-description {
+    margin-left: 0;
+}
+
+.page-collection--talks .collection-actions {
+    justify-content: flex-start;
+}
+
 .collection-chip {
     padding: 8px 14px;
     border-radius: var(--wm-pill);
     border: 1px solid rgba(212, 141, 106, 0.22);
-    background: rgba(42, 26, 20, 0.66);
-    color: var(--wm-text-soft);
+    background: #f5e8da;
+    color: #785a4d;
     font-size: 1.02rem;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -5036,9 +5080,9 @@ a {
 .collection-post-card {
     position: relative;
     border-radius: var(--wm-radius);
-    background: var(--wm-bg-card);
-    border: 1px solid rgba(212, 141, 106, 0.2);
-    box-shadow: var(--wm-shadow-soft);
+    background: #fffdf9;
+    border: 1px solid #eddfd1;
+    box-shadow: 0 10px 22px rgba(64, 41, 29, 0.08);
     overflow: hidden;
 }
 
@@ -5090,7 +5134,7 @@ a {
     font-size: clamp(2.1rem, 2.2vw, 2.8rem);
     line-height: 1.18;
     font-family: var(--font-serif);
-    color: var(--wm-copper);
+    color: #30201a;
 }
 
 .collection-post-content h3 a {
@@ -5099,7 +5143,7 @@ a {
 
 .collection-post-content p {
     margin: 10px 0 0;
-    color: var(--wm-text-soft);
+    color: #765d52;
     font-size: 1.4rem;
     line-height: 1.5;
     display: -webkit-box;
@@ -5112,7 +5156,7 @@ a {
     display: block;
     margin-top: 11px;
     font-size: 1.14rem;
-    color: var(--wm-text-muted);
+    color: #a08372;
 }
 
 .collection-view-all {
@@ -5135,16 +5179,16 @@ a {
 
 .talks-summary-card {
     padding: 24px;
-    border-radius: 20px;
-    background: var(--wm-bg-card);
-    border: 1px solid rgba(212, 141, 106, 0.2);
-    box-shadow: var(--wm-shadow-soft);
+    border-radius: 10px;
+    background: #fffdf9;
+    border: 1px solid #eddfd1;
+    box-shadow: 0 8px 18px rgba(64, 41, 29, 0.06);
 }
 
 .talks-summary-kicker {
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: var(--wm-text-muted);
+    color: #b06f4c;
     font-size: 1.05rem;
 }
 
@@ -5153,14 +5197,14 @@ a {
     font-family: var(--font-serif);
     font-size: clamp(2.6rem, 3vw, 4rem);
     line-height: 1.1;
-    color: var(--wm-copper);
+    color: #30201a;
 }
 
 .talks-summary-card p {
     margin: 10px 0 0;
     font-size: 1.44rem;
     line-height: 1.56;
-    color: var(--wm-text-soft);
+    color: #765d52;
 }
 
 .talks-summary-tags {
@@ -5174,7 +5218,8 @@ a {
     padding: 7px 12px;
     border-radius: var(--wm-pill);
     border: 1px solid rgba(212, 141, 106, 0.22);
-    color: var(--wm-text-soft);
+    background: #f5e8da;
+    color: #785a4d;
     font-size: 1.08rem;
 }
 
@@ -5197,12 +5242,12 @@ a {
     margin: 0;
     font-family: var(--font-serif);
     font-size: clamp(3.2rem, 4vw, 4.4rem);
-    color: var(--wm-copper);
+    color: #30201a;
 }
 
 .talks-feed-header p {
     margin-top: 8px;
-    color: var(--wm-text-soft);
+    color: #765d52;
     font-size: 1.48rem;
 }
 
@@ -5241,10 +5286,10 @@ a {
 
 .issue-card {
     position: relative;
-    border-radius: 18px;
-    border: 1px solid rgba(212, 141, 106, 0.2);
-    background: var(--wm-bg-card);
-    box-shadow: var(--wm-shadow-soft);
+    border-radius: 10px;
+    border: 1px solid #eddfd1;
+    background: #fffdf9;
+    box-shadow: 0 8px 18px rgba(64, 41, 29, 0.06);
 }
 
 .issue-card-link {
@@ -5275,7 +5320,7 @@ a {
 .issue-card h3 {
     margin: 0;
     font-family: var(--font-serif);
-    color: var(--wm-copper);
+    color: #30201a;
     font-size: clamp(2.2rem, 2.5vw, 3rem);
     line-height: 1.15;
 }
@@ -5284,7 +5329,7 @@ a {
     margin: 8px 0 0;
     font-size: 1.36rem;
     line-height: 1.5;
-    color: var(--wm-text-soft);
+    color: #765d52;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -5294,7 +5339,7 @@ a {
 .issue-card time {
     display: block;
     margin-top: 10px;
-    color: var(--wm-text-muted);
+    color: #a08372;
     font-size: 1.1rem;
 }
 
@@ -5318,20 +5363,14 @@ a {
 
 .podcast-episode-card {
     position: relative;
-    border-radius: 18px;
-    border: 1px solid rgba(212, 141, 106, 0.2);
-    background: var(--wm-bg-card);
-    box-shadow: var(--wm-shadow-soft);
+    border-radius: 10px;
+    border: 1px solid #eddfd1;
+    background: #fffdf9;
+    box-shadow: 0 8px 18px rgba(64, 41, 29, 0.06);
 }
 
 .podcast-episode-card::after {
-    content: "";
-    position: absolute;
-    inset: auto 12px -8px;
-    height: 14px;
-    border-radius: 0 0 16px 16px;
-    background: rgba(0, 0, 0, 0.32);
-    filter: blur(5px);
+    display: none;
 }
 
 .podcast-episode-link {
@@ -5364,13 +5403,13 @@ a {
     font-family: var(--font-serif);
     font-size: clamp(2.2rem, 2.8vw, 3.4rem);
     line-height: 1.14;
-    color: var(--wm-copper);
+    color: #30201a;
 }
 
 .podcast-episode-content p {
     margin: 7px 0 0;
     font-size: 1.38rem;
-    color: var(--wm-text-soft);
+    color: #765d52;
     line-height: 1.48;
 }
 
@@ -5378,10 +5417,87 @@ a {
     display: block;
     margin-top: 10px;
     font-size: 1.11rem;
-    color: var(--wm-text-muted);
+    color: #a08372;
 }
 
 /* About */
+
+.page-about .viewport,
+.page-about .site-content {
+    background: #fff8f0;
+    color: #30201a;
+}
+
+.page-about .viewport::before {
+    display: none;
+}
+
+.page-about .gh-head,
+.page-about .site-footer {
+    background: #3b241c;
+}
+
+.about-profile {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    background: linear-gradient(118deg, #70442f 0%, #8e5c3c 100%);
+}
+
+.about-profile-inner {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    max-width: 960px;
+}
+
+.about-profile-avatar {
+    width: 116px;
+    height: 116px;
+    border-radius: 50%;
+    padding: 4px;
+    background: #d38d68;
+}
+
+.about-profile-copy {
+    max-width: 630px;
+}
+
+.about-profile-kicker {
+    margin: 0 0 7px;
+    color: #f1ccad;
+    font-size: 1.05rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.about-profile-copy h1 {
+    margin: 0;
+    color: #fff5ea;
+    font-family: var(--font-serif);
+    font-size: clamp(3.4rem, 4.4vw, 5rem);
+    line-height: 1.05;
+}
+
+.about-profile-copy > p:not(.about-profile-kicker) {
+    max-width: 580px;
+    margin: 10px 0 0;
+    color: #f6e5d6;
+    font-size: 1.42rem;
+    line-height: 1.5;
+}
+
+.about-profile-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.about-profile-links a {
+    color: #fff2e1;
+    font-size: 1.2rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
 
 .about-page {
     padding-top: 8px;
@@ -5407,17 +5523,17 @@ a {
 
 .about-content p,
 .about-content ul {
-    color: var(--wm-text-soft);
+    color: #5f493f;
     font-size: 1.65rem;
     line-height: 1.68;
 }
 
 .about-content strong {
-    color: var(--wm-text);
+    color: #30201a;
 }
 
 .about-content a {
-    color: var(--wm-copper-bright);
+    color: #b76845;
 }
 
 .about-contact {
@@ -5427,9 +5543,9 @@ a {
 
 .about-contact-card {
     border-radius: 20px;
-    border: 1px solid rgba(212, 141, 106, 0.24);
-    background: var(--wm-bg-card);
-    box-shadow: var(--wm-shadow-soft);
+    border: 1px solid #eddfd1;
+    background: #fffdf9;
+    box-shadow: 0 10px 22px rgba(64, 41, 29, 0.08);
     padding: 24px;
 }
 
@@ -5442,7 +5558,7 @@ a {
 
 .about-contact-card p {
     margin-top: 10px;
-    color: var(--wm-text-soft);
+    color: #765d52;
     font-size: 1.48rem;
     line-height: 1.55;
 }
@@ -5906,14 +6022,18 @@ a {
     }
 
     .home-template .brand-hero-avatar {
-        top: 43%;
+        position: relative;
+        top: auto;
+        left: auto;
         width: clamp(105px, 17.5vw, 134px);
+        margin-top: 8px;
         padding: 5px;
+        transform: none;
     }
 
     .home-template .brand-hero-description {
         max-width: 430px;
-        margin-top: 30px;
+        margin-top: 8px;
         font-size: 1.28rem;
         line-height: 1.4;
     }
@@ -5985,6 +6105,14 @@ a {
     .collection-post-grid,
     .issue-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .about-profile-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
     }
 }
 

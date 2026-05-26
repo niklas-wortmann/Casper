@@ -63,8 +63,16 @@
                 <button class="gh-burger" aria-label="Main Menu"></button>
             </div>
 
-            <nav class="gh-head-menu">
-                {{navigation}}
+            <nav class="gh-head-menu" aria-label="Primary navigation">
+                <ul class="nav">
+                    <li class="nav-home{{#is "home"}} nav-current{{/is}}"><a href="{{@site.url}}/">Home</a></li>
+                    <li class="nav-about{{#is "page"}}{{#post}}{{#match slug "about"}} nav-current{{/match}}{{/post}}{{/is}}"><a href="{{@site.url}}/about/">About</a></li>
+                    <li class="nav-calendar"><a href="{{@site.url}}/calendar/">Calendar</a></li>
+                    <li class="nav-blog{{#is "page"}}{{#post}}{{#match slug "blog"}} nav-current{{/match}}{{/post}}{{/is}}"><a href="{{@site.url}}/blog/">Blog</a></li>
+                    <li class="nav-talks{{#is "page"}}{{#post}}{{#match slug "talk"}} nav-current{{/match}}{{/post}}{{/is}}"><a href="{{@site.url}}/talk/">Talks</a></li>
+                    <li class="nav-newsletter{{#is "page"}}{{#post}}{{#match slug "newsletter"}} nav-current{{/match}}{{/post}}{{/is}}"><a href="{{@site.url}}/newsletter/">Newsletter</a></li>
+                    <li class="nav-podcast{{#is "page"}}{{#post}}{{#match slug "podcast"}} nav-current{{/match}}{{/post}}{{/is}}"><a href="{{@site.url}}/podcast/">Podcast</a></li>
+                </ul>
             </nav>
 
             <div class="gh-head-actions">
