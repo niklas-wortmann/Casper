@@ -1,0 +1,25 @@
+{{!< default}}
+
+{{#post}}
+<main id="site-main" class="site-main outer calendar-page">
+    <div class="inner calendar-layout">
+        <section class="calendar-intro">
+            <p class="calendar-kicker">Book a conversation</p>
+            <h1>{{title}}</h1>
+            {{#if custom_excerpt}}
+                <p class="calendar-description">{{custom_excerpt}}</p>
+            {{else}}
+                <p class="calendar-description">Pick a time to talk about keynotes, workshops, developer experience, TypeScript, or practical AI adoption.</p>
+            {{/if}}
+            <div class="calendar-notes">
+                <span>Keynotes</span>
+                <span>Workshops</span>
+                <span>Advisory</span>
+            </div>
+        </section>
+        <section class="calendar-panel gh-content">
+            {{content}}
+        </section>
+    </div>
+</main>
+{{/post}}
