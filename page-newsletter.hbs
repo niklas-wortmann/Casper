@@ -13,9 +13,9 @@
             {{/if}}
             <div class="collection-actions">
                 {{#if @site.members_enabled}}
-                    <a class="hero-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                    <a class="hero-button" href="#/portal/signup" data-portal="signup">Get the next experiment</a>
                 {{else if @custom.newsletter_signup_url}}
-                    <a class="hero-button" href="{{@custom.newsletter_signup_url}}">Subscribe</a>
+                    <a class="hero-button" href="{{@custom.newsletter_signup_url}}">Get the next experiment</a>
                 {{/if}}
                 <a class="hero-button hero-button--ghost" href="#newsletter-archive">View archive</a>
             </div>
@@ -24,8 +24,8 @@
 
     <section class="newsletter-archive" id="newsletter-archive">
         <div class="newsletter-archive-header">
-            <h2>Newsletter Archive</h2>
-            <p>A collection of recent issues.</p>
+            <h2>Past experiments</h2>
+            <p>Previous workflow tests, verdicts, practical steps, and useful links.</p>
         </div>
         {{#get "posts" filter="tag:newsletter" include="tags,authors" limit="12" as |issues|}}
             {{#if issues.length}}

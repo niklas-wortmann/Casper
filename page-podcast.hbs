@@ -12,15 +12,15 @@
                 <p class="collection-status">{{@custom.podcast_status}}</p>
             {{/if}}
             <div class="collection-actions">
-                <a class="hero-button" href="https://open.spotify.com/show/6uG7XUDtY6QqkjG5RmgvPZ" target="_blank" rel="noopener">Spotify</a>
-                <a class="hero-button hero-button--ghost" href="#podcast-episodes">Episodes</a>
+                <a class="hero-button" href="https://open.spotify.com/show/6uG7XUDtY6QqkjG5RmgvPZ" target="_blank" rel="noopener">Listen on Spotify</a>
+                <a class="hero-button hero-button--ghost" href="#podcast-episodes">Browse episodes</a>
             </div>
         </section>
     {{/post}}
 
     <section class="podcast-listing" id="podcast-episodes">
         <div class="podcast-listing-header">
-            <h2>Latest posts</h2>
+            <h2>Recent episodes</h2>
         </div>
         {{#get "posts" filter="tag:podcast" include="tags,authors" limit="20" as |episodes|}}
             {{#if episodes.length}}

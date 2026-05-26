@@ -92,7 +92,7 @@
         }
 
         if (matchesPath(['/calendar/']) || hasBodyClass('page-calendar')) {
-            if (setByLabelOrPath('calendar', ['/calendar/'])) return;
+            if (setByLabelOrPath('speaking', ['/calendar/'])) return;
         }
 
         if (matchesPath(['/blog/']) || hasBodyClass('page-blog') || hasBodyClass('tag-blog')) {

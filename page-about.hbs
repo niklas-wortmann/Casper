@@ -5,13 +5,13 @@
     <div class="inner about-profile-inner">
         <img class="about-profile-avatar" src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
         <div class="about-profile-copy">
-            <p class="about-profile-kicker">Developer Advocate &middot; JetBrains</p>
+            <p class="about-profile-kicker">AI Developer Advocate &middot; JetBrains</p>
             <h1>Hey, I&apos;m Jan-Niklas</h1>
-            <p>Building thoughtful developer experiences, sharing what works, and documenting the AI tooling experiments worth keeping.</p>
+            <p>I test AI coding workflows against real codebases, then explain what held up, what broke, and why it matters for the developer shipping the result.</p>
             <div class="about-profile-links">
-                <a href="{{@site.url}}/blog/">Read the blog</a>
+                <a href="{{@site.url}}/blog/">Read field notes</a>
                 <a href="{{@site.url}}/talk/">See talks</a>
-                <a href="{{@site.url}}/calendar/">Book a call</a>
+                <a href="{{@site.url}}/calendar/">Invite me to speak</a>
             </div>
         </div>
     </div>
@@ -23,19 +23,19 @@
             {{#if content}}
                 {{content}}
             {{else}}
-                <h2>What I Do</h2>
-                <p>I work as a <strong>Developer Advocate at JetBrains</strong>, focused on JavaScript and TypeScript tooling. Most days that means learning something new, teaching it before I've fully figured it out, and bothering our team with annoying questions left and right.</p>
+                <h2>What I Test</h2>
+                <p>I work as an <strong>AI Developer Advocate at JetBrains</strong>. I test coding agents, IDE workflows, and developer-tooling ideas against the standard that matters: would I trust this in a real codebase?</p>
 
-                <p>I&apos;m part of the <strong>RxJS core team</strong> and an <strong>Angular Google Developer Expert (GDE)</strong>. I care about developer experience, not as a marketing angle, but because bad tooling slows people down in ways that compound over time.</p>
+                <p>I&apos;m a <strong>former RxJS core team member</strong> and an <strong>Angular Google Developer Expert (GDE)</strong>. That background keeps me focused on architecture, debugging, and maintainability rather than demo magic.</p>
 
-                <p>Lately I&apos;ve been spending a lot of time with AI developer tools. Not as a believer or a skeptic, but as someone trying to figure out what actually ships.</p>
+                <p>My take on AI tools is simple: show the workflow, show the failure modes, and make the verdict useful to developers who still own the result.</p>
 
                 <h2>What You&apos;ll Find Here</h2>
-                <p>This is where I think out loud. I write about TypeScript, AI in developer workflows, and what really happens when teams try to adopt new things. You&apos;ll also find my conference talks and <strong>The Weekly Dev&apos;s Brew</strong>, my newsletter and podcast about navigating the current AI moment without losing your sanity.</p>
+                <p>This site is built for working web developers. I publish AI reality checks, lessons in engineering craft, grounded takes on industry shifts, conference talks, and <strong>Dev&apos;s Brew</strong>, my newsletter and podcast about AI workflows that survive contact with real code.</p>
 
-                <h2>Beyond the Code</h2>
-                <p>Got a conference slot that needs filling, a tricky TypeScript problem, or opinions about AI agents you want to argue about? I&apos;m up for all of it.</p>
-                <p><a href="/calendar/">Book a call</a> or reach out on any of the social platforms above.</p>
+                <h2>Bring Me a Real Problem</h2>
+                <p>If your audience wants an honest talk about AI-assisted development, frontend tooling, or engineering judgment, let&apos;s shape something practical.</p>
+                <p><a href="/calendar/">Invite me to speak</a> or reach out on any of the social platforms above.</p>
             {{/if}}
         </section>
 
@@ -50,13 +50,13 @@
 
         <section class="about-contact gh-canvas">
             <div class="about-contact-card">
-                <h2>Work with me</h2>
-                <p>For keynotes, workshops, or product collaborations, share a few details and we&apos;ll shape the right format.</p>
+                <h2>Bring this to your audience</h2>
+                <p>For keynotes, workshops, podcasts, or developer-tooling collaborations, share the audience and problem. We&apos;ll choose a useful format.</p>
                 <div class="about-contact-actions">
                     {{#if @custom.booking_url}}
-                        <a class="hero-button" href="{{@custom.booking_url}}">Book a call</a>
+                        <a class="hero-button" href="{{@custom.booking_url}}">Discuss an idea</a>
                     {{else}}
-                        <a class="hero-button" href="{{@site.url}}/calendar/">Book a call</a>
+                        <a class="hero-button" href="{{@site.url}}/calendar/">Discuss an idea</a>
                     {{/if}}
                     {{#if @custom.contact_email}}
                         <a class="hero-button hero-button--ghost" href="mailto:{{@custom.contact_email}}">Email me</a>

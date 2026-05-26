@@ -9,9 +9,9 @@
                 <p class="collection-description">{{custom_excerpt}}</p>
             {{/if}}
             <div class="collection-actions">
-                <span class="collection-chip">Field notes</span>
-                <span class="collection-chip">Deep dives</span>
-                <span class="collection-chip">Newsletter</span>
+                <span class="collection-chip">AI reality checks</span>
+                <span class="collection-chip">Practitioner&apos;s edge</span>
+                <span class="collection-chip">Industry signal</span>
             </div>
         </section>
     {{/post}}
@@ -19,7 +19,7 @@
     {{#get "posts" filter="tag:blog+slug:agent-instructions" include="tags,authors" limit="1" as |posts|}}
         {{#foreach posts}}
             <section class="featured-post">
-                <h2 class="featured-post-title">Featured</h2>
+                <h2 class="featured-post-title">Start here</h2>
                 <article class="featured-post-card">
                     <a class="featured-post-image-link{{#unless feature_image}} featured-post-image-link--fallback{{/unless}}" href="{{url}}" aria-label="{{title}}">
                         {{#if feature_image}}
@@ -38,7 +38,7 @@
                         {{/if}}
                     </a>
                     <div class="featured-post-content">
-                        <span class="featured-post-kicker">Featured post</span>
+                        <span class="featured-post-kicker">Tested workflow</span>
                         <h2><a href="{{url}}">{{title}}</a></h2>
                         {{#if excerpt}}
                             <p>{{excerpt}}</p>

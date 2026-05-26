@@ -9,32 +9,32 @@
                 <p class="collection-description">{{custom_excerpt}}</p>
             {{/if}}
             <div class="collection-actions">
-                <span class="collection-chip">Conference tested</span>
-                <span class="collection-chip">Workshops + Keynotes</span>
-                <span class="collection-chip">Live demos</span>
+                <span class="collection-chip">AI reality checks</span>
+                <span class="collection-chip">Engineering judgment</span>
+                <span class="collection-chip">Developer tooling</span>
             </div>
         </section>
     {{/post}}
 
     <section class="talks-summary">
         <article class="talks-summary-card">
-            <div class="talks-summary-kicker">Signature formats</div>
-            <h2>Talks are built for dev teams who want calm, practical clarity and momentum.</h2>
+            <div class="talks-summary-kicker">For working developers</div>
+            <h2>Practical talks on where AI helps the work, where it fails, and what engineers still own.</h2>
             <div class="talks-summary-tags">
-                <span>TypeScript tested</span>
-                <span>Tooling + DX</span>
+                <span>Real workflows</span>
+                <span>Code quality</span>
                 <span>Frontend teams</span>
             </div>
         </article>
         <article class="talks-summary-card talks-summary-card--cta">
-            <div class="talks-summary-kicker">Speaker bookings</div>
-            <h2>Book me for your event</h2>
-            <p>Looking for a keynote, workshop, or internal training? Share your event details and we can tailor the format.</p>
+            <div class="talks-summary-kicker">Speaking invitations</div>
+            <h2>Bring an honest AI-for-developers talk to your event</h2>
+            <p>Share your audience and format. I&apos;ll shape a keynote or workshop around practical AI adoption, developer tooling, and engineering craft.</p>
             <div class="talks-summary-actions">
                 {{#if @custom.booking_url}}
-                    <a class="hero-button" href="{{@custom.booking_url}}">Book a call</a>
+                    <a class="hero-button" href="{{@custom.booking_url}}">Discuss an event</a>
                 {{else}}
-                    <a class="hero-button" href="{{@site.url}}/calendar/">Book a call</a>
+                    <a class="hero-button" href="{{@site.url}}/calendar/">Discuss an event</a>
                 {{/if}}
                 {{#if @custom.contact_email}}
                     <a class="hero-button hero-button--ghost" href="mailto:{{@custom.contact_email}}">Email me</a>
@@ -46,7 +46,7 @@
     <section class="talks-feed">
         <div class="talks-feed-header">
             <h2>Recent talks</h2>
-            <p>Slides and resources from recent stages and workshops.</p>
+            <p>Slides, examples, and takeaways for developers weighing AI workflows and modern tooling.</p>
         </div>
         {{#get "posts" filter="tag:talk,tag:talks" include="tags,authors" limit="6" as |talks|}}
             {{#if talks.length}}
