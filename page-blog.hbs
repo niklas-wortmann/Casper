@@ -21,6 +21,7 @@
             {{#foreach posts}}
                 {{#if @first}}
                     <section class="featured-post">
+                        <h2 class="featured-post-title">Featured</h2>
                         <article class="featured-post-card">
                             <a class="featured-post-image-link{{#unless feature_image}} featured-post-image-link--fallback{{/unless}}" href="{{url}}" aria-label="{{title}}">
                                 {{#if feature_image}}

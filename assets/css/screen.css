@@ -4970,13 +4970,14 @@ a {
     color: var(--wm-text-soft);
 }
 
-.page-collection--blog .featured-post::before {
-    content: "Featured";
-    display: block;
+.page-collection--blog .featured-post-title {
+    margin: 0 0 18px;
     margin-bottom: 18px;
     color: var(--wm-copper);
     font-family: var(--font-serif);
     font-size: clamp(3rem, 4vw, 4.4rem);
+    font-weight: 400;
+    line-height: 1.1;
     text-align: center;
 }
 
@@ -6182,7 +6183,7 @@ a {
     }
 
     .page-collection--blog {
-        padding-top: 32px;
+        padding-top: 22px;
     }
 
     .page-collection--blog .posts {
@@ -6198,7 +6199,12 @@ a {
     }
 
     .page-collection--blog .featured-post {
-        margin-top: 78px;
+        margin-top: 72px;
+    }
+
+    .page-collection--blog .featured-post-title {
+        margin-bottom: 18px;
+        font-size: 3.35rem;
     }
 
     .page-collection--blog .featured-post-card {
