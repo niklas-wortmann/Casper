@@ -10,7 +10,163 @@ into the {body} tag of the default.hbs template --}}
 <main id="site-main" class="site-main">
 <article class="article {{post_class}} {{#match @custom.post_image_style "Full"}}image-full{{else match @custom.post_image_style "=" "Small"}}image-small{{/match}}">
 
-    <header class="article-header gh-canvas">
+    <header class="article-header gh-canvas {{#has tag="podcast"}}podcast-article-header{{else has tag="talks"}}talk-article-header{{/has}}">
+
+        {{#has tag="podcast"}}
+        <div class="podcast-article-hero">
+            <div class="podcast-article-copy">
+                <div class="article-tag post-card-tags">
+                    {{#primary_tag}}
+                        <span class="post-card-primary-tag">
+                            <a href="{{url}}">{{name}}</a>
+                        </span>
+                    {{/primary_tag}}
+                    {{#if featured}}
+                        <span class="post-card-featured">{{> "icons/fire"}} Featured</span>
+                    {{/if}}
+                </div>
+
+                <div class="weekly-brew-post-logo">
+                    <img class="weekly-brew-logo weekly-brew-logo--dark" src="{{asset "images/weekly-devs-brew-logo-dark.svg"}}" alt="The Weekly Dev's Brew">
+                    <img class="weekly-brew-logo weekly-brew-logo--light" src="{{asset "images/weekly-devs-brew-logo-light.svg"}}" alt="The Weekly Dev's Brew">
+                </div>
+
+                <h1 class="article-title">{{title}}</h1>
+
+                {{#if custom_excerpt}}
+                    <p class="article-excerpt">{{custom_excerpt}}</p>
+                {{/if}}
+
+                <div class="podcast-listen-actions" aria-label="Listen to The Weekly Dev's Brew">
+                    <span class="podcast-listen-label">Listen on</span>
+                    <a class="podcast-listen-button podcast-listen-button--primary" href="https://open.spotify.com/show/6uG7XUDtY6QqkjG5RmgvPZ" target="_blank" rel="noopener">Spotify</a>
+                    <a class="podcast-listen-button" href="https://podcasts.apple.com/us/podcast/the-weekly-devs-brew/id1818009834" target="_blank" rel="noopener">Apple Podcasts</a>
+                    <a class="podcast-listen-button" href="https://www.youtube.com/@wordmandotdev" target="_blank" rel="noopener">YouTube</a>
+                </div>
+
+                <div class="article-byline">
+                <section class="article-byline-content">
+
+                    <ul class="author-list instapaper_ignore">
+                        {{#foreach authors}}
+                        <li class="author-list-item">
+                            {{#if profile_image}}
+                            <a href="{{url}}" class="author-avatar" aria-label="Read more of {{name}}">
+                                <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
+                            </a>
+                            {{else}}
+                            <a href="{{url}}" class="author-avatar" aria-label="Read more of {{name}}">
+                                <img class="author-profile-image" src="{{asset "images/wordman-headshot.png"}}" alt="{{name}}" />
+                            </a>
+                            {{/if}}
+                        </li>
+                        {{/foreach}}
+                    </ul>
+
+                    <div class="article-byline-meta">
+                        <h4 class="author-name">{{authors}}</h4>
+                        <div class="byline-meta-content">
+                            <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time>
+                            {{#if reading_time}}
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> {{reading_time}}</span>
+                            {{/if}}
+                        </div>
+                    </div>
+
+                </section>
+                </div>
+            </div>
+
+            {{#match @custom.post_image_style "!=" "Hidden"}}
+            {{#if feature_image}}
+                <figure class="podcast-article-image">
+                    <img
+                        srcset="{{img_url feature_image size="s"}} 300w,
+                                {{img_url feature_image size="m"}} 600w,
+                                {{img_url feature_image size="l"}} 1000w"
+                        sizes="(min-width: 768px) 340px, calc(100vw - 40px)"
+                        src="{{img_url feature_image size="m"}}"
+                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                    />
+                    {{#if feature_image_caption}}
+                        <figcaption>{{feature_image_caption}}</figcaption>
+                    {{/if}}
+                </figure>
+            {{else}}
+                <figure class="podcast-article-image article-image--fallback" aria-hidden="true">
+                    <div class="post-card-image post-card-image--fallback"></div>
+                </figure>
+            {{/if}}
+            {{/match}}
+        </div>
+        {{else}}
+
+        {{#has tag="talks"}}
+        <div class="talk-article-hero">
+            <div class="talk-article-copy">
+                <div class="article-tag post-card-tags">
+                    {{#primary_tag}}
+                        <span class="post-card-primary-tag">
+                            <a href="{{url}}">{{name}}</a>
+                        </span>
+                    {{/primary_tag}}
+                    {{#if featured}}
+                        <span class="post-card-featured">{{> "icons/fire"}} Featured</span>
+                    {{/if}}
+                </div>
+
+                <h1 class="article-title">{{title}}</h1>
+
+                {{#if custom_excerpt}}
+                    <p class="article-excerpt">{{custom_excerpt}}</p>
+                {{/if}}
+
+                <div class="article-byline">
+                <section class="article-byline-content">
+
+                    <ul class="author-list instapaper_ignore">
+                        {{#foreach authors}}
+                        <li class="author-list-item">
+                            {{#if profile_image}}
+                            <a href="{{url}}" class="author-avatar" aria-label="Read more of {{name}}">
+                                <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
+                            </a>
+                            {{else}}
+                            <a href="{{url}}" class="author-avatar" aria-label="Read more of {{name}}">
+                                <img class="author-profile-image" src="{{asset "images/wordman-headshot.png"}}" alt="{{name}}" />
+                            </a>
+                            {{/if}}
+                        </li>
+                        {{/foreach}}
+                    </ul>
+
+                    <div class="article-byline-meta">
+                        <h4 class="author-name">{{authors}}</h4>
+                        <div class="byline-meta-content">
+                            <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time>
+                        </div>
+                    </div>
+
+                </section>
+                </div>
+            </div>
+
+            {{#match @custom.post_image_style "!=" "Hidden"}}
+            {{#if feature_image}}
+                <figure class="talk-article-image">
+                    <img
+                        srcset="{{img_url feature_image size="s"}} 300w,
+                                {{img_url feature_image size="m"}} 600w,
+                                {{img_url feature_image size="l"}} 1000w"
+                        sizes="(min-width: 768px) 400px, calc(100vw - 40px)"
+                        src="{{img_url feature_image size="m"}}"
+                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                    />
+                </figure>
+            {{/if}}
+            {{/match}}
+        </div>
+        {{else}}
 
         <div class="article-tag post-card-tags">
             {{#primary_tag}}
@@ -92,6 +248,9 @@ into the {body} tag of the default.hbs template --}}
             </figure>
         {{/if}}
         {{/match}}
+
+        {{/has}}
+        {{/has}}
 
     </header>
 

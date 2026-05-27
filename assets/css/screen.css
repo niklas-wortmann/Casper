@@ -5951,6 +5951,298 @@ a {
     background: var(--wm-gradient);
 }
 
+/* Podcast episode detail */
+
+.podcast-article-header {
+    padding-bottom: max(3.8vmin, 32px) !important;
+}
+
+.podcast-article-hero {
+    grid-column: wide-start / wide-end;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 340px);
+    gap: clamp(28px, 4.8vw, 64px);
+    align-items: center;
+}
+
+.podcast-article-copy .weekly-brew-post-logo {
+    margin-top: 18px;
+}
+
+.podcast-article-copy .article-title {
+    margin-top: 14px;
+    font-size: clamp(3.8rem, 4.8vw, 5.6rem);
+    line-height: 1.06;
+}
+
+.podcast-article-copy .article-excerpt {
+    max-width: 57ch;
+    margin-top: 16px;
+    font-size: 1.65rem;
+    line-height: 1.58;
+}
+
+.podcast-listen-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px;
+    margin-top: 24px;
+}
+
+.podcast-listen-label {
+    flex-basis: 100%;
+    margin-bottom: 3px;
+    color: var(--wm-text-muted);
+    font-size: 1.04rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.podcast-listen-button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 43px;
+    padding: 10px 17px;
+    border: 1px solid rgba(212, 141, 106, 0.3);
+    border-radius: var(--wm-pill);
+    background: var(--wm-bg-card);
+    box-shadow: inset 0 0 0 1px rgba(212, 141, 106, 0.05);
+    color: var(--wm-text);
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.podcast-listen-button--primary {
+    border-color: transparent;
+    background: linear-gradient(145deg, var(--wm-copper-bright), var(--wm-copper));
+    color: #1a0f0e;
+}
+
+.podcast-listen-button:hover {
+    transform: translateY(-2px);
+    border-color: rgba(228, 166, 130, 0.62);
+    background: rgba(61, 38, 30, 0.96);
+    color: var(--wm-text);
+}
+
+.podcast-listen-button--primary:hover {
+    border-color: transparent;
+    background: linear-gradient(145deg, #efb491, var(--wm-copper));
+    color: #1a0f0e;
+}
+
+.podcast-article-copy .article-byline {
+    margin-top: 28px;
+}
+
+.podcast-article-image {
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    aspect-ratio: 1;
+    border: 1px solid rgba(212, 141, 106, 0.2);
+    border-radius: var(--wm-radius-lg);
+    box-shadow: var(--wm-shadow);
+}
+
+.podcast-article-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tag-podcast .gh-content {
+    padding-top: clamp(8px, 2vmin, 22px);
+}
+
+.tag-podcast .gh-content :is(audio, iframe) {
+    width: 100%;
+    border-radius: 14px;
+}
+
+@media (max-width: 900px) {
+    .podcast-article-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .podcast-article-image {
+        width: min(100%, 420px);
+        margin: 4px auto 0;
+    }
+}
+
+@media (max-width: 540px) {
+    .podcast-article-copy .article-title {
+        font-size: clamp(3.25rem, 10.5vw, 4.1rem);
+    }
+
+    .podcast-listen-button {
+        flex: 1 1 calc(50% - 9px);
+    }
+
+    .podcast-listen-button--primary {
+        flex-basis: 100%;
+    }
+}
+
+/* Talk detail */
+
+.talk-article-header {
+    padding-bottom: max(3.2vmin, 26px) !important;
+}
+
+.talk-article-hero {
+    grid-column: wide-start / wide-end;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 400px);
+    gap: clamp(26px, 4.5vw, 58px);
+    align-items: center;
+}
+
+.talk-article-copy .article-title {
+    margin-top: 17px;
+    font-size: clamp(4rem, 5vw, 5.8rem);
+    line-height: 1.04;
+}
+
+.talk-article-copy .article-excerpt {
+    max-width: 57ch;
+    margin-top: 16px;
+    font-size: 1.62rem;
+    line-height: 1.56;
+}
+
+.talk-article-copy .article-byline {
+    margin-top: 26px;
+}
+
+.talk-article-image {
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    border: 1px solid rgba(212, 141, 106, 0.2);
+    border-radius: var(--wm-radius-lg);
+    box-shadow: var(--wm-shadow);
+}
+
+.talk-article-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.tag-talks .gh-content {
+    padding-top: clamp(8px, 2vmin, 22px);
+}
+
+.talk-reference {
+    padding: clamp(20px, 3vw, 28px);
+    border: 1px solid rgba(212, 141, 106, 0.2);
+    border-radius: var(--wm-radius);
+    background: var(--wm-bg-card-strong);
+    box-shadow: var(--wm-shadow-soft);
+}
+
+.talk-reference .talk-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.talk-reference .talk-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 21px;
+    border-radius: var(--wm-pill);
+    font-size: 1.48rem;
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.talk-reference .slides-link {
+    gap: 10px;
+    border: 1px solid transparent;
+    background: linear-gradient(145deg, var(--wm-copper-bright), var(--wm-copper));
+    color: #1a0f0e;
+}
+
+.talk-reference .slides-link span {
+    font-size: 1.8rem;
+    transition: transform 0.2s ease;
+}
+
+.talk-reference .slides-link:hover {
+    color: #1a0f0e;
+}
+
+.talk-reference .slides-link:hover span {
+    transform: translateX(3px);
+}
+
+.talk-reference .recording-link {
+    border: 1px solid rgba(212, 141, 106, 0.32);
+    background: var(--wm-bg-card);
+    color: var(--wm-text);
+}
+
+.talk-reference .recording-link:hover {
+    border-color: rgba(228, 166, 130, 0.64);
+    color: var(--wm-text);
+}
+
+.talk-reference .talk-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px 14px;
+    align-items: center;
+    margin-top: 18px;
+    color: var(--wm-text-muted);
+    font-size: 1.22rem;
+}
+
+.talk-reference .talk-details > * + *::before {
+    margin-right: 14px;
+    content: "•";
+    color: rgba(212, 141, 106, 0.52);
+}
+
+.talk-reference .talk-details a {
+    color: var(--wm-copper-bright);
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .talk-article-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .talk-article-image {
+        width: min(100%, 500px);
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 540px) {
+    .talk-article-copy .article-title {
+        font-size: clamp(3.25rem, 10.7vw, 4.2rem);
+    }
+
+    .talk-article-image {
+        display: none;
+    }
+
+    .talk-reference .talk-links a {
+        width: 100%;
+    }
+}
+
 /* Article content overrides */
 
 .gh-content > [id] {
