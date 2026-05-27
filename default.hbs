@@ -49,6 +49,21 @@
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
     it should always be the last tag before the closing head tag --}}
     {{ghost_head}}
+    <script>
+        function loadScript(callback) {
+            var head = document.getElementsByTagName("head")[0];
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "https://tracker.metricool.com/resources/be.js";
+            script.onreadystatechange = callback;
+            script.onload = callback;
+            head.appendChild(script);
+        }
+
+        loadScript(function () {
+            beTracker.t({hash: "559ca77f8e6d83373990018522a661d"});
+        });
+    </script>
 
 </head>
 <body class="{{body_class}} is-head-{{#match @custom.navigation_layout "Logo on cover"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Modern sans-serif"}} has-sans-body{{/match}}{{#if @custom.show_publication_cover}} has-cover{{/if}}">
