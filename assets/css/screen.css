@@ -6679,9 +6679,34 @@ a {
 
     .gh-burger {
         display: flex;
-        width: 26px;
-        height: 22px;
+        flex: 0 0 32px;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        margin-right: -4px;
         background: transparent;
+    }
+
+    .gh-burger::before,
+    .gh-burger::after {
+        left: 4px;
+        width: 24px;
+        transform-origin: center;
+    }
+
+    .gh-burger::before {
+        top: 11px;
+    }
+
+    .gh-burger::after {
+        bottom: 11px;
+    }
+
+    .gh-head-open .gh-burger::before,
+    .gh-head-open .gh-burger::after {
+        top: 50%;
+        bottom: auto;
     }
 
     .gh-head-menu,
@@ -6742,6 +6767,11 @@ a {
 }
 
 @media (max-width: 540px) {
+    .home-template .outer {
+        padding-left: max(24px, calc(env(safe-area-inset-left) + 18px));
+        padding-right: max(24px, calc(env(safe-area-inset-right) + 18px));
+    }
+
     .site-header-content {
         padding-top: 72px;
         padding-bottom: 28px;
@@ -6752,7 +6782,8 @@ a {
     }
 
     .brand-hero-name {
-        font-size: clamp(4.6rem, 18vw, 8.2rem);
+        max-width: 100%;
+        font-size: clamp(4.4rem, 17vw, 8.2rem);
         line-height: 0.86;
     }
 
@@ -6788,6 +6819,35 @@ a {
     .collection-post-grid,
     .issue-grid {
         grid-template-columns: 1fr;
+    }
+
+    .page-collection--blog .collection-post-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .page-collection--blog .collection-post-image-link {
+        min-height: 190px;
+    }
+
+    .page-collection--blog .collection-post-content {
+        padding: 15px 16px 18px;
+    }
+
+    .page-collection--blog .collection-post-tag {
+        font-size: 0.94rem;
+    }
+
+    .page-collection--blog .collection-post-content h3 {
+        font-size: clamp(2.2rem, 7vw, 2.8rem);
+    }
+
+    .page-collection--blog .collection-post-content p {
+        font-size: 1.28rem;
+    }
+
+    .page-collection--blog .collection-post-content time {
+        font-size: 0.94rem;
     }
 
     .podcast-episode-link {
