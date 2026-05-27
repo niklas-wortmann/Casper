@@ -40,24 +40,26 @@
 
 <section class="latest-stack outer">
     <div class="inner">
-        <div class="section-kicker">Latest posts</div>
+        <div class="section-kicker">Latest content</div>
         <div class="latest-stack-card">
-            {{#get "posts" filter="tag:blog" include="tags,authors" limit="5" as |posts|}}
+            {{#get "posts" filter="tag:blog,tag:podcast,tag:talk,tag:talks" include="tags,authors" order="published_at desc" limit="5" as |posts|}}
                 {{#if posts.length}}
                     {{#foreach posts}}
                         <article class="latest-stack-item">
                             <a href="{{url}}">
-                                <span class="latest-stack-tag">{{#primary_tag}}{{name}}{{else}}Blog{{/primary_tag}}</span>
+                                <span class="latest-stack-tag">
+                                    {{#has tag="podcast"}}Podcast{{else}}{{#has tag="talk,talks"}}Talk{{else}}Blog{{/has}}{{/has}}
+                                </span>
                                 <h2>{{title}}</h2>
-                                <time datetime="{{date updated_at format="YYYY-MM-DD"}}">Updated {{date updated_at format="MMM DD, YYYY"}}</time>
+                                <time datetime="{{date published_at format="YYYY-MM-DD"}}">Published {{date published_at format="MMM DD, YYYY"}}</time>
                             </a>
                         </article>
                     {{/foreach}}
                 {{else}}
                     <article class="latest-stack-item">
                         <a href="{{@site.url}}/blog/">
-                            <span class="latest-stack-tag">Blog</span>
-                            <h2>Fresh posts are brewing.</h2>
+                            <span class="latest-stack-tag">Content</span>
+                            <h2>Fresh stories are brewing.</h2>
                             <time>Check back soon.</time>
                         </a>
                     </article>
