@@ -258,6 +258,46 @@ into the {body} tag of the default.hbs template --}}
         {{content}}
     </section>
 
+    {{#has tag="podcast"}}
+        <section class="podcast-related-episodes gh-canvas">
+            <h2>Related Episodes</h2>
+            {{#get "posts" filter="tag:podcast+id:-{{id}}" include="tags,authors" limit="3" as |related_episodes|}}
+                {{#if related_episodes.length}}
+                    <div class="podcast-episode-list">
+                        {{#foreach related_episodes}}
+                            <article class="podcast-episode-card">
+                                <a class="podcast-episode-link" href="{{url}}">
+                                    <div class="podcast-episode-avatar">
+                                        {{#if feature_image}}
+                                            <img src="{{img_url feature_image size="s"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" loading="lazy">
+                                        {{else}}
+                                            <img src="{{asset "images/wordman-headshot.png"}}" alt="{{title}}" loading="lazy">
+                                        {{/if}}
+                                    </div>
+                                    <div class="podcast-episode-content">
+                                        <h3>{{title}}</h3>
+                                        {{#if excerpt}}
+                                            <p>{{excerpt}}</p>
+                                        {{/if}}
+                                        <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}} &middot; {{reading_time}}</time>
+                                    </div>
+                                </a>
+                            </article>
+                        {{/foreach}}
+                    </div>
+                {{else}}
+                    <p>Browse the podcast archive for more conversations about AI workflows and developer tools.</p>
+                {{/if}}
+            {{/get}}
+        </section>
+
+        <section class="podcast-closing-cta gh-canvas">
+            <h2>Get The Next Workflow Breakdown</h2>
+            <p>Subscribe for the experiments, tradeoffs, and follow-up notes that do not fit into the episode.</p>
+            <a class="podcast-closing-cta-button" href="#/portal" data-portal>Get the newsletter</a>
+        </section>
+    {{/has}}
+
     {{#if comments}}
         <section class="article-comments gh-canvas">
             {{comments}}
