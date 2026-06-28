@@ -3,16 +3,11 @@
 {{#post}}
 <header class="about-profile outer">
     <div class="inner about-profile-inner">
-        <img class="about-profile-avatar" src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
+        <img class="about-profile-avatar" src="{{asset "images/wordman-headshot.png"}}" alt="Jan-Niklas Wortmann">
         <div class="about-profile-copy">
-            <p class="about-profile-kicker">AI Developer Advocate &middot; JetBrains</p>
-            <h1>Hey, I&apos;m Jan-Niklas</h1>
-            <p>I test AI coding workflows against real codebases, then explain what held up, what broke, and why it matters for the developer shipping the result.</p>
-            <div class="about-profile-links">
-                <a href="{{@site.url}}/blog/">Read blog</a>
-                <a href="{{@site.url}}/podcast/">Watch podcast</a>
-                <a href="{{@site.url}}/calendar/">Coffee chat</a>
-            </div>
+            <p class="about-profile-kicker">Host of Dev&apos;s Brew &middot; AI Developer Advocate</p>
+            <h1>Jan-Niklas Wortmann</h1>
+            <p>I test AI coding workflows in real codebases, then explain what held up, what broke, and what a working developer can actually use.</p>
         </div>
     </div>
 </header>
@@ -20,25 +15,62 @@
 <main id="site-main" class="site-main">
     <article class="article about-page {{post_class}}">
         <section class="about-content gh-canvas">
-            {{#if content}}
-                {{content}}
-            {{else}}
-                <h2>What I Test</h2>
-                <p>I work as an <strong>AI Developer Advocate at JetBrains</strong>. I test coding agents, IDE workflows, and developer-tooling ideas against the standard that matters: would I trust this in a real codebase?</p>
-
-                <p>I&apos;m a <strong>former RxJS core team member</strong> and an <strong>Angular Google Developer Expert (GDE)</strong>. That background keeps me focused on architecture, debugging, and maintainability rather than demo magic.</p>
-
-                <p>My take on AI tools is simple: show the workflow, show the failure modes, and make the verdict useful to developers who still own the result.</p>
-
-                <h2>What You&apos;ll Find Here</h2>
-                <p>This site is built for working web developers. I publish tested AI workflows, lessons in engineering craft, grounded takes on industry shifts, conference talks, and podcast conversations about ideas that survive contact with real code.</p>
-
-                <h2>Outside the Experiments</h2>
-                <p>When I&apos;m not testing workflows or recording conversations, I&apos;m usually chasing better coffee and spending time with my family.</p>
-                <p><a href="/calendar/">Grab a coffee chat</a> if you want to swap notes on AI tools, frontend engineering, or an interesting idea.</p>
-            {{/if}}
+            {{content}}
         </section>
 
+        <section class="about-podcast-cta gh-canvas">
+            <h2>Follow Dev&apos;s Brew</h2>
+            <div class="about-profile-links about-profile-links--primary">
+                <a href="#/portal" data-portal>Get the newsletter</a>
+                <a href="https://podcasts.apple.com/us/podcast/the-weekly-devs-brew/id1818009834" target="_blank" rel="noopener">Apple</a>
+                <a href="https://open.spotify.com/show/6uG7XUDtY6QqkjG5RmgvPZ" target="_blank" rel="noopener">Spotify</a>
+                <a href="https://www.youtube.com/@wordmandotdev" target="_blank" rel="noopener">YouTube</a>
+            </div>
+            <div class="about-profile-links about-profile-links--secondary">
+                <a href="https://x.com/niklas_wortmann" target="_blank" rel="noopener">X</a>
+                <a href="https://www.linkedin.com/in/jan-niklas-wortmann/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://wordman.dev" target="_blank" rel="noopener">wordman.dev</a>
+            </div>
+        </section>
+
+        <section class="about-recent-episodes gh-canvas">
+            <div class="podcast-listing-header">
+                <h2>Recent Episodes</h2>
+            </div>
+            {{#get "posts" filter="tag:podcast" include="tags,authors" limit="4" as |episodes|}}
+                {{#if episodes.length}}
+                    <div class="podcast-episode-list">
+                        {{#foreach episodes}}
+                            <article class="podcast-episode-card">
+                                <a class="podcast-episode-link" href="{{url}}">
+                                    <div class="podcast-episode-avatar">
+                                        {{#if feature_image}}
+                                            <img src="{{img_url feature_image size="s"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" loading="lazy">
+                                        {{else}}
+                                            <img src="{{asset "images/wordman-headshot.png"}}" alt="{{title}}" loading="lazy">
+                                        {{/if}}
+                                    </div>
+                                    <div class="podcast-episode-content">
+                                        <h3>{{title}}</h3>
+                                        {{#if excerpt}}
+                                            <p>{{excerpt}}</p>
+                                        {{/if}}
+                                        <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}} &middot; {{reading_time}}</time>
+                                    </div>
+                                </a>
+                            </article>
+                        {{/foreach}}
+                    </div>
+                {{else}}
+                    <p>No podcast episodes published yet.</p>
+                {{/if}}
+            {{/get}}
+        </section>
+
+        <section class="about-independence-note gh-canvas">
+            <h2>Editorial Independence</h2>
+            <p>Dev&apos;s Brew covers all tools honestly, including JetBrains competitors. The JetBrains connection is transparent and never dictates the verdict.</p>
+        </section>
     </article>
 </main>
 {{/post}}
