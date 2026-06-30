@@ -6463,7 +6463,9 @@ a {
     margin-bottom: 0;
 }
 
+.tag-podcast .gh-content > h2#full-transcript + p,
 .tag-podcast .gh-content > h2#transcript + p,
+.tag-podcast .gh-content > h2#full-transcript ~ p,
 .tag-podcast .gh-content > h2#transcript ~ p {
     margin-top: 0;
     margin-bottom: 14px;
@@ -6472,14 +6474,17 @@ a {
     line-height: 1.65;
 }
 
+.tag-podcast .gh-content > h2#full-transcript + p,
 .tag-podcast .gh-content > h2#transcript + p {
     margin-top: 8px;
 }
 
+.tag-podcast .gh-content > h2#full-transcript + p ~ p,
 .tag-podcast .gh-content > h2#transcript + p ~ p {
     display: none;
 }
 
+.tag-podcast.is-transcript-modal-ready .gh-content > h2#full-transcript ~ p:not(.podcast-transcript-trigger),
 .tag-podcast.is-transcript-modal-ready .gh-content > h2#transcript ~ p:not(.podcast-transcript-trigger) {
     display: none;
 }
@@ -6579,11 +6584,13 @@ a {
     margin-bottom: 0;
 }
 
+.tag-podcast .gh-content > h2#full-transcript ~ p strong,
 .tag-podcast .gh-content > h2#transcript ~ p strong {
     color: var(--wm-copper-bright);
     font-weight: 700;
 }
 
+.tag-podcast .gh-content > h2#full-transcript ~ p em,
 .tag-podcast .gh-content > h2#transcript ~ p em {
     color: var(--wm-text-muted);
     font-style: normal;

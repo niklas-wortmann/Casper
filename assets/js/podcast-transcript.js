@@ -9,7 +9,7 @@
         return;
     }
 
-    var heading = content.querySelector('h2#transcript');
+    var heading = content.querySelector('h2#full-transcript, h2#transcript');
     if (!heading) {
         return;
     }
