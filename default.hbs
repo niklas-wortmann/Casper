@@ -49,6 +49,19 @@
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
     it should always be the last tag before the closing head tag --}}
     {{ghost_head}}
+    {{#is "post"}}
+        {{#post}}
+            {{#has tag="podcast"}}
+                {{!-- Ghost defaults posts to og:type=article; show notes are better treated as website pages --}}
+                <meta property="og:type" content="website" />
+                {{#if canonical_url}}
+                <meta property="og:url" content="{{canonical_url}}" />
+                {{else}}
+                <meta property="og:url" content="{{url absolute="true"}}" />
+                {{/if}}
+            {{/has}}
+        {{/post}}
+    {{/is}}
     <script>
         function loadScript(callback) {
             var head = document.getElementsByTagName("head")[0];

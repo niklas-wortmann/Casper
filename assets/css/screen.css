@@ -6476,6 +6476,109 @@ a {
     margin-top: 8px;
 }
 
+.tag-podcast .gh-content > h2#transcript + p ~ p {
+    display: none;
+}
+
+.tag-podcast.is-transcript-modal-ready .gh-content > h2#transcript ~ p:not(.podcast-transcript-trigger) {
+    display: none;
+}
+
+.tag-podcast .gh-content .podcast-transcript-trigger {
+    margin-bottom: 0;
+}
+
+.tag-podcast .gh-content .podcast-transcript-trigger a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(212, 141, 106, 0.34);
+    background: rgba(42, 26, 20, 0.72);
+    color: var(--wm-copper-bright);
+    font-weight: 700;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.tag-podcast .gh-content .podcast-transcript-trigger a:hover {
+    border-color: rgba(212, 141, 106, 0.58);
+    background: rgba(58, 34, 26, 0.92);
+    color: var(--wm-copper);
+}
+
+.podcast-transcript-dialog {
+    width: min(920px, calc(100vw - 32px));
+    max-height: min(82vh, 900px);
+    margin: auto;
+    padding: 0;
+    border: 1px solid rgba(212, 141, 106, 0.28);
+    border-radius: var(--wm-radius-lg);
+    background: rgba(24, 14, 11, 0.98);
+    color: var(--wm-text-soft);
+    box-shadow: var(--wm-shadow-soft);
+}
+
+.podcast-transcript-dialog::backdrop {
+    background: rgba(8, 4, 3, 0.78);
+}
+
+.podcast-transcript-dialog__inner {
+    display: flex;
+    flex-direction: column;
+    max-height: min(82vh, 900px);
+}
+
+.podcast-transcript-dialog__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 22px;
+    border-bottom: 1px solid rgba(212, 141, 106, 0.18);
+}
+
+.podcast-transcript-dialog__title {
+    margin: 0;
+    color: var(--wm-copper);
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 2.4vw, 2.2rem);
+}
+
+.podcast-transcript-dialog__close {
+    border: 1px solid rgba(212, 141, 106, 0.28);
+    border-radius: 999px;
+    background: rgba(42, 26, 20, 0.72);
+    color: var(--wm-copper-bright);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    padding: 8px 14px;
+}
+
+.podcast-transcript-dialog__close:hover {
+    border-color: rgba(212, 141, 106, 0.52);
+    color: var(--wm-copper);
+}
+
+.podcast-transcript-dialog__body {
+    overflow: auto;
+    padding: 18px 22px 24px;
+}
+
+.podcast-transcript-dialog__body p {
+    margin: 0 0 14px;
+    color: var(--wm-text-soft);
+    font-size: 1.45rem;
+    line-height: 1.65;
+}
+
+.podcast-transcript-dialog__body p:last-child {
+    margin-bottom: 0;
+}
+
 .tag-podcast .gh-content > h2#transcript ~ p strong {
     color: var(--wm-copper-bright);
     font-weight: 700;
