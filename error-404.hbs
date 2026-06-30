@@ -26,6 +26,8 @@ Keep this template as lightweight as you can!
 were looking for, let's give them some alternative stuff to read. --}}
 <aside class="read-more-wrap outer">
     <div class="read-more inner">
+        <h2 class="read-more-heading">More to explore</h2>
+        <div class="read-more-grid">
         {{#get "posts" include="authors" limit="3" as |more_posts|}}
             {{#if more_posts}}
                 {{#foreach more_posts}}
@@ -33,5 +35,6 @@ were looking for, let's give them some alternative stuff to read. --}}
                 {{/foreach}}
             {{/if}}
         {{/get}}
+        </div>
     </div>
 </aside>

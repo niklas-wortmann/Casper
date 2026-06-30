@@ -345,9 +345,12 @@ into the {body} tag of the default.hbs template --}}
         {{#if more_posts}}
             <aside class="read-more-wrap outer">
                 <div class="read-more inner">
-                    {{#foreach more_posts}}
-                        {{> "post-card"}}
-                    {{/foreach}}
+                    <h2 class="read-more-heading">More to explore</h2>
+                    <div class="read-more-grid">
+                        {{#foreach more_posts}}
+                            {{> "post-card"}}
+                        {{/foreach}}
+                    </div>
                 </div>
             </aside>
         {{/if}}
