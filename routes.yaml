@@ -1,0 +1,15 @@
+routes:
+
+collections:
+  /podcast/:
+    permalink: /podcast/{slug}/
+    template: podcast
+    filter: primary_tag:podcast
+    data: page.podcast
+  /:
+    permalink: /{slug}/
+    template: index
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/

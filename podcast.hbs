@@ -1,0 +1,51 @@
+{{!< default}}
+
+<main id="site-main" class="site-main outer page-collection page-collection--podcast">
+<div class="inner posts">
+    {{#post}}
+        <section class="collection-hero podcast-hero">
+            <h1 class="collection-title">{{title}}</h1>
+            {{#if custom_excerpt}}
+                <p class="collection-description">{{custom_excerpt}}</p>
+            {{/if}}
+            <div class="collection-actions podcast-platform-actions">
+                <a class="hero-button" href="https://open.spotify.com/show/6uG7XUDtY6QqkjG5RmgvPZ" target="_blank" rel="noopener">Listen on Spotify</a>
+                <a class="hero-button podcast-platform-button" href="https://podcasts.apple.com/us/podcast/the-weekly-devs-brew/id1818009834" target="_blank" rel="noopener">Apple Podcasts</a>
+                <a class="hero-button podcast-platform-button" href="https://www.youtube.com/@wordmandotdev" target="_blank" rel="noopener">Watch on YouTube</a>
+            </div>
+        </section>
+    {{/post}}
+
+    <section class="podcast-listing" id="podcast-episodes">
+        <div class="podcast-listing-header">
+            <h2>Recent episodes</h2>
+        </div>
+        {{#if posts}}
+            <div class="podcast-episode-list">
+                {{#foreach posts}}
+                    <article class="podcast-episode-card">
+                        <a class="podcast-episode-link" href="{{url}}">
+                            <div class="podcast-episode-avatar">
+                                {{#if feature_image}}
+                                    <img src="{{img_url feature_image size="s"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" loading="lazy">
+                                {{else}}
+                                    <img src="{{asset "images/wordman-headshot.png"}}" alt="{{title}}" loading="lazy">
+                                {{/if}}
+                            </div>
+                            <div class="podcast-episode-content">
+                                <h3>{{title}}</h3>
+                                {{#if excerpt}}
+                                    <p>{{excerpt}}</p>
+                                {{/if}}
+                                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}} &middot; {{reading_time}}</time>
+                            </div>
+                        </a>
+                    </article>
+                {{/foreach}}
+            </div>
+        {{else}}
+            <p>No podcast episodes published yet.</p>
+        {{/if}}
+    </section>
+</div>
+</main>
