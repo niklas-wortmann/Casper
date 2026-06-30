@@ -290,12 +290,6 @@ into the {body} tag of the default.hbs template --}}
                 {{/if}}
             {{/get}}
         </section>
-
-        <section class="podcast-closing-cta gh-canvas">
-            <h2>Get The Next Workflow Breakdown</h2>
-            <p>Subscribe for the experiments, tradeoffs, and follow-up notes that do not fit into the episode.</p>
-            <a class="podcast-closing-cta-button" href="#/portal" data-portal>Get the newsletter</a>
-        </section>
     {{/has}}
 
     {{#if comments}}
@@ -312,6 +306,8 @@ into the {body} tag of the default.hbs template --}}
 {{#unless @member}}
 {{#unless @site.comments_enabled}}
 {{#if access}}
+{{#has tag="podcast"}}
+{{else}}
     <section class="footer-cta outer">
         <div class="inner">
             {{#if @custom.email_signup_text}}<h2 class="footer-cta-title">{{@custom.email_signup_text}}</h2>{{/if}}
@@ -321,6 +317,7 @@ into the {body} tag of the default.hbs template --}}
             </a>
         </div>
     </section>
+{{/has}}
 {{/if}}
 {{/unless}}
 {{/unless}}
