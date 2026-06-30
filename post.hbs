@@ -40,15 +40,15 @@ into the {body} tag of the default.hbs template --}}
                 <div class="podcast-listen-actions" aria-label="Listen to this episode">
                     <span class="podcast-listen-label">Listen on</span>
                     <a class="podcast-listen-button podcast-listen-button--spotify" data-listen-platform="spotify" href="https://open.spotify.com/show/6uG7XUDtY6QqkjG5RmgvPZ" target="_blank" rel="noopener noreferrer">
-                        {{> "icons/spotify"}}
+                        <img class="podcast-listen-logo" src="{{asset "images/listen/spotify.svg"}}" alt="" width="22" height="22" loading="lazy">
                         <span>Spotify</span>
                     </a>
                     <a class="podcast-listen-button podcast-listen-button--apple" data-listen-platform="apple" href="https://podcasts.apple.com/us/podcast/the-weekly-devs-brew/id1818009834" target="_blank" rel="noopener noreferrer">
-                        {{> "icons/apple-podcasts"}}
+                        <img class="podcast-listen-logo" src="{{asset "images/listen/apple-podcasts.svg"}}" alt="" width="22" height="22" loading="lazy">
                         <span>Apple Podcasts</span>
                     </a>
                     <a class="podcast-listen-button podcast-listen-button--youtube" data-listen-platform="youtube" href="https://www.youtube.com/@wordmandotdev" target="_blank" rel="noopener noreferrer">
-                        {{> "icons/youtube"}}
+                        <img class="podcast-listen-logo" src="{{asset "images/listen/youtube.svg"}}" alt="" width="22" height="22" loading="lazy">
                         <span>YouTube</span>
                     </a>
                 </div>

@@ -6065,22 +6065,11 @@ a {
     transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
-.podcast-listen-button .icon {
-    width: 20px;
-    height: 20px;
-    flex: 0 0 20px;
-}
-
-.podcast-listen-button--spotify {
-    color: #1ed760;
-}
-
-.podcast-listen-button--apple {
-    color: #b150ff;
-}
-
-.podcast-listen-button--youtube {
-    color: #ff4d4d;
+.podcast-listen-button .podcast-listen-logo {
+    display: block;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
 }
 
 .podcast-listen-button--primary {
