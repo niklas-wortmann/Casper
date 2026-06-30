@@ -6051,6 +6051,7 @@ a {
 .podcast-listen-button {
     display: inline-flex;
     align-items: center;
+    gap: 10px;
     min-height: 43px;
     padding: 10px 17px;
     border: 1px solid rgba(212, 141, 106, 0.3);
@@ -6062,6 +6063,24 @@ a {
     font-weight: 600;
     text-decoration: none;
     transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.podcast-listen-button .icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+}
+
+.podcast-listen-button--spotify {
+    color: #1ed760;
+}
+
+.podcast-listen-button--apple {
+    color: #b150ff;
+}
+
+.podcast-listen-button--youtube {
+    color: #ff4d4d;
 }
 
 .podcast-listen-button--primary {

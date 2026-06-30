@@ -37,11 +37,20 @@ into the {body} tag of the default.hbs template --}}
                     <p class="article-excerpt podcast-article-lead">{{custom_excerpt}}</p>
                 {{/if}}
 
-                <div class="podcast-listen-actions" aria-label="Listen to The Weekly Dev's Brew">
+                <div class="podcast-listen-actions" aria-label="Listen to this episode">
                     <span class="podcast-listen-label">Listen on</span>
-                    <a class="podcast-listen-button podcast-listen-button--primary" href="https://open.spotify.com/show/6uG7XUDtY6QqkjG5RmgvPZ" target="_blank" rel="noopener">Spotify</a>
-                    <a class="podcast-listen-button" href="https://podcasts.apple.com/us/podcast/the-weekly-devs-brew/id1818009834" target="_blank" rel="noopener">Apple Podcasts</a>
-                    <a class="podcast-listen-button" href="https://www.youtube.com/@wordmandotdev" target="_blank" rel="noopener">YouTube</a>
+                    <a class="podcast-listen-button podcast-listen-button--spotify" data-listen-platform="spotify" href="https://open.spotify.com/show/6uG7XUDtY6QqkjG5RmgvPZ" target="_blank" rel="noopener noreferrer">
+                        {{> "icons/spotify"}}
+                        <span>Spotify</span>
+                    </a>
+                    <a class="podcast-listen-button podcast-listen-button--apple" data-listen-platform="apple" href="https://podcasts.apple.com/us/podcast/the-weekly-devs-brew/id1818009834" target="_blank" rel="noopener noreferrer">
+                        {{> "icons/apple-podcasts"}}
+                        <span>Apple Podcasts</span>
+                    </a>
+                    <a class="podcast-listen-button podcast-listen-button--youtube" data-listen-platform="youtube" href="https://www.youtube.com/@wordmandotdev" target="_blank" rel="noopener noreferrer">
+                        {{> "icons/youtube"}}
+                        <span>YouTube</span>
+                    </a>
                 </div>
 
                 <div class="article-byline">
