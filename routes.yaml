@@ -4,9 +4,6 @@ routes:
   /podcast/:
     template: page-podcast
     data: page.podcast
-  /llms.txt:
-    template: llms
-    content_type: text/plain
 
 collections:
   /podcast/:
