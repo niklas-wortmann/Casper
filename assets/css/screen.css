@@ -6317,10 +6317,6 @@ a {
     display: none;
 }
 
-.tag-podcast .byline-reading-time {
-    display: none;
-}
-
 .tag-podcast .gh-content {
     padding-top: clamp(12px, 2.5vmin, 28px);
 }
