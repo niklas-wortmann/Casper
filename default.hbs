@@ -3,7 +3,7 @@
 <head>
 
     {{!-- Basic meta - advanced meta is output with {ghost_head} below --}}
-    <title>{{meta_title}}</title>
+    <title>{{#is "home"}}{{meta_title}}{{else is "page"}}{{#post}}{{title}} | Jan-Niklas Wortmann{{/post}}{{^post}}{{meta_title}} | Jan-Niklas Wortmann{{/post}}{{else}}{{meta_title}}{{/is}}</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="HandheldFriendly" content="True" />
@@ -49,7 +49,11 @@
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
     it should always be the last tag before the closing head tag --}}
     {{ghost_head}}
+    {{#is "error, paged"}}
+        <meta name="robots" content="noindex, follow">
+    {{/is}}
     <link rel="icon" href="{{asset "images/wordman-avatar.svg"}}" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="{{asset "images/apple-touch-icon.png"}}" />
     {{#is "post"}}
         {{#post}}
             {{#has tag="podcast"}}
@@ -132,7 +136,7 @@
             <div class="site-footer-social" aria-label="Social links">
                 <a class="gh-social-link" href="https://bsky.app/profile/wordman.dev" target="_blank" rel="noopener" aria-label="Bluesky">{{> "icons/bluesky"}}</a>
                 <a class="gh-social-link" href="https://twitter.com/wordmandotdev" target="_blank" rel="noopener" aria-label="X (Twitter)">{{> "icons/twitter"}}</a>
-                <a class="gh-social-link" href="https://github.com/niklas_wortmann" target="_blank" rel="noopener" aria-label="GitHub">{{> "icons/github"}}</a>
+                <a class="gh-social-link" href="https://github.com/niklas-wortmann" target="_blank" rel="noopener" aria-label="GitHub">{{> "icons/github"}}</a>
                 <a class="gh-social-link" href="https://www.linkedin.com/in/jan-niklas-wortmann/" target="_blank" rel="noopener" aria-label="LinkedIn">{{> "icons/linkedin"}}</a>
                 <a class="gh-social-link" href="https://www.youtube.com/@wordmandotdev" target="_blank" rel="noopener" aria-label="YouTube">{{> "icons/youtube"}}</a>
                 <a class="gh-social-link" href="https://www.instagram.com/wordman.dev/" target="_blank" rel="noopener" aria-label="Instagram">{{> "icons/instagram"}}</a>

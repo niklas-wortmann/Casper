@@ -1,14 +1,22 @@
 routes:
+  /:
+    template: index
+  /podcast/:
+    template: page-podcast
+    data: page.podcast
+  /llms.txt:
+    template: llms
+    content_type: text/plain
 
 collections:
   /podcast/:
     permalink: /podcast/{slug}/
     template: podcast
     filter: primary_tag:podcast
-    data: page.podcast
   /:
     permalink: /{slug}/
-    template: index
+    template: paged
+    filter: primary_tag:-podcast
 
 taxonomies:
   tag: /tag/{slug}/
