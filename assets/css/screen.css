@@ -5181,6 +5181,16 @@ a {
     text-decoration: none;
 }
 
+.page-collection--podcast .collection-title {
+    display: block;
+    visibility: visible;
+    color: var(--wm-copper);
+}
+
+.js-podcast-duration-wrap[hidden] {
+    display: none !important;
+}
+
 .collection-post-content p {
     margin: 10px 0 0;
     color: var(--wm-text-soft);
