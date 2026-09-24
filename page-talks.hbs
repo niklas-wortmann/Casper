@@ -52,10 +52,18 @@
                                 {{#primary_tag}}
                                     <span class="collection-post-tag">{{name}}</span>
                                 {{/primary_tag}}
-                                <h3><a href="{{url}}">{{title}}</a></h3>
-                                {{#if excerpt}}
-                                    <p>{{excerpt}}</p>
-                                {{/if}}
+                            <h3>
+                                <a href="{{url}}">
+                                    {{title}}{{#match title "Volar: The Unsung Hero"}} — {{date format="D MMM YYYY"}}{{/match}}
+                                </a>
+                            </h3>
+                            {{#if excerpt}}
+                                <p>{{excerpt}}{{#match title "Volar: The Unsung Hero"}} · {{date format="D MMM YYYY"}}{{/match}}</p>
+                            {{else}}
+                                {{#match title "Volar: The Unsung Hero"}}
+                                    <p>{{date format="D MMM YYYY"}}</p>
+                                {{/match}}
+                            {{/if}}
                                 <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time>
                             </div>
                         </article>

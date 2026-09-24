@@ -1,0 +1,10 @@
+# Jan-Niklas Wortmann
+
+Personal site of Jan-Niklas Wortmann, Solution Architect at Cursor.
+
+- [Home](/)
+- [About](/about/)
+- [Blog](/blog/)
+- [Talks](/talk/)
+- [Podcast](/podcast/)
+- [Coffee Chat](/calendar/)

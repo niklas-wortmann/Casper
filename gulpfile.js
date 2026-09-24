@@ -61,9 +61,16 @@ function css(done) {
 function js(done) {
     pump([
         src([
-            // pull in lib files first so our own code can depend on it
-            'assets/js/lib/*.js',
-            'assets/js/*.js'
+            'assets/js/lib/imagesloaded.pkgd.min.js',
+            'assets/js/lib/jquery.fitvids.js',
+            'assets/js/lib/photoswipe-ui-default.min.js',
+            'assets/js/lib/photoswipe.min.js',
+            'assets/js/podcast-listen.js',
+            'assets/js/podcast-duration.js',
+            'assets/js/dropdown.js',
+            'assets/js/infinite-scroll.js',
+            'assets/js/lightbox.js',
+            'assets/js/podcast-transcript.js'
         ], {sourcemaps: true}),
         concat('casper.js'),
         uglify(),

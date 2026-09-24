@@ -11,7 +11,7 @@
         </section>
     {{/post}}
 
-    {{#get "posts" filter="tag:blog+slug:agent-instructions" include="tags,authors" limit="1" as |posts|}}
+    {{#get "posts" filter="tag:blog+slug:not-behind" include="tags,authors" limit="1" as |posts|}}
         {{#foreach posts}}
             <section class="featured-post">
                 <h2 class="featured-post-title">Start here</h2>
@@ -48,7 +48,7 @@
         {{/foreach}}
     {{/get}}
 
-    {{#get "posts" filter="tag:blog+slug:-agent-instructions" include="tags,authors" limit="6" as |posts|}}
+    {{#get "posts" filter="tag:blog+slug:-not-behind" include="tags,authors" limit="6" as |posts|}}
         {{#if posts.length}}
             <section class="collection-post-grid">
                 {{#foreach posts}}

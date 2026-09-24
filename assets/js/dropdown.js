@@ -2,7 +2,9 @@
     const mediaQuery = window.matchMedia('(max-width: 767px)');
 
     const head = document.querySelector('.gh-head');
+    if (!head) return;
     const menu = head.querySelector('.gh-head-menu');
+    if (!menu) return;
     const nav = menu.querySelector('.nav');
     if (!nav) return;
 

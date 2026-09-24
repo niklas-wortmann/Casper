@@ -5181,6 +5181,16 @@ a {
     text-decoration: none;
 }
 
+.page-collection--podcast .collection-title {
+    display: block;
+    visibility: visible;
+    color: var(--wm-copper);
+}
+
+.js-podcast-duration-wrap[hidden] {
+    display: none !important;
+}
+
 .collection-post-content p {
     margin: 10px 0 0;
     color: var(--wm-text-soft);
@@ -6304,10 +6314,6 @@ a {
 /* Podcast show notes rendered through Ghost (sanitized HTML) */
 
 .tag-podcast:has(.gh-content .kg-embed-card) .podcast-article-image {
-    display: none;
-}
-
-.tag-podcast .byline-reading-time {
     display: none;
 }
 
