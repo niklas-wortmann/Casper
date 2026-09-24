@@ -4,14 +4,14 @@
     <div class="site-header-content outer{{#match @custom.header_style "Left aligned"}} left-aligned{{/match}}{{#unless @custom.show_publication_cover}}{{#match @custom.header_style "Hidden"}} no-content{{/match}}{{/unless}}">
         <div class="site-header-inner inner">
             <section class="brand-hero">
-                <h1 class="brand-hero-name">JAN-NIKLAS<br>WORTMANN</h1>
+                <h1 class="brand-hero-name"><span class="brand-hero-name-line">Jan-Niklas</span> <span class="brand-hero-name-line">Wortmann</span></h1>
                 <div class="brand-hero-avatar">
                     <img src="{{asset "images/wordman-avatar.svg"}}" alt="Jan-Niklas Wortmann">
                 </div>
-                <p class="brand-hero-description">Solution Architect at Cursor. I test AI coding workflows against real codebases and share what held up, what broke, and why.</p>
+                <p class="brand-hero-description">I test AI coding workflows on real codebases and share what held up, what broke, and why. Host of The Weekly Dev&apos;s Brew. Solution Architect at Cursor.</p>
                 <div class="hero-actions">
-                    <a class="hero-button" href="{{@site.url}}/blog/">Read blog</a>
-                    <a class="hero-button hero-button--ghost" href="{{@site.url}}/podcast/">Watch podcast</a>
+                    <a class="hero-button" href="{{@site.url}}/blog/">Read the blog</a>
+                    <a class="hero-button hero-button--ghost" href="{{@site.url}}/podcast/">Listen to The Weekly Dev&apos;s Brew</a>
                 </div>
             </section>
         </div>
@@ -20,19 +20,19 @@
 
 <section class="paper-links outer">
     <div class="inner">
-        <div class="section-kicker">Layered paper</div>
+        <div class="section-kicker">Start here</div>
         <div class="paper-links-grid">
             <a class="paper-link-card" href="{{@site.url}}/blog/">
                 <h2>Blog</h2>
-                <p>Tested AI workflows, frontend craft, and clear verdicts for developers shipping real software.</p>
+                <p>Tested AI coding workflows and clear verdicts for developers shipping real software.</p>
             </a>
             <a class="paper-link-card" href="{{@site.url}}/talk/">
                 <h2>Talks</h2>
-                <p>Practical keynotes and workshops on AI-assisted development, tooling, and engineering judgment.</p>
+                <p>Conference talks on developer tooling, TypeScript, Angular, and Vue, and where AI fits into that work.</p>
             </a>
             <a class="paper-link-card" href="{{@site.url}}/podcast/">
                 <h2>Podcast</h2>
-                <p>Conversations with developers and tool builders about what works in practice and what breaks.</p>
+                <p>The Weekly Dev&apos;s Brew. Long conversations with engineers and tool builders about what AI actually changes in how they ship code.</p>
             </a>
         </div>
     </div>
