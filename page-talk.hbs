@@ -14,11 +14,11 @@
     <section class="talks-summary talks-summary--single">
         <article class="talks-summary-card">
             <div class="talks-summary-kicker">For working developers</div>
-            <h2>Practical talks on where AI helps the work, where it fails, and what engineers still own.</h2>
+            <h2>Talks for working developers on tooling, type systems, and code quality.</h2>
             <div class="talks-summary-tags">
-                <span>Real workflows</span>
-                <span>Code quality</span>
-                <span>Frontend teams</span>
+                <span>Developer tooling</span>
+                <span>TypeScript</span>
+                <span>Frontend frameworks</span>
             </div>
         </article>
     </section>
@@ -26,7 +26,7 @@
     <section class="talks-feed">
         <div class="talks-feed-header">
             <h2>Recent talks</h2>
-            <p>Slides, examples, and takeaways for developers weighing AI workflows and modern tooling.</p>
+            <p>Slides, recordings, and takeaways from conference talks.</p>
         </div>
         {{#get "posts" filter="tag:talk,tag:talks" include="tags,authors" limit="6" as |talks|}}
             {{#if talks.length}}
