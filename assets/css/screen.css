@@ -3015,7 +3015,7 @@ iframe.instagram-media + script + :not([id]) {
 
 .error-code {
     margin: 0;
-    font-size: 12vw;
+    font-size: clamp(3.6rem, 12.5vw, 7rem);
     line-height: 1em;
     letter-spacing: -5px;
 }
@@ -4626,6 +4626,11 @@ a {
     text-shadow: 0 24px 54px rgba(0, 0, 0, 0.45);
 }
 
+.brand-hero-name-line {
+    display: block;
+    white-space: nowrap;
+}
+
 .brand-hero-avatar {
     position: absolute;
     top: 62%;
@@ -5417,6 +5422,32 @@ a {
     box-shadow: 0 12px 24px rgba(10, 5, 3, 0.22);
 }
 
+.podcast-about {
+    margin-top: clamp(40px, 6vw, 64px);
+    color: var(--wm-text-soft);
+}
+
+.podcast-about h2 {
+    color: var(--wm-copper);
+    font-family: var(--font-serif);
+}
+
+.podcast-about h3 {
+    color: var(--wm-text);
+}
+
+.podcast-sponsor-note {
+    margin: clamp(32px, 5vw, 48px) 0 0;
+    color: var(--wm-text-soft);
+    font-size: 1.6rem;
+}
+
+.podcast-sponsor-note a {
+    color: var(--wm-copper);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 .podcast-listing-header h2 {
     margin: 0;
     font-family: var(--font-serif);
@@ -5908,6 +5939,10 @@ a {
     color: var(--wm-text-muted);
     font-size: 1.16rem;
     white-space: nowrap;
+}
+
+.site-footer-sponsor {
+    margin-right: 14px;
 }
 
 /* Post cards from legacy routes */
@@ -7251,7 +7286,7 @@ a {
         justify-content: center;
         width: 32px;
         height: 32px;
-        margin-right: -4px;
+        margin-right: 0;
         background: transparent;
     }
 
@@ -7352,6 +7387,10 @@ a {
         max-width: 100%;
         font-size: clamp(4.4rem, 17vw, 8.2rem);
         line-height: 0.86;
+    }
+
+    .home-template .brand-hero-name {
+        font-size: clamp(3.6rem, 12.5vw, 7rem);
     }
 
     .brand-hero-avatar {
