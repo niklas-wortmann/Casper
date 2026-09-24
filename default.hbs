@@ -33,6 +33,7 @@
     it should always be the last tag before the closing head tag --}}
     {{ghost_head}}
     <link rel="icon" href="{{asset "images/wordman-avatar.svg"}}" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="The Weekly Dev's Brew podcast feed" href="https://podcast6ff8fc.podigee.io/feed/mp3" />
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -47,7 +48,11 @@
                 "sameAs": [
                     "https://github.com/niklas-wortmann",
                     "https://www.linkedin.com/in/jan-niklas-wortmann/",
-                    "https://bsky.app/profile/wordman.dev"
+                    "https://x.com/wordmandotdev",
+                    "https://www.youtube.com/@wordmandotdev",
+                    "https://bsky.app/profile/wordman.dev",
+                    "https://www.instagram.com/wordman.dev/",
+                    "https://www.tiktok.com/@wordman.dev"
                 ]
             },
             {
@@ -56,6 +61,7 @@
                 "name": "The Weekly Dev's Brew",
                 "url": "{{@site.url}}/podcast/",
                 "author": { "@id": "{{@site.url}}/#jan" },
+                "webFeed": "https://podcast6ff8fc.podigee.io/feed/mp3",
                 "sameAs": [
                     "https://podcasts.apple.com/us/podcast/the-weekly-devs-brew/id1818009834",
                     "https://open.spotify.com/show/6uG7XUDtY6QqkjG5RmgvPZ"
@@ -132,7 +138,7 @@
         <div class="inner site-footer-inner">
             <div class="site-footer-social" aria-label="Social links">
                 <a class="gh-social-link" href="https://bsky.app/profile/wordman.dev" target="_blank" rel="noopener" aria-label="Bluesky">{{> "icons/bluesky"}}</a>
-                <a class="gh-social-link" href="https://twitter.com/wordmandotdev" target="_blank" rel="noopener" aria-label="X (Twitter)">{{> "icons/twitter"}}</a>
+                <a class="gh-social-link" href="https://x.com/wordmandotdev" target="_blank" rel="noopener" aria-label="X (Twitter)">{{> "icons/twitter"}}</a>
                 <a class="gh-social-link" href="https://github.com/niklas-wortmann" target="_blank" rel="noopener" aria-label="GitHub">{{> "icons/github"}}</a>
                 <a class="gh-social-link" href="https://www.linkedin.com/in/jan-niklas-wortmann/" target="_blank" rel="noopener" aria-label="LinkedIn">{{> "icons/linkedin"}}</a>
                 <a class="gh-social-link" href="https://www.youtube.com/@wordmandotdev" target="_blank" rel="noopener" aria-label="YouTube">{{> "icons/youtube"}}</a>
