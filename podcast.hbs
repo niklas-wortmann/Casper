@@ -2,7 +2,7 @@
 
 <main id="site-main" class="site-main outer page-collection page-collection--podcast">
 <div class="inner posts">
-    {{#post}}
+    {{#page}}
         <section class="collection-hero podcast-hero">
             <h1 class="collection-title">{{title}}</h1>
             {{#if custom_excerpt}}
@@ -14,7 +14,7 @@
                 <a class="hero-button podcast-platform-button" href="https://www.youtube.com/@wordmandotdev" target="_blank" rel="noopener">Watch on YouTube</a>
             </div>
         </section>
-    {{/post}}
+    {{/page}}
 
     <section class="podcast-listing" id="podcast-episodes">
         <div class="podcast-listing-header">
@@ -49,5 +49,15 @@
             <p>No podcast episodes published yet.</p>
         {{/if}}
     </section>
+
+    {{#page}}
+        {{#if html}}
+            <section class="podcast-about gh-content">
+                {{content}}
+            </section>
+        {{/if}}
+    {{/page}}
+
+    <p class="podcast-sponsor-note">Building something developers use with AI? <a href="{{@site.url}}/sponsor/">Sponsor an episode</a>.</p>
 </div>
 </main>
