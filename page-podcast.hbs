@@ -53,6 +53,14 @@
         {{/get}}
     </section>
 
+    {{#post}}
+        {{#if html}}
+            <section class="podcast-about gh-content">
+                {{content}}
+            </section>
+        {{/if}}
+    {{/post}}
+
     <p class="podcast-sponsor-note">Building something developers use with AI? <a href="{{@site.url}}/sponsor/">Sponsor an episode</a>.</p>
 </div>
 </main>

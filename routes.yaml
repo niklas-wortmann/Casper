@@ -10,6 +10,7 @@ collections:
     permalink: /podcast/{slug}/
     template: podcast
     filter: primary_tag:podcast
+    data: page.podcast
   /:
     permalink: /{slug}/
     template: paged
