@@ -23,26 +23,9 @@
             width: auto;
         }
 
-        .weekly-brew-logo--dark {
+        /* Every template sits on the dark brew background, whatever Ghost's color scheme setting is. */
+        .weekly-brew-logo--light {
             display: inline-block;
-        }
-
-        html.dark-mode .weekly-brew-logo--dark {
-            display: none;
-        }
-
-        html.dark-mode .weekly-brew-logo--light {
-            display: inline-block;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            html.auto-color .weekly-brew-logo--dark {
-                display: none;
-            }
-
-            html.auto-color .weekly-brew-logo--light {
-                display: inline-block;
-            }
         }
     </style>
 
@@ -54,19 +37,37 @@
     {{/is}}
     <link rel="icon" href="{{asset "images/wordman-avatar.svg"}}" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="{{asset "images/apple-touch-icon.png"}}" />
-    {{#is "post"}}
-        {{#post}}
-            {{#has tag="podcast"}}
-                {{!-- Ghost defaults posts to og:type=article; show notes are better treated as website pages --}}
-                <meta property="og:type" content="website" />
-                {{#if canonical_url}}
-                <meta property="og:url" content="{{canonical_url}}" />
-                {{else}}
-                <meta property="og:url" content="{{url absolute="true"}}" />
-                {{/if}}
-            {{/has}}
-        {{/post}}
-    {{/is}}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "{{@site.url}}/#jan",
+                "name": "Jan-Niklas Wortmann",
+                "url": "{{@site.url}}/about/",
+                "jobTitle": "Solution Architect",
+                "worksFor": { "@type": "Organization", "name": "Cursor" },
+                "sameAs": [
+                    "https://github.com/niklas-wortmann",
+                    "https://www.linkedin.com/in/jan-niklas-wortmann/",
+                    "https://bsky.app/profile/wordman.dev"
+                ]
+            },
+            {
+                "@type": "PodcastSeries",
+                "@id": "{{@site.url}}/podcast/#series",
+                "name": "The Weekly Dev's Brew",
+                "url": "{{@site.url}}/podcast/",
+                "author": { "@id": "{{@site.url}}/#jan" },
+                "sameAs": [
+                    "https://podcasts.apple.com/us/podcast/the-weekly-devs-brew/id1818009834",
+                    "https://open.spotify.com/show/6uG7XUDtY6QqkjG5RmgvPZ"
+                ]
+            }
+        ]
+    }
+    </script>
     <script>
         function loadScript(callback) {
             var head = document.getElementsByTagName("head")[0];
@@ -161,6 +162,7 @@
                 {{/if}}
             </div>
             <div class="site-footer-meta">
+                <a class="site-footer-sponsor" href="{{@site.url}}/sponsor/">Sponsor</a>
                 <a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}
             </div>
         </div>
